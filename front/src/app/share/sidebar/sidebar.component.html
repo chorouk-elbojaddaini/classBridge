@@ -1,0 +1,46 @@
+<div class="sidebar" [class.open]="menuOpened">
+    <i class="fa-solid fa-arrow-left" (click)="Close()" *ngIf="!sidebar_close"></i>
+    <i class="fa-solid fa-bars" (click)="Close()" *ngIf="sidebar_close"></i>
+    <img src="assets/logo-name.png" alt="logoImg" class="logoImg" [class.resize]="sidebar_close">
+    <div class="sidebar-header" [class.only-icons]="sidebar_close">
+        <ul>
+            <li class="active">
+                <i class="fa-solid fa-house"></i>
+                <a href="#" [class.remove-text]="sidebar_close">
+                    Tableaude bord
+                </a>
+            </li>
+            <li>
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <a href="#" [class.remove-text]="sidebar_close">
+                    Classes
+                </a>
+            </li>
+            <li>
+                <i class="fa-solid fa-calendar-days"></i>
+                <a href="#" [class.remove-text]="sidebar_close">
+                    Programme
+                </a>
+            </li>
+            <li>
+                <i class="fa-solid fa-message"></i>
+                <a href="#" [class.remove-text]="sidebar_close">
+                    Messages</a>
+            </li>
+            <li>
+                <i class="fa-solid fa-user"></i>
+                <a href="#" [class.remove-text]="sidebar_close">
+                    Profil
+                </a>
+            </li>
+            <li class="log-out">
+                <i class="fa-solid fa-right-from-bracket "></i>
+                <a href="#" [class.remove-text]="sidebar_close">
+                    Déconnexion</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<i class="fa-solid fa-bars menu-icon" (click)="openMenu()" *ngIf="!menuOpened"></i>
+<i class="fa-solid fa-xmark close-icon" (click)="openMenu()" *ngIf="menuOpened"></i>

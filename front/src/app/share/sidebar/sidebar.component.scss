@@ -1,0 +1,155 @@
+.sidebar {
+    position: relative;
+    width: fit-content;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 35px;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    .fa-arrow-left,
+    .fa-bars {
+        position: absolute;
+        top: 17px;
+        right: 17px;
+        font-size: 18px;
+        color: var(--blue);
+        cursor: pointer;
+    }
+
+    .logoImg {
+        width: 98px;
+        height: 98px;
+    }
+
+    .resize {
+        width: 60px;
+        height: 60px;
+        position: relative;
+        top: 25px;
+    }
+
+    .sidebar-header {
+        margin-top: 65px;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 45px;
+
+            li {
+                font-size: 18px;
+                cursor: pointer;
+
+                .fa-solid {
+                    margin-right: 15px;
+                    font-size: 19px;
+                    color: #CACACA;
+                }
+
+                a {
+                    color: #CACACA;
+                }
+
+                .remove-text {
+                    display: none;
+                }
+            }
+
+            .log-out {
+                position: absolute;
+                bottom: 15px;
+            }
+
+            .active {
+
+                .fa-solid,
+                a {
+                    color: var(--blue);
+                }
+
+            }
+
+            li:hover {
+
+                .fa-solid,
+                a {
+                    color: var(--blue);
+                }
+            }
+
+        }
+
+
+    }
+
+    .only-icons {
+        margin-top: calc(65px + 38px);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        ul {
+
+            color: aqua;
+        }
+    }
+
+}
+
+.menu-icon,.close-icon{
+    display: none;
+}
+
+
+@media (max-width:600px){
+    .sidebar {
+        display: none;
+      .sidebar-header{
+        ul{
+            li{
+          .remove-text {
+            display: block;
+        }  
+            }
+        }
+        
+      }
+        .fa-arrow-left,
+        .fa-bars {
+           display: none;
+        }
+    
+        .logoImg {
+            width: 98px;
+            height: 98px;
+        }
+
+    }
+    .open{
+        display: flex;
+    }
+    .menu-icon{
+        display: flex;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        color: white;
+        background-color: rgba(96,204,236, 0.4);
+        padding: 10px;
+        border-radius: 5px;
+
+    }
+    .close-icon{
+        display: flex;
+        position: absolute;
+        left: 220px;
+        top: 15px;
+        font-size: 20px;
+        color: var(--blue);
+    }
+}

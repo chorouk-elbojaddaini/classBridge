@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Dancing+Script:wght@500&family=Inter:wght@700&family=Lexend:wght@100;200;300;400;500;600&display=swap');
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+:root{
+    --blue:#60CCEC;
+    --pink :#F2889B;
+    --dark-pink:#C55A6D;
+    --background-color:#e7e7e7;
+    --grey-main:#e8e8e8;
+    --grey:#AAA8A8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Lexend', sans-serif;
+  }
+  
+  html,
+  body {
+    height: 100%;
+  }
+  
+  button {
+    font-family: 'Lexend', sans-serif;;
+  
+  }
