@@ -5,12 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './share/sidebar/sidebar.component';
 import { ProfileDashboardComponent } from './profile-dashboard/profile-dashboard.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { TeacherLayoutComponent } from './teacher-layout/teacher-layout.component';
+import { BodyTeacherComponent } from './body-teacher/body-teacher.component';
+import { MessagesComponent } from './messages/messages.component';
+import { ClassesComponent } from './classes/classes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    ProfileDashboardComponent
+    ProfileDashboardComponent,
+    DashboardComponent,
+    TeacherLayoutComponent,
+    BodyTeacherComponent,
+    MessagesComponent,
+    ClassesComponent
   ],
   imports: [
     BrowserModule,

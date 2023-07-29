@@ -1,46 +1,25 @@
-<div class="sidebar" [class.open]="menuOpened">
-    <i class="fa-solid fa-arrow-left" (click)="Close()" *ngIf="!sidebar_close"></i>
-    <i class="fa-solid fa-bars" (click)="Close()" *ngIf="sidebar_close"></i>
-    <img src="assets/logo-name.png" alt="logoImg" class="logoImg" [class.resize]="sidebar_close">
-    <div class="sidebar-header" [class.only-icons]="sidebar_close">
-        <ul>
-            <li class="active">
-                <i class="fa-solid fa-house"></i>
-                <a href="#" [class.remove-text]="sidebar_close">
-                    Tableaude bord
-                </a>
-            </li>
-            <li>
-                <i class="fa-solid fa-chalkboard-user"></i>
-                <a href="#" [class.remove-text]="sidebar_close">
-                    Classes
-                </a>
-            </li>
-            <li>
-                <i class="fa-solid fa-calendar-days"></i>
-                <a href="#" [class.remove-text]="sidebar_close">
-                    Programme
-                </a>
-            </li>
-            <li>
-                <i class="fa-solid fa-message"></i>
-                <a href="#" [class.remove-text]="sidebar_close">
-                    Messages</a>
-            </li>
-            <li>
-                <i class="fa-solid fa-user"></i>
-                <a href="#" [class.remove-text]="sidebar_close">
-                    Profil
-                </a>
-            </li>
-            <li class="log-out">
-                <i class="fa-solid fa-right-from-bracket "></i>
-                <a href="#" [class.remove-text]="sidebar_close">
-                    Déconnexion</a>
-            </li>
-        </ul>
+<div class="sidenav" [ngClass]="!collapsed ? 'sidenav-collapsed':''">
+    <div class="logo-container">
+        <button class="logo" [class.resize-img]="!collapsed" (click)="toggleCollapse()"><img src="assets/logo.png" class="logoImg"></button>
+        <div class="logo-text" *ngIf="collapsed">ClassBridge</div>
     </div>
-
+    <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    <ul class="sidenav-nav" [class.sidenav-space]="!collapsed">
+        <li class="sidenav-nav-item" *ngFor="let data of navData">
+            <a class="sidenav-nav-link" [routerLink]="[data.routerLink]"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}">
+            <i class="sidenav-link-icon" [class]="data.icon"></i>
+            <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+        </a>  
+        </li>
+        <li class="log-out">
+            <a class="sidenav-nav-link">
+                <i class="fa-solid fa-right-from-bracket sidenav-link-icon"></i>
+               <span class="sidenav-link-text" *ngIf="collapsed">Déconnexion</span>
+        </a>
+        </li>
+    </ul>
 </div>
-<i class="fa-solid fa-bars menu-icon" (click)="openMenu()" *ngIf="!menuOpened"></i>
-<i class="fa-solid fa-xmark close-icon" (click)="openMenu()" *ngIf="menuOpened"></i>

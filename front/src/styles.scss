@@ -6,14 +6,16 @@
     --blue:#60CCEC;
     --pink :#F2889B;
     --dark-pink:#C55A6D;
-    --background-color:#e7e7e7;
+    --background-color:#f8f4f4;
     --grey-main:#e8e8e8;
+    --grey2:#cdcdcd;
     --grey:#AAA8A8;
 }
 
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     outline: none;
     list-style: none;
     text-decoration: none;
