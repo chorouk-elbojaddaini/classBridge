@@ -1,6 +1,7 @@
 <div class="sidenav" [ngClass]="!collapsed ? 'sidenav-collapsed':''">
     <div class="logo-container">
-        <button class="logo" [class.resize-img]="!collapsed" (click)="toggleCollapse()"><img src="assets/logo.png" class="logoImg"></button>
+        <button class="logo" [class.resize-img]="!collapsed" (click)="toggleCollapse()"><img src="assets/logo.png"
+                class="logoImg"></button>
         <div class="logo-text" *ngIf="collapsed">ClassBridge</div>
     </div>
     <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()">
@@ -8,18 +9,17 @@
     </button>
     <ul class="sidenav-nav" [class.sidenav-space]="!collapsed">
         <li class="sidenav-nav-item" *ngFor="let data of navData">
-            <a class="sidenav-nav-link" [routerLink]="[data.routerLink]"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact:true}">
-            <i class="sidenav-link-icon" [class]="data.icon"></i>
-            <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
-        </a>  
+            <a class="sidenav-nav-link" [routerLink]="[data.routerLink]" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact:true}">
+                <i class="sidenav-link-icon" [class]="data.icon"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+            </a>
         </li>
         <li class="log-out">
             <a class="sidenav-nav-link">
                 <i class="fa-solid fa-right-from-bracket sidenav-link-icon"></i>
-               <span class="sidenav-link-text" *ngIf="collapsed">Déconnexion</span>
-        </a>
+                <span class="sidenav-link-text" *ngIf="collapsed">Déconnexion</span>
+            </a>
         </li>
     </ul>
 </div>

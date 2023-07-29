@@ -1,17 +1,17 @@
 .container {
-    display: flex;
-  }
-  
-  .sidebar {
-    flex: 0 0 auto;
-  }
-  
-  .dashboard-container {
-    flex: 1;
-    background-color: aquamarine;
-  }
-  
-  
-  .dashboard-container app-dashboard {
-    width: 100%;
-  }
+  display: flex;
+}
+
+.sidebar {
+  flex: 0 0 auto;
+}
+
+.dashboard-container {
+  flex: 1;
+  background-color: aquamarine;
+}
+
+
+.dashboard-container app-dashboard {
+  width: 100%;
+}
