@@ -1,1 +1,40 @@
-<p>profile-dashboard works!</p>
+<button class="notifications">
+    <i class="fa-solid fa-bell"></i>
+</button>
+<div class="infos-user">
+    <img [src]="user.img" *ngIf="user.img != ''" alt="User Image" class="userImg">
+    <img src="assets/dashboard-imgs/no-img.png" *ngIf="user.img == null || user.img == '' " alt="User Image" class="userImg">
+    <h3>{{ user.firstName }} {{ user.lastName }}</h3>
+    <span>Teacher</span>
+  </div>
+<div class="courses">
+    <div class="title">
+        <h4>Last Courses</h4>
+        <span (click)="viewAll()" class="view-all-btn" *ngIf="!clicked">View all</span>
+        <span (click)="viewLess()" class="view-less-btn" *ngIf="clicked"><i class="fa-solid fa-angle-up"></i></span>
+    </div>
+    <div class="course-item" *ngFor="let course of displayedCourses">
+        <span>{{course}}</span>
+    </div>
+</div>
+<div class="Tasks">
+    <div class="title">
+        <h4>Tasks</h4>
+        <div class="view-plus-section">
+        <button class="plus-icon"><i class="fa-solid fa-plus"></i></button>
+        <span (click)="viewAllTasks()" class="view-btn" *ngIf="!clickedTask">View all</span>
+        <span (click)="viewLessTasks()" class="less-btn" *ngIf="clickedTask"><i class="fa-solid fa-angle-up"></i></span>
+        </div>
+    </div>
+    <div class="task-item" *ngFor="let task of displayedTasks">
+        <span>{{task}}</span>
+    </div>
+</div>
+<div class="quiz-section">
+    <h4>Add Quiz</h4>
+    <div class="quiz-imgs-section">
+        <img src="assets/dashboard-imgs/question.png" alt="question-mark" class="imgQuiz">
+        <img src="assets/dashboard-imgs/quiz-img.png" alt="quiz-img" class="imgQuiz">
+        <img src="assets/dashboard-imgs/question.png" alt="question-mark" class="imgQuiz">
+    </div>
+</div>
