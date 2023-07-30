@@ -10,6 +10,7 @@ import { TeacherLayoutComponent } from './teacher-layout/teacher-layout.componen
 import { BodyTeacherComponent } from './body-teacher/body-teacher.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ClassesComponent } from './classes/classes.component';
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ClassesComponent } from './classes/classes.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CanvasJSAngularChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
