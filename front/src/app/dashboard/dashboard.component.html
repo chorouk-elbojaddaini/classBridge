@@ -1,16 +1,59 @@
 <div class="container">
-     <div class="middle-content">
-        <!-- <h3 class="section-name">Dashboard</h3>
-        <div class="welcome-carte">
-             <div class="welcome-text">
-                <span>WELCOME <span class="name">Ms. Anna Marita</span></span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                </p>
-                <p>Have a nice day !</p>
-            </div>
+    <div class="middle-content">
+        <div class="middle-content">
+            <h3 class="section-name">Dashboard</h3>
+            <div class="welcome-carte">
+                <div class="welcome-text">
+                    <span>WELCOME <span class="name">Ms. rim hassani idrissi</span></span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
+                    </p>
+                    <p>Have a nice day !</p>
+                </div>
                 <img src="assets/dashboard-imgs/Education.png" alt="education" class="imgCard">
-        </div>  -->
-    </div>
-     <app-profile-dashboard class="profile"></app-profile-dashboard>
-</div> 
+            </div>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>Total Students 100</span>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-file-lines"></i>
+                <span>Total Courses 100</span>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-file-pen"></i>
+                <span>Total projects 100</span>
+            </div>
+        </div>
+        <div class="chart-container">
+            <canvas id="MyChart">{{ chart }}</canvas>
+        </div>
+        <div class="classes-list">
+            <h4>Classes</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Filière</th>
+                        <th>Module</th>
+                        <th>Niveau</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GI</td>
+                        <td>Réseau</td>
+                        <td>4ème année</td>
+                    </tr>
+                    <tr>
+                        <td>GSEIR</td>
+                        <td>Réseau</td>
+                        <td>3ème année</td>
+                    </tr>
 
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <app-profile-dashboard class="profile"></app-profile-dashboard>
+</div>
