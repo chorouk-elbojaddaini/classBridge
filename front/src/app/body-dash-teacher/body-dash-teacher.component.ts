@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-body-teacher',
-  templateUrl: './body-teacher.component.html',
-  styleUrls: ['./body-teacher.component.scss']
+  selector: 'app-body-dash-teacher',
+  templateUrl: './body-dash-teacher.component.html',
+  styleUrls: ['./body-dash-teacher.component.scss']
 })
 export class BodyTeacherComponent {
   @Input() collapsed: boolean | undefined;
