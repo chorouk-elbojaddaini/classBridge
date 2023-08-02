@@ -8,6 +8,7 @@ import { from } from 'rxjs';
 })
 export class MessagesComponent {
   public clicked: boolean = false;
+  public one_message:boolean = false;
   students: studentInfo[] = [
     {
       firstName: "Chorouk",
@@ -29,6 +30,16 @@ export class MessagesComponent {
   ];
   selectedStudent: studentInfo | null = null;
 
+
+
+  ngDoCheck(){
+    console.log(this.one_message)
+    if(this.students.length == 1){
+      this.one_message = true;
+    }else{
+      this.one_message = false;
+    }
+  }
 
   displayDetails(student:studentInfo): void {
     this.clicked = true;
