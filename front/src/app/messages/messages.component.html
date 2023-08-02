@@ -6,9 +6,9 @@
       <i class="fa-solid fa-magnifying-glass"></i>
     </div>
   </div>
-  <div [ngClass]="clicked ? 'messages-details' : 'messages-section'">
-    <div [ngClass]="clicked ? 'details' : 'cards'">
-      <div class="card" *ngFor="let student of students" (click)="displayDetails(student)"
+  <div [ngClass]="clicked ? 'messages-details' : 'messages-section'" >
+    <div [ngClass]="clicked ? 'details' : 'cards'" >
+      <div class="card" *ngFor="let student of students" [class.one-message]="one_message" (click)="displayDetails(student)"
         [class.clicked]="student == selectedStudent">
         <img src="assets/messages-imgs/no-img.png" alt="userImg" class="userImg">
         <div class="text">
