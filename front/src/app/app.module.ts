@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './share/sidebar/sidebar.component';
@@ -11,6 +10,14 @@ import { BodyTeacherComponent } from './body-dash-teacher/body-dash-teacher.comp
 import { MessagesComponent } from './messages/messages.component';
 import { ClassesComponent } from './classes/classes.component';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogComponent } from './dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ChoixDialogComponent } from './choix-dialog/choix-dialog.component';
+import { StudentsComponent } from './classes/students/students.component';
+import { CoursesComponent } from './classes/courses/courses.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -21,12 +28,20 @@ import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
     TeacherLayoutComponent,
     BodyTeacherComponent,
     MessagesComponent,
-    ClassesComponent
+    ClassesComponent,
+    DialogComponent,
+    ChoixDialogComponent,
+    StudentsComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CanvasJSAngularChartsModule
+    CanvasJSAngularChartsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatIconModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

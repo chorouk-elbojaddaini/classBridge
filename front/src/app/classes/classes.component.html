@@ -1,1 +1,32 @@
-<p>classes works!</p>
+<div class="container">
+    <h3 class="title">Classes</h3>
+    <div class="content" *ngIf="!variable1Recue">
+        <div class="top-section">
+            <img src="assets/classes-imgs/education.png" class="education-img">
+            <span>Choisissez votre classe pour accéder à vos cours et à vos étudiants</span>
+        </div>
+        <div class="btns">
+            <button (click)="addClass()"><i class="fa-solid fa-plus"></i> Ajouter une classe</button>
+            <button (click)="viewClasses()"><i class="fa-solid fa-eye"></i> Voir toutes les classes</button>
+        </div>
+        <div *ngIf="!choose" class="no-class-info">
+            <h4>Aucune classe pour le moment</h4>
+            <p>Vous n'avez aucune classe ou vous n'avez pas fait un choix</p>
+        </div>
+        <div class="classes" *ngIf="choose">
+            <div class="class-item" (click)="openDialog()">
+                <span>Génie informatique</span>
+            </div>
+            <div class="class-item">
+                <span>Génie informatique</span>
+            </div>
+            <div class="class-item">
+                <span>Génie informatique</span>
+            </div>
+            <div class="class-item">
+                <span>Génie informatique</span>
+            </div>
+        </div>
+    </div>
+    <app-students *ngIf="variable1Recue"></app-students>
+</div>
