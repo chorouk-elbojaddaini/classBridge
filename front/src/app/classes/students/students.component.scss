@@ -1,0 +1,43 @@
+.container{
+.content{
+    display: flex;
+    gap: 15px;
+    // background-color: white;
+    .student-info{
+        padding: 15px;
+        width: 15rem;
+        background-color: rgb(255, 255, 255);
+        position: relative;
+        .name-img{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            .studentImg{
+                border-radius: 50%;
+                box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1); 
+                width: 70px;
+                height: 70px;
+            }
+            .fullName{
+                display: flex;
+                flex-direction: column;
+                // text-align: center;
+                h4{
+                    font-weight: 500;
+
+                }
+            }
+        }
+        .delete-btn{
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: none;
+            cursor: pointer;
+            background-color: transparent;
+            color: var(--grey2);
+        }
+    }
+}
+}

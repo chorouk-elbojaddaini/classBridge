@@ -10,7 +10,7 @@ import { ChoixDialogComponent } from '../choix-dialog/choix-dialog.component';
 })
 export class ClassesComponent {
    public choose:boolean = true;
-   variable1Recue: boolean = false;
+   variable1Recue: boolean = true;
    variable2Recue: boolean = false;
  
    recevoirVariable1(variable: boolean) {
@@ -45,7 +45,7 @@ export class ClassesComponent {
       this.variable2Recue = variable2;
     });
    }
-   ngDoCheck(){
-    console.log("la valeur de la var",this.variable1Recue)
-   }
+  //  ngDoCheck(){
+  //   console.log("la valeur de la var",this.variable1Recue)
+  //  }
 }
