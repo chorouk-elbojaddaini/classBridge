@@ -1,43 +1,219 @@
-.container{
-.content{
-    display: flex;
-    gap: 15px;
-    // background-color: white;
-    .student-info{
-        padding: 15px;
-        width: 15rem;
-        background-color: rgb(255, 255, 255);
-        position: relative;
-        .name-img{
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            align-items: center;
-            .studentImg{
-                border-radius: 50%;
-                box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1); 
-                width: 70px;
-                height: 70px;
-            }
-            .fullName{
-                display: flex;
-                flex-direction: column;
-                // text-align: center;
-                h4{
-                    font-weight: 500;
+.container {
+    .principle-title{
+        background-color: var(--blue);
+        padding: 30px;
+        color: white;
+        border-radius: 10px 10px 0 0;
+         h3{
+        border: 1px solid white ;
+        width: fit-content;
+        padding: 6px;
+        border-radius: 10px;
+    }
+    }
+   
+    .students-list {
+        width: 100%;
+        .number-students {
+            background-color: var(--blue);
+            color: var(--blue);
+            padding: 30px;
+            width: fit-content;
+            font-weight: 500;
+            width: 100%;
+background: rgba(255, 255, 255, 0.2);
+// box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+            // box-shadow: 0 0 8px rgba(180, 180, 180, 0.2), 0 2px 4px rgba(180, 180, 180, 0.1);
 
+        }
+
+        .content {
+            // margin-top: 30px;
+            display: flex;
+            gap: 15px;
+
+            // background-color: white;
+            .student-info {
+                padding: 20px;
+                width: 17rem;
+                background-color: rgb(255, 255, 255);
+                // background-color: var(--blue);
+                // color: var(--background-color);
+                box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+                position: relative;
+                border-radius: 10px;
+
+                .name-img {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    align-items: center;
+
+                    .studentImg {
+                        border-radius: 50%;
+                        box-shadow: -2px 0 4px rgba(150, 150, 150, 0.1), 2px 0 4px rgba(150, 150, 150, 0.1);
+                        box-shadow: 0 0 8px rgba(180, 180, 180, 0.2), 0 2px 4px rgba(180, 180, 180, 0.1);
+                        width: 70px;
+                        height: 70px;
+                    }
+
+                    .fullName {
+                        display: flex;
+                        flex-direction: column;
+                        h4 {
+                            font-weight: 500;
+
+                        }
+                    }
+                }
+
+                .delete-btn {
+                    position: absolute;
+                    top: 5px;
+                    right: 8px;
+                    border: none;
+                    cursor: pointer;
+                    background-color: transparent;
+                    color: var(--blue);
+                    font-size: .95rem;
+                    background-color: var(--pink);
+                            border: none;
+                            color: white;
+                            padding: 5px;
+                            border-radius: 5px;
+                            cursor: pointer;
+                }
+
+                .delete-btn:hover {
+                    background-color: var(--dark-pink);
+                }
+
+                .infos-section {
+                    margin-top: 25px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+
+                    .note {
+                        display: flex;
+                        align-items: center;
+
+                        .edit-btn {
+                            background-color: var(--pink);
+                            border: none;
+                            color: white;
+                            padding: 8px;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            margin-left: 15px;
+                            text-align: center;
+                        }
+
+                        .edit-btn:hover {
+                            background-color: var(--dark-pink);
+                          }
+                    }
+
+                    .email {
+                        font-weight: 600;
+                        color: var(--blue);
+                    }
+
+                    .info {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 10px;
+                    }
+
+                    .info>label {
+                        font-weight: bold;
+                        color: var(--blue);
+                    }
+
+                    .info span {
+                        margin-left: 6px;
+                    }
                 }
             }
         }
-        .delete-btn{
-            position: absolute;
-            top: 0;
-            right: 0;
-            border: none;
-            cursor: pointer;
-            background-color: transparent;
+    }
+
+}
+
+
+table{
+    border-collapse: collapse;
+    border: 1px solid var(--grey-main);
+    width: 100%;
+    thead{
+        .head{
+            background-color: var(--grey-main);
             color: var(--grey2);
+            font-family: 'Lexend', sans-serif;
+           td{
+             padding: 12px 0;
+             text-align: center;
+           }
         }
     }
-}
+    tbody{
+        tr{
+                border-bottom: 1px solid var(--grey-main);
+                font-family: 'Lexend', sans-serif;
+                td{
+             text-align: center;
+
+                }
+            .imgStudent{
+                clip-path: circle(50%);
+                margin-left: 10px;
+                margin: 10px;
+
+            }
+            .view{
+                .view-btn{
+                    border: none;
+                    cursor: pointer;
+                    background-color: transparent;
+                    color: var(--blue);
+                    font-size: .95rem;
+                    background-color: var(--blue);
+                            border: none;
+                            color: white;
+                            padding: 5px;
+                            border-radius: 5px;
+                            cursor: pointer;
+                }
+                .view-btn:hover{
+                    background-color: #56c0e0;
+                }
+            }
+            .delete{
+                .delete-btn{
+                    border: none;
+                    cursor: pointer;
+                    background-color: transparent;
+                    color: var(--blue);
+                    font-size: .95rem;
+                    background-color: var(--pink);
+                            border: none;
+                            color: white;
+                            padding: 5px;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            margin-right: 7px;
+                }
+                .delete-btn:hover{
+                    background-color: var(--dark-pink);
+                }
+            }
+        }
+        tr:nth-child(even){
+            background-color: #9edef3;
+            color: white;
+        }
+    }
 }

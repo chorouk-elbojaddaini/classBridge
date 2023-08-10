@@ -1,26 +1,60 @@
 <div class="container">
+  <div class="principle-title">
   <h3>Les étudiants ont déjà accédé à votre classe</h3>
+  </div>
   <div class="students-list">
-    <span>Nombre des étudiants : 45</span>
-    <!-- <mat-form-field class="custom-mat-form-field">
-            <mat-label>Trié par</mat-label>
-            <mat-select class="custom-mat-select">
-              <mat-option value="option1">Option 1</mat-option>
-              <mat-option value="option2">Option 2</mat-option>
-              <mat-option value="option3">Option 3</mat-option>
-            </mat-select>
-          </mat-form-field> -->
+    <div class="number-students">Nombre des étudiants :  4</div>
     <div class="content">
-      <div class="student-info" *ngFor="let student of students">
+      <!-- <div class="student-info" *ngFor="let student of students">
         <div class="name-img">
           <img src="assets/classes-imgs/imgStudent.jpg" alt="studentImg" class="studentImg">
           <div class="fullName">
-                        <h4>{{student.lastName}}</h4>
+            <h4>{{student.lastName}}</h4>
             <h4>{{student.firstName}}</h4>
           </div>
           <button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
         </div>
-      </div>
+        <div class="infos-section">
+          <div class="info email">
+            <span>{{student.email}}</span>
+          </div>
+          <div class="info">
+            <label>Filière : </label>
+            <span>{{student.field}}</span>
+          </div>
+          <div class="info">
+            <label>Niveau : </label>
+            <span>{{student.level}}</span>
+          </div>
+          <div class="info note">
+            <label>Note : </label>
+            <span>{{student.note}}</span>
+            <button class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></button>
+          </div>
+        </div>
+      </div> -->
+      <table>
+        <thead>
+          <tr class="head">
+            <td></td>
+            <td>Nom</td>
+            <td>Email</td>
+            <td>Note</td>
+            <td>Autre</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of students">
+            <td><img src="assets/classes-imgs/boyImg.png" width="40" height="40" class="imgStudent"></td>
+            <td class="name-student">{{student.firstName}} {{student.lastName}}</td>
+            <td class="email">{{student.email}}</td>
+            <td class="note">{{student.note}}</td>
+            <td class="view"><button class="view-btn" (click)="openDialog()"><i class="fa-solid fa-eye"></i> Voir plus d'infos</button></td>
+            <td class="delete"><button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </div>
+</div>
 </div>

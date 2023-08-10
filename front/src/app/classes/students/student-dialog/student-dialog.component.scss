@@ -1,0 +1,75 @@
+.student-container {
+    padding: 10px;
+    // width: 40vw;
+    width: fit-content;
+
+    .img-name {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        gap: 15px;
+
+        .imgStudent {
+            width: 120px;
+            height: 120px;
+        }
+
+        .name {
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+    }
+
+    .infos {
+        margin-top: 25px;
+        display: flex;
+        gap: 15px;
+
+        .personal-details,
+        .class-details {
+            border: 1px solid var(--grey-main);
+            border-radius: 10px;
+            padding: 15px;
+            width: 400px !important;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            h4{
+                margin-bottom: 15px;
+                color: var(--grey);
+                font-weight: 500;
+                font-size: 1.08rem;
+            }
+            .detail {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+            .detail > label{
+                color: black;
+                font-weight: 500;
+            }
+            .detail > span{
+            color: var(--grey);
+            font-weight: 500;
+            }
+        }
+    }
+
+    .close-btn {
+        margin-top: 15px ;
+        width: fit-content;
+        padding: 7px 25px;
+        margin-left: 22rem;
+        border: none;
+        border-radius: 10px;
+        background-color: var(--blue);
+        color: white;
+        cursor: pointer;
+    }
+
+    .close-btn:hover {
+        background-color: #5cbad6;
+    }
+}

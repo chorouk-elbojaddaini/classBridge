@@ -18,6 +18,7 @@ import { StudentsComponent } from './classes/students/students.component';
 import { CoursesComponent } from './classes/courses/courses.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
+import { StudentDialogComponent } from './classes/students/student-dialog/student-dialog.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MatSelectModule } from '@angular/material/select';
     DialogComponent,
     ChoixDialogComponent,
     StudentsComponent,
-    CoursesComponent
+    CoursesComponent,
+    StudentDialogComponent,
   ],
   imports: [
     BrowserModule,
