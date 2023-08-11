@@ -1,6 +1,10 @@
 <div class="container">
-    <h3 class="title">Classes <span *ngIf="variable1Recue">> Students</span></h3>
-    <div class="content" *ngIf="!variable1Recue">
+    <h3 class="title">
+        Classes 
+        <span *ngIf="variable1Recue">> Students</span>
+        <span *ngIf="variable2Recue">> Courses</span>
+    </h3>
+    <div class="content" *ngIf="!variable1Recue && !variable2Recue">
         <div class="top-section">
             <img src="assets/classes-imgs/education.png" class="education-img">
             <span>Choisissez votre classe pour accéder à vos cours et à vos étudiants</span>
@@ -29,4 +33,5 @@
         </div>
     </div>
     <app-students *ngIf="variable1Recue"></app-students>
+    <app-courses *ngIf="variable2Recue"></app-courses>
 </div>

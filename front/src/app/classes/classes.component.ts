@@ -10,8 +10,8 @@ import { ChoixDialogComponent } from '../choix-dialog/choix-dialog.component';
 })
 export class ClassesComponent {
    public choose:boolean = true;
-   variable1Recue: boolean = true;
-   variable2Recue: boolean = false;
+   variable1Recue: boolean = false;
+   variable2Recue: boolean = true;
  
    recevoirVariable1(variable: boolean) {
      this.variable1Recue = variable;
