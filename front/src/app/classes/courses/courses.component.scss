@@ -11,143 +11,19 @@ margin-bottom: 15px;
         cursor: pointer;
     }
     button:hover{
-        background-color: #68c3df;
+        background-color: var(--pink);
     }
 }
-.courses {
-    margin-top: 35px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 15px;
+
     // .item:nth-child(even){
     //     .top-content{
     //         background-color: var(--dark-pink);
     //     }
     // }
-    .item {
-        width: fit-content;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+   
 
-        .top-content {
-            border-radius: 10px 10px 0 0;
-            padding: 8px;
-            width: 100%;
-            height: fit-content;
-            background-color: var(--blue);
-            color: white;
-            position: relative;
-
-            .course-title {
-                font-size: 1.1rem;
-                font-weight: 600;
-                margin-right: 25px;
-            }
-
-            .more-btn {
-                cursor: pointer;
-                border: none;
-                background-color: transparent;
-                position: absolute;
-                top: 10px;
-                right: 10px;
-
-                .fa-ellipsis-vertical {
-                    color: white;
-                    font-size: 1rem;
-                }
-            }
-
-            .options-list {
-                position: absolute;
-                top: 25px;
-                right: 10px;
-                background-color: white;
-                color: var(--grey-main);
-                padding: 10px;
-                border-radius: 5px;
-                transition: all 0.3s ease;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-                li {
-                    margin-bottom: 10px;
-
-                    a {
-                        cursor: pointer;
-                        padding: 5px;
-
-                        .fa-solid {
-                            margin-right: 5px;
-                        }
-                    }
-
-                    a:hover {
-                        background-color: var(--grey);
-                        border-radius: 5px;
-                    }
-                }
-            }
-        }
-
-        .info {
-            border-bottom: 1px solid var(--grey-main);
-            padding: 12px;
-            padding-bottom: 15px;
-.attached-file{
-    color: var(--grey2);
-    .fa-file{
-        // color: var(--blue);
-        margin:0 4px ;
-    }
-    span{
-        margin-left: 8px;
-    }
-}
-        }
-
-        .info>* {
-            margin-top: 10px;
-        }
-
-        .msgs-date {
-            margin-top: 10px;
-            display: flex;
-            justify-content: space-evenly;
-            padding: 8px;
-
-            .msgs {
-                border: none;
-                background-color: transparent;
-                cursor: pointer;
-                color: var(--blue);
-                font-size: 1.1rem;
-                position: relative;
-
-                .new-msg {
-                    background-color: #4894ac;
-                    width: 6px;
-                    height: 6px;
-                    clip-path: circle(50%);
-                    position: absolute;
-                    top: 1px;
-                    right: -1px;
-                }
-            }
-
-            .date {
-                color: var(--blue);
-                font-size: 1rem;
-
-                .fa-calendar-days {
-                    margin-right: 5px;
-                    font-size: 1.1rem;
-                }
-            }
-        }
-    }
-
-}
-
-.paginator{
-    
+#paginator{
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
 }

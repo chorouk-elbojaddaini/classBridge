@@ -20,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { StudentDialogComponent } from './classes/students/student-dialog/student-dialog.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { ItemListComponent } from './classes/courses/item-list/item-list.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     StudentsComponent,
     CoursesComponent,
     StudentDialogComponent,
+    ItemListComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,29 +1,10 @@
- <div class="btns">
-        <button><i class="fa-solid fa-plus"></i> Ajouter un cours</button>
-        <button><i class="fa-solid fa-plus"></i> Ajouter un devoir</button>
-    </div>
-    <div class="courses">
-    <div class="item" *ngFor="let item of numbers.slice(currentPage * pageSize, (currentPage + 1) * pageSize)">
-        <div class="top-content">
-            <span class="course-title">Chapitre 1 Introduction au réseau</span>
-            <button class="more-btn" (click)="toggleOptions()"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-            <ul class="options-list" *ngIf="showOptions">
-                <li><a> <i class="fa-solid fa-pen-to-square"></i> Modifier</a></li>
-                <li><a> <i class="fa-solid fa-trash"></i> Supprimer</a></li>
-              </ul>
-        </div>
-        <div class="info">
-            <span>Ce cours est le premier chapitre qu'on a vu la dernière fois</span>
-            <div class="attached-file">Fichiers attachés <i class="fa-solid fa-file"></i> : <span> 5</span></div>
-        </div>
-        <div class="msgs-date">
-            <button class="msgs"><i class="fa-regular fa-message"></i>
-            <div class="new-msg"></div></button>
-            <span class="date"><i class="fa-solid fa-calendar-days"></i> 05 juin 2023</span>
-        </div>
-    </div>
+<div class="btns">
+    <button><i class="fa-solid fa-plus"></i> Ajouter un cours</button>
+    <button><i class="fa-solid fa-plus"></i> Ajouter un devoir</button>
 </div>
-<mat-paginator id="paginator" [length]="totalItems"
-[pageSize]="pageSize"
-(page)="handlePageChange($event)">
-</mat-paginator>
+<div class="container">
+    <app-item-list></app-item-list>
+</div>
+<!-- 
+<mat-paginator id="paginator" [length]="totalItems" [pageSize]="pageSize" (page)="handlePageChange($event)">
+</mat-paginator> -->
