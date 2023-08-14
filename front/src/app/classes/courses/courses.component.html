@@ -3,8 +3,7 @@
         <button><i class="fa-solid fa-plus"></i> Ajouter un devoir</button>
     </div>
     <div class="courses">
-   
-    <div class="item" *ngFor="let i of numbers">
+    <div class="item" *ngFor="let item of numbers.slice(currentPage * pageSize, (currentPage + 1) * pageSize)">
         <div class="top-content">
             <span class="course-title">Chapitre 1 Introduction au réseau</span>
             <button class="more-btn" (click)="toggleOptions()"><i class="fa-solid fa-ellipsis-vertical"></i></button>
@@ -24,3 +23,7 @@
         </div>
     </div>
 </div>
+<mat-paginator id="paginator" [length]="totalItems"
+[pageSize]="pageSize"
+(page)="handlePageChange($event)">
+</mat-paginator>
