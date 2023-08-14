@@ -16,8 +16,6 @@ export class CoursesComponent {
 
   ngDoCheck(){
     this.selected = this.selectedItemService.selected;
-    console.log("hadi boolean",this.selected);
-    console.log("hadi d service",this.selectedItemService.selected);
   }
 
 

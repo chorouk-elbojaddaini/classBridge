@@ -1,9 +1,9 @@
 <div class="container">
-    <h3 class="title">
-        Classes 
-        <span *ngIf="variable1Recue">> Students</span>
-        <span *ngIf="variable2Recue">> Courses</span>
+    <h3 class="title" >
+        <span (click)="redirectTo()">Classes </span> <span *ngIf="variable1Recue"> > Students</span>
+        <span *ngIf="variable2Recue"> > Courses</span>
     </h3>
+     
     <div class="content" *ngIf="!variable1Recue && !variable2Recue">
         <div class="top-section">
             <img src="assets/classes-imgs/education.png" class="education-img">

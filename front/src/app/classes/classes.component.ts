@@ -13,6 +13,10 @@ export class ClassesComponent {
    variable1Recue: boolean = false;
    variable2Recue: boolean = true;
  
+   redirectTo(){
+    this.variable2Recue= false;
+    this.variable1Recue = false;
+   }
    recevoirVariable1(variable: boolean) {
      this.variable1Recue = variable;
    }
