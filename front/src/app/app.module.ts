@@ -21,6 +21,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { StudentDialogComponent } from './classes/students/student-dialog/student-dialog.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { ItemListComponent } from './classes/courses/item-list/item-list.component';
+import { SelectedItemDetailsComponent } from './classes/courses/selected-item-details/selected-item-details.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ItemListComponent } from './classes/courses/item-list/item-list.compone
     CoursesComponent,
     StudentDialogComponent,
     ItemListComponent,
+    SelectedItemDetailsComponent
   ],
   imports: [
     BrowserModule,

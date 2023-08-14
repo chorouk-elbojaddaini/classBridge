@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { SelectedItemService } from 'src/app/services/selected-item-service.service';
 
 @Component({
   selector: 'app-courses',
@@ -7,16 +8,16 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent {
-  numbers = [1,2,3,4,5,6,7];
-  totalItems :number|undefined;
-  pageSize = 6; 
-  currentPage = 0; 
-  constructor(){
-    this.totalItems = this.numbers.length;
-  }
-  handlePageChange(event: PageEvent) {
-    this.currentPage = event.pageIndex;
+
+  selected:boolean = false;
+  constructor(private selectedItemService:SelectedItemService){
     
+  }
+
+  ngDoCheck(){
+    this.selected = this.selectedItemService.selected;
+    console.log("hadi boolean",this.selected);
+    console.log("hadi d service",this.selectedItemService.selected);
   }
 
 

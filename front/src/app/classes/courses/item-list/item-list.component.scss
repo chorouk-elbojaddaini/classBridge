@@ -4,6 +4,7 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 15px;
    .item {
+    cursor: pointer;
     width: fit-content;
     background-color: white;
     border-radius: 10px;
@@ -124,4 +125,8 @@ span{
         }
     }
 } 
+.item:hover{
+    transform: scaleX(.9);
+    transition: all ease 0.5s;
+}
 }

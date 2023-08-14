@@ -15,12 +15,10 @@ margin-bottom: 15px;
     }
 }
 
-    // .item:nth-child(even){
-    //     .top-content{
-    //         background-color: var(--dark-pink);
-    //     }
-    // }
-   
+.container{
+    display: flex;
+    
+}
 
 #paginator{
   position: absolute;

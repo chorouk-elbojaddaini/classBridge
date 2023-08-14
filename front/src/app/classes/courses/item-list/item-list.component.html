@@ -1,22 +1,23 @@
 <div class="cours">
-    <div class="item" *ngFor="let item of numbers">
-    <div class="top-content">
-        <span class="course-title">Chapitre 1 Introduction au réseau</span>
-        <button class="more-btn" (click)="toggleOptions()"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-        <ul class="options-list" *ngIf="showOptions">
-            <li><a> <i class="fa-solid fa-pen-to-square"></i> Modifier</a></li>
-            <li><a> <i class="fa-solid fa-trash"></i> Supprimer</a></li>
-        </ul>
+    <div class="item" *ngFor="let item of items" (click)="onItemClick(item)" >
+        <div class="top-content">
+            <span class="course-title">{{item.title}}</span>
+            <button class="more-btn" (click)="toggleOptions()"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+            <ul class="options-list" *ngIf="showOptions">
+                <li><a> <i class="fa-solid fa-pen-to-square"></i> Modifier</a></li>
+                <li><a> <i class="fa-solid fa-trash"></i> Supprimer</a></li>
+            </ul>
+        </div>
+        <div class="info">
+            <span>{{item.description}}</span>
+            <div class="attached-file">Fichiers attachés <i class="fa-solid fa-file"></i> :
+                <span>{{item.numberFiles}}</span></div>
+        </div>
+        <div class="msgs-date">
+            <button class="msgs"><i class="fa-regular fa-message"></i>
+                <div class="new-msg"></div>
+            </button>
+            <span class="date"><i class="fa-solid fa-calendar-days"></i> {{item.date}}</span>
+        </div>
     </div>
-    <div class="info">
-        <span>Ce cours est le premier chapitre qu'on a vu la dernière fois</span>
-        <div class="attached-file">Fichiers attachés <i class="fa-solid fa-file"></i> : <span> 5</span></div>
-    </div>
-    <div class="msgs-date">
-        <button class="msgs"><i class="fa-regular fa-message"></i>
-            <div class="new-msg"></div>
-        </button>
-        <span class="date"><i class="fa-solid fa-calendar-days"></i> 05 juin 2023</span>
-    </div>
-</div>
 </div>
