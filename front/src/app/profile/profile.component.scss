@@ -15,7 +15,11 @@
         padding: 30px;
     }
     .middle-content{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 45px;
         .infos-section {
+            flex: 0 0 auto;
             width: fit-content;
             padding: 20px;
             height: fit-content;
@@ -29,6 +33,31 @@
             .img {
                 width: 10rem;
                 height: 10rem;
+            }
+        }
+        .details{
+            flex: 1 1 0;
+            width: fit-content;
+            padding: 20px;
+            height: fit-content;
+            background-color: white;
+            margin: 15px;
+            justify-content: center;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+            .form-basic-infos{
+                background-color: white;
+                // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+                border: 1px solid var(--grey-main);
+                padding: 15px;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 15px;
+                
             }
         }
     }
