@@ -14,21 +14,22 @@
         float: left;
         padding: 30px;
     }
-
-    .infos-section {
-        width: fit-content;
-        padding: 20px;
-        height: fit-content;
-        background-color: white;
-        margin: 15px;
-        justify-content: center;
-        text-align: center;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-
-        .img {
-            width: 10rem;
-            height: 10rem;
+    .middle-content{
+        .infos-section {
+            width: fit-content;
+            padding: 20px;
+            height: fit-content;
+            background-color: white;
+            margin: 15px;
+            justify-content: center;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    
+            .img {
+                width: 10rem;
+                height: 10rem;
+            }
         }
     }
 }
