@@ -24,6 +24,7 @@ import { ItemListComponent } from './classes/courses/item-list/item-list.compone
 import { SelectedItemDetailsComponent } from './classes/courses/selected-item-details/selected-item-details.component';
 import { ProgrammeComponent } from './programme/programme.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     StudentDialogComponent,
     ItemListComponent,
     SelectedItemDetailsComponent,
-    ProgrammeComponent
+    ProgrammeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
