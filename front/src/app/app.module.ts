@@ -22,6 +22,8 @@ import { StudentDialogComponent } from './classes/students/student-dialog/studen
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { ItemListComponent } from './classes/courses/item-list/item-list.component';
 import { SelectedItemDetailsComponent } from './classes/courses/selected-item-details/selected-item-details.component';
+import { ProgrammeComponent } from './programme/programme.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { SelectedItemDetailsComponent } from './classes/courses/selected-item-de
     CoursesComponent,
     StudentDialogComponent,
     ItemListComponent,
-    SelectedItemDetailsComponent
+    SelectedItemDetailsComponent,
+    ProgrammeComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import { SelectedItemDetailsComponent } from './classes/courses/selected-item-de
     MatDialogModule,
     MatIconModule,
     MatSelectModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FullCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

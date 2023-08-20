@@ -12,7 +12,7 @@ export const navbarData = [
     {
         routerLink : 'schedule',
         icon : 'fa-solid fa-calendar-days',
-        label: 'Programme'
+        label: 'programme'
     },
     {
         routerLink : 'messages',
