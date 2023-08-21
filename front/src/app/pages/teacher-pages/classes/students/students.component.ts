@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Student } from 'src/app/models/student';
-import studentsData from '../../../assets/data/studentsData.json';
+import studentsData from '../../../../../assets/data/studentsData.json';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentDialogComponent } from './student-dialog/student-dialog.component';
 @Component({

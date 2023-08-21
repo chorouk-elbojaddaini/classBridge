@@ -3,28 +3,28 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './share/sidebar/sidebar.component';
-import { ProfileDashboardComponent } from './profile-dashboard/profile-dashboard.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { TeacherLayoutComponent } from './teacher-layout/teacher-layout.component';
-import { BodyTeacherComponent } from './body-dash-teacher/body-dash-teacher.component';
-import { MessagesComponent } from './messages/messages.component';
-import { ClassesComponent } from './classes/classes.component';
+import { ProfileDashboardComponent } from './pages/teacher-pages/dashboard/profile-dashboard/profile-dashboard.component';
+import { DashboardComponent } from './pages/teacher-pages/dashboard/dashboard.component';
+import { TeacherLayoutComponent } from './components/teacher-layout/teacher-layout.component';
+import { BodyTeacherComponent } from './components/teacher-layout/body-dash-teacher/body-dash-teacher.component';
+import { MessagesComponent } from './pages/teacher-pages/messages/messages.component';
+import { ClassesComponent } from './pages/teacher-pages/classes/classes.component';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DialogComponent } from './dialog/dialog.component';
+import { DialogComponent } from './pages/teacher-pages/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ChoixDialogComponent } from './choix-dialog/choix-dialog.component';
-import { StudentsComponent } from './classes/students/students.component';
-import { CoursesComponent } from './classes/courses/courses.component';
+import { ChoixDialogComponent } from './pages/teacher-pages/choix-dialog/choix-dialog.component';
+import { StudentsComponent } from './pages/teacher-pages/classes/students/students.component';
+import { CoursesComponent } from './pages/teacher-pages/classes/courses/courses.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
-import { StudentDialogComponent } from './classes/students/student-dialog/student-dialog.component';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import { ItemListComponent } from './classes/courses/item-list/item-list.component';
-import { SelectedItemDetailsComponent } from './classes/courses/selected-item-details/selected-item-details.component';
-import { ProgrammeComponent } from './programme/programme.component';
+import { StudentDialogComponent } from './pages/teacher-pages/classes/students/student-dialog/student-dialog.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { ItemListComponent } from './pages/teacher-pages/classes/courses/item-list/item-list.component';
+// import { SelectedItemDetailsComponent } from './classes/courses/selected-item-details/selected-item-details.component';
+import { ProgrammeComponent } from './pages/teacher-pages/programme/programme.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './pages/teacher-pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,7 @@ import { ProfileComponent } from './profile/profile.component';
     CoursesComponent,
     StudentDialogComponent,
     ItemListComponent,
-    SelectedItemDetailsComponent,
+    // SelectedItemDetailsComponent,
     ProgrammeComponent,
     ProfileComponent
   ],
