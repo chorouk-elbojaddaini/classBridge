@@ -1,6 +1,5 @@
 package com.backend.controller;
 import com.backend.model.User;
-import com.backend.service.UserService;
 import com.backend.service.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
