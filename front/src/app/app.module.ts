@@ -25,6 +25,9 @@ import { ItemListComponent } from './pages/teacher-pages/classes/courses/item-li
 import { ProgrammeComponent } from './pages/teacher-pages/programme/programme.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { ProfileComponent } from './pages/teacher-pages/profile/profile.component';
+import { RegisterTeacherComponent } from './components/register-teacher/register-teacher.component';
+import { RegisterStudentComponent } from './components/register-student/register-student.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,10 @@ import { ProfileComponent } from './pages/teacher-pages/profile/profile.componen
     ItemListComponent,
     // SelectedItemDetailsComponent,
     ProgrammeComponent,
-    ProfileComponent
+    ProfileComponent,
+    RegisterTeacherComponent,
+    RegisterStudentComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

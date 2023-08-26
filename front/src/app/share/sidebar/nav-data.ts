@@ -1,26 +1,26 @@
 export const navbarData = [
     {
-        routerLink : 'teacher/dashboard',
+        routerLink : 'dashboard',
         icon : 'fa-solid fa-house',
         label: 'Dashboard'
     },
     {
-        routerLink : 'teacher/classes',
+        routerLink : 'classes',
         icon : 'fa-solid fa-chalkboard-user',
         label: 'Classes'
     },
     {
-        routerLink : 'teacher/schedule',
+        routerLink : 'schedule',
         icon : 'fa-solid fa-calendar-days',
         label: 'programme'
     },
     {
-        routerLink : 'teacher/messages',
+        routerLink : 'messages',
         icon : 'fa-solid fa-message',
         label: 'Messages'
     },
     {
-        routerLink : 'teacher/profile',
+        routerLink : 'profile',
         icon : 'fa-solid fa-user',
         label: 'Profile'
     }

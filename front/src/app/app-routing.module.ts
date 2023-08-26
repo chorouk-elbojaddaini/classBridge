@@ -7,17 +7,20 @@ import { MessagesComponent } from './pages/teacher-pages/messages/messages.compo
 import { ProgrammeComponent } from './pages/teacher-pages/programme/programme.component';
 import { ProfileComponent } from './pages/teacher-pages/profile/profile.component';
 import { BodyTeacherComponent } from './components/teacher-layout/body-dash-teacher/body-dash-teacher.component';
+import { RegisterTeacherComponent } from './components/register-teacher/register-teacher.component';
+import { RegisterStudentComponent } from './components/register-student/register-student.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  {
-    path: 'teacher',
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {path:'home',component:HomeComponent},
+  {path:'teacherDashboard',component:TeacherLayoutComponent, 
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'classes', component: ClassesComponent },
       { path: 'messages', component: MessagesComponent },
       { path: 'schedule', component: ProgrammeComponent },
       { path: 'profile', component: ProfileComponent },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
 
