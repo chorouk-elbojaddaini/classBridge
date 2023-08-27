@@ -1,6 +1,7 @@
 package com.backend.service;
 
-import com.backend.model.User;
+import com.backend.entity.User;
+import com.backend.model.UserModel;
 
 import java.util.Optional;
 
@@ -10,4 +11,8 @@ public interface UserService {
     User updateUser(User user);
 
     User save(User user);
+
+    void saveVerificationTokenForUser(String token, User user);
+
+    User registerUser(UserModel userModel);
 }
