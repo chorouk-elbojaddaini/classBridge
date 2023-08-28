@@ -22,8 +22,10 @@ public class SecurityConfiguration {
     private final AuthenticationProvider authenticationProvider;
 
     private static final String[] WHITE_LIST = {
+            "/auth",
             "/auth/register",
-            "/auth/verifyRegistration"
+            "/auth/verifyRegistration*",
+            "/auth/resendVerifyToken*"
     };
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
