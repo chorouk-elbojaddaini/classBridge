@@ -20,12 +20,17 @@ public class SecurityConfiguration {
     private final JWTAuthenticationFilter jwtAuthFilter;
 
     private final AuthenticationProvider authenticationProvider;
+
+    private static final String[] WHITE_LIST = {
+            "/auth/register",
+            "/auth/verifyRegistration"
+    };
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
          http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/**")
+                        .requestMatchers(WHITE_LIST)
                         .permitAll()
                         .anyRequest()
                         .authenticated()

@@ -50,7 +50,18 @@ public class UserController {
                 user,
                 applicationUrl(request)
         ));
-        return "Success";
+        return "Success! Please check your email to complete your registration";
+    }
+
+
+    @GetMapping("/verifyRegistration")
+    public String verifyEmail(@RequestParam("token") String token){
+       String result = service.validateVerificationToken(token);
+       if(result.equalsIgnoreCase("valid")){
+           return "user verifies successfully!";
+       }
+
+        return "Bad User";
     }
 
     private String applicationUrl(HttpServletRequest request) {
