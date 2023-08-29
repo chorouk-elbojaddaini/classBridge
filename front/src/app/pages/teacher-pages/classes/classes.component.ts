@@ -8,9 +8,9 @@ import { ChoixDialogComponent } from '../choix-dialog/choix-dialog.component';
   styleUrls: ['./classes.component.scss']
 })
 export class ClassesComponent {
-  public choose: boolean = true;
+  public choose: boolean = false;
   variable1Recue: boolean = false;
-  variable2Recue: boolean = true;
+  variable2Recue: boolean = false;
 
   redirectTo() {
     this.variable2Recue = false;

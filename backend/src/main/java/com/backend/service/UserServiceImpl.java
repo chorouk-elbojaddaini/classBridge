@@ -1,15 +1,19 @@
 package com.backend.service;
 
+import com.backend.auth.AuthenticationRequest;
+import com.backend.auth.AuthenticationResponse;
 import com.backend.config.JwtService;
 import com.backend.entity.Role;
 import com.backend.entity.User;
 import com.backend.entity.VerificationToken;
+import com.backend.exception.UserAlreadyExistsException;
 import com.backend.model.UserModel;
 import com.backend.repository.UserRepository;
 import com.backend.repository.VerificationUserTokenRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -56,6 +60,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User registerUser(UserModel usermodel) {
+        Optional<User> userExists = repository.findByEmail(usermodel.getEmail());
+        if(userExists.isPresent()){
+            throw new UserAlreadyExistsException(
+                    "User with email "+usermodel.getEmail() + " already exists"
+            );
+        }
         User user = User.builder()
                 .firstName(usermodel.getFirstName())
                 .lastName(usermodel.getLastName())
@@ -64,6 +74,10 @@ public class UserServiceImpl implements UserService {
                 .role(Role.TEACHER)
                 .build();
         repository.save(user);
+        var jwtToken = jwtService.generateToken(user);
+        AuthenticationResponse.builder()
+                .token(jwtToken)
+                .build();
         return user;
     }
 
@@ -94,6 +108,19 @@ public class UserServiceImpl implements UserService {
 
         return verificationToken;
     }
-
+    public AuthenticationResponse authenticate(AuthenticationRequest request) {
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        request.getEmail(),
+                        request.getPassword()
+                )
+        );
+        var user = repository.findByEmail(request.getEmail())
+                .orElseThrow();
+        var jwtToken = jwtService.generateToken(user);
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .build();
+    }
 
 }

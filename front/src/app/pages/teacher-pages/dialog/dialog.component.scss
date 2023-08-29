@@ -6,22 +6,27 @@ h4{
     margin-top: 10px;
 }
 mat-dialog-content{
-    padding: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    label{
-        color: black;
-        font-weight: 500;
+    padding: 25px;
+    form{
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        label{
+            color: black;
+            font-weight: 500;
+        }
+        input{
+            outline: none;
+            border:1px solid var(--blue);
+            padding: 5px;
+        }
+        input::placeholder{
+            color: var(--grey2);
+        }
     }
-    input{
-        outline: none;
-        border:1px solid var(--blue);
-        padding: 5px;
-    }
-    input::placeholder{
-        color: var(--grey2);
-    }
+    
+    
 }
 mat-dialog-actions{
     padding: 8px;
