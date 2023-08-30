@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DialogComponent } from '../dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ChoixDialogComponent } from '../choix-dialog/choix-dialog.component';
+import classesInfo from '../../../../assets/data/classesData.json';
 @Component({
   selector: 'app-classes',
   templateUrl: './classes.component.html',
@@ -9,6 +10,7 @@ import { ChoixDialogComponent } from '../choix-dialog/choix-dialog.component';
 })
 export class ClassesComponent {
   public choose: boolean = false;
+  classesData = classesInfo;
   variable1Recue: boolean = false;
   variable2Recue: boolean = false;
 
