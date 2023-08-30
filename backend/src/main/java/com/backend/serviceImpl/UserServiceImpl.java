@@ -1,4 +1,4 @@
-package com.backend.service;
+package com.backend.serviceImpl;
 
 import com.backend.auth.AuthenticationRequest;
 import com.backend.auth.AuthenticationResponse;
@@ -10,6 +10,7 @@ import com.backend.exception.UserAlreadyExistsException;
 import com.backend.model.UserModel;
 import com.backend.repository.UserRepository;
 import com.backend.repository.VerificationUserTokenRepository;
+import com.backend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;

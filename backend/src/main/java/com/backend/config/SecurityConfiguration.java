@@ -25,7 +25,8 @@ public class SecurityConfiguration {
             "/auth",
             "/auth/register",
             "/auth/verifyRegistration*",
-            "/auth/resendVerifyToken*"
+            "/auth/resendVerifyToken*",
+            "/classe/*"
     };
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
