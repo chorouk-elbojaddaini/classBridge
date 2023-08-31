@@ -2,6 +2,8 @@ package com.backend.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 public class Course {
 
@@ -11,4 +13,9 @@ public class Course {
 
     @Column(name = "course_name")
     private String courseName;
+
+
+    private String description;
+
+    private Date date;
 }

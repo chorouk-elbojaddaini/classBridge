@@ -61,7 +61,7 @@ import { HomeComponent } from './components/home/home.component';
     MatIconModule,
     MatSelectModule,
     MatPaginatorModule,
-    FullCalendarModule
+    FullCalendarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

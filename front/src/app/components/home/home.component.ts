@@ -6,5 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  fileContent: string = '';
 
+  handleFileSelect(event: Event) {
+    const target = event.target as HTMLInputElement;
+    const file = target.files?.[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = (e: ProgressEvent<FileReader>) => {
+        if (e.target?.result) {
+          this.fileContent = e.target.result as string;
+        }
+      };
+
+      reader.readAsText(file);
+    }
+  }
 }
