@@ -13,4 +13,7 @@ public interface ClasseRepository extends JpaRepository<Classe, Long> {
    @Query("SELECT c FROM Classe c WHERE c.teacher.id = :teacherId")
    List<Classe> findAll(Long teacherId);
    Classe save(Classe newClasse);
+
+   @Query("SELECT c FROM Classe c WHERE c.classCode = :classCode")
+   Classe findByclassCode(String classCode);
 }

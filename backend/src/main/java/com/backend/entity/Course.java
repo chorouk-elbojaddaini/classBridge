@@ -18,4 +18,7 @@ public class Course {
     private String description;
 
     private Date date;
+
+
+    private String pathFile;
 }

@@ -27,4 +27,9 @@ public class ClasseController {
         log.info("le tyyyyyyyype dyalha "+classeService.getClassesByUser(userId));
         return classeService.getClassesByUser(userId);
     }
+
+    @GetMapping
+    public Classe findByCodeClass(@RequestParam String code){
+        return classeService.findByClassCode(code);
+    }
 }

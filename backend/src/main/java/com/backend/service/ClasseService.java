@@ -15,7 +15,7 @@ import java.util.Random;
 public interface ClasseService {
     public Classe addClasse(ClasseModel classe);
     public List<Classe> getClassesByUser(Long userId);
-
+    public Classe findByClassCode(String classCode);
 
 
 

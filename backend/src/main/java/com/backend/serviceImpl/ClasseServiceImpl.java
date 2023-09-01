@@ -2,6 +2,7 @@ package com.backend.serviceImpl;
 
 import com.backend.entity.Classe;
 import com.backend.entity.User;
+import com.backend.exception.ClasseNotFoundException;
 import com.backend.model.ClasseModel;
 import com.backend.repository.ClasseRepository;
 import com.backend.repository.UserRepository;
@@ -50,7 +51,14 @@ public class ClasseServiceImpl implements ClasseService {
         return classes;
     }
 
-
+    @Override
+    public Classe findByClassCode(String classCode) {
+        Classe classe = classeRepository.findByclassCode(classCode);
+        if (classe == null) {
+            throw new ClasseNotFoundException("Aucune classe trouvée avec le code : " + classCode);
+        }
+        return classe;
+    }
 
 
     public static String generateRandomString(int length) {
