@@ -35,6 +35,9 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private StudentData studentInfo;
+
     private boolean enabled = false;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

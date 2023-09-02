@@ -28,6 +28,7 @@ import { ProfileComponent } from './pages/teacher-pages/profile/profile.componen
 import { RegisterTeacherComponent } from './components/register-teacher/register-teacher.component';
 import { RegisterStudentComponent } from './components/register-student/register-student.component';
 import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { HomeComponent } from './components/home/home.component';
     ProfileComponent,
     RegisterTeacherComponent,
     RegisterStudentComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
