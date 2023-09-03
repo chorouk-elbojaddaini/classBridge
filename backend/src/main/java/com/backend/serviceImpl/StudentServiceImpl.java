@@ -3,6 +3,7 @@ package com.backend.serviceImpl;
 import com.backend.entity.Classe;
 import com.backend.entity.StudentData;
 import com.backend.entity.User;
+import com.backend.exception.ClasseNotFoundException;
 import com.backend.model.StudentModel;
 import com.backend.repository.ClasseRepository;
 import com.backend.repository.StudentRepository;

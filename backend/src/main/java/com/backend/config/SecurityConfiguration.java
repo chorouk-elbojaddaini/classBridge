@@ -29,7 +29,7 @@ public class SecurityConfiguration {
             "/classe/*",
             "/add",
             "/classe*",
-            "/student*"
+            "/student/add"
     };
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
