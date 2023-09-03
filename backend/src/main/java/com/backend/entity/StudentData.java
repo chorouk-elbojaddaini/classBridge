@@ -21,7 +21,9 @@ public class StudentData {
     @OneToOne
     @JoinColumn(name = "student_id")
     private User user;
+
     private Integer note;
+
     @Column(name = "join_code")
     private String codeJoinClass;
 

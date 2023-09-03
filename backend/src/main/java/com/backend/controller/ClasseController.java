@@ -24,7 +24,6 @@ public class ClasseController {
 
     @GetMapping("/{userId}")
     public List<Classe> getAllClasses(@PathVariable Long userId) {
-        log.info("le tyyyyyyyype dyalha "+classeService.getClassesByUser(userId));
         return classeService.getClassesByUser(userId);
     }
 
