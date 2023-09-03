@@ -6,6 +6,7 @@ import com.backend.entity.User;
 import com.backend.entity.VerificationToken;
 import com.backend.model.UserModel;
 
+import java.util.Map;
 import java.util.Optional;
 
 
@@ -18,7 +19,7 @@ public interface UserService {
     void saveVerificationTokenForUser(String token, User user);
 
     User registerUser(UserModel userModel);
-    User registerStudent(UserModel userModel);
+    Map<String, Object> registerStudent(UserModel userModel);
     String validateVerificationToken(String token);
 
     VerificationToken generateNewVerificationToken(String oldToken);
