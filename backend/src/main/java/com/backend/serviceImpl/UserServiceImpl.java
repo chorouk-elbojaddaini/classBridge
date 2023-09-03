@@ -18,9 +18,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Calendar;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -83,7 +81,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User registerStudent(UserModel userModel) {
+    public Map<String, Object> registerStudent(UserModel userModel) {
         Optional<User> userExists = repository.findByEmail(userModel.getEmail());
         if(userExists.isPresent()){
             throw new UserAlreadyExistsException(
@@ -102,7 +100,10 @@ public class UserServiceImpl implements UserService {
         AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
-        return user;
+        Map<String, Object> response = new HashMap<>();
+        response.put("jwtToken", jwtToken);
+        response.put("user", user);
+        return response;
     }
 
     @Override
