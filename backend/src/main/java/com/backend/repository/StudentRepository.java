@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StudentRepository extends JpaRepository<StudentData,Long> {
 
-    StudentData save(StudentModel studentData);
+    StudentData save(StudentData studentData);
 }
