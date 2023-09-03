@@ -18,7 +18,7 @@ public interface UserService {
 
     void saveVerificationTokenForUser(String token, User user);
 
-    User registerUser(UserModel userModel);
+    Map<String, Object> registerTeacher(UserModel userModel);
     Map<String, Object> registerStudent(UserModel userModel);
     String validateVerificationToken(String token);
 

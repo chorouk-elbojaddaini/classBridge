@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User registerUser(UserModel usermodel) {
+    public Map<String, Object> registerTeacher(UserModel usermodel) {
         Optional<User> userExists = repository.findByEmail(usermodel.getEmail());
         if(userExists.isPresent()){
             throw new UserAlreadyExistsException(
@@ -77,7 +77,10 @@ public class UserServiceImpl implements UserService {
         AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
-        return user;
+        Map<String, Object> response = new HashMap<>();
+        response.put("jwtToken", jwtToken);
+        response.put("user", user);
+        return response;
     }
 
     @Override

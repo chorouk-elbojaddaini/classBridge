@@ -30,17 +30,18 @@ public class AuthenticationController {
     @Autowired
     private ApplicationEventPublisher publisher;
 
-    
+
 
 
     @PostMapping("/register")
-    public String registerUser(@RequestBody UserModel userModel, final HttpServletRequest request) {
-        User user = service.registerUser(userModel);
+    public  Map<String, Object> registerUser(@RequestBody UserModel userModel, final HttpServletRequest request) {
+        Map<String, Object> registrationResult = service.registerTeacher(userModel);
+        User user = (User) registrationResult.get("user");
         publisher.publishEvent(new RegistrationCompleteEvent(
                 user,
                 applicationUrl(request)
         ));
-        return "Success! Please check your email to complete your registration";
+        return registrationResult;
     }
     @PostMapping("/registerStudent")
     public  Map<String, Object> registerStudent(@RequestBody UserModel userModel, final HttpServletRequest request) {
