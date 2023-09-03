@@ -29,6 +29,7 @@ import { RegisterTeacherComponent } from './components/register-teacher/register
 import { RegisterStudentComponent } from './components/register-student/register-student.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     RegisterTeacherComponent,
     RegisterStudentComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
