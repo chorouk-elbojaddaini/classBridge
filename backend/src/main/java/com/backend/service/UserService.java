@@ -18,7 +18,7 @@ public interface UserService {
     void saveVerificationTokenForUser(String token, User user);
 
     User registerUser(UserModel userModel);
-
+    User registerStudent(UserModel userModel);
     String validateVerificationToken(String token);
 
     VerificationToken generateNewVerificationToken(String oldToken);

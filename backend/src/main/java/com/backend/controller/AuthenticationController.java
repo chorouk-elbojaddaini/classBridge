@@ -38,6 +38,15 @@ public class AuthenticationController {
         ));
         return "Success! Please check your email to complete your registration";
     }
+    @PostMapping("/registerStudent")
+    public String registerStudent(@RequestBody UserModel userModel, final HttpServletRequest request) {
+        User user = service.registerStudent(userModel);
+        publisher.publishEvent(new RegistrationCompleteEvent(
+                user,
+                applicationUrl(request)
+        ));
+        return "Success! Please check your email to complete your registration";
+    }
 
 
     @GetMapping("/verifyRegistration")

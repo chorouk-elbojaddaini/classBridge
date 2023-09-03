@@ -83,6 +83,29 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User registerStudent(UserModel userModel) {
+        Optional<User> userExists = repository.findByEmail(userModel.getEmail());
+        if(userExists.isPresent()){
+            throw new UserAlreadyExistsException(
+                    "User with email "+userModel.getEmail() + " already exists"
+            );
+        }
+        User user = User.builder()
+                .firstName(userModel.getFirstName())
+                .lastName(userModel.getLastName())
+                .email(userModel.getEmail())
+                .password(passwordEncoder.encode(userModel.getPassword()))
+                .role(Role.STUDENT)
+                .build();
+        repository.save(user);
+        var jwtToken = jwtService.generateToken(user);
+        AuthenticationResponse.builder()
+                .token(jwtToken)
+                .build();
+        return user;
+    }
+
+    @Override
     public String validateVerificationToken(String token) {
         VerificationToken verificationToken =
                 verificationTokenRepository.findByToken(token);
