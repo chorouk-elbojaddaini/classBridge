@@ -4,10 +4,8 @@ import com.backend.entity.StudentData;
 import com.backend.model.StudentModel;
 import com.backend.service.StudentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,5 +17,14 @@ public class StudentController {
     @PostMapping("/add")
     public StudentData addStudentInfo(@RequestBody StudentModel studentData){
        return service.addInfo(studentData);
+    }
+
+    @PutMapping("/{studentId}")
+    public String updateStudentNote(
+            @PathVariable Long studentId,
+            @RequestParam Integer note
+    ) {
+        StudentData updatedStudentData = service.updateStudentNote(studentId, note);
+        return "updated";
     }
 }

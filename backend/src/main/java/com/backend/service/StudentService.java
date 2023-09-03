@@ -6,4 +6,5 @@ import com.backend.model.StudentModel;
 
 public interface StudentService {
     StudentData addInfo(StudentModel studentData);
+    StudentData updateStudentNote(Long studentId, Integer note);
 }

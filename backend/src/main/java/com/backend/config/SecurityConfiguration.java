@@ -30,6 +30,8 @@ public class SecurityConfiguration {
             "/classe/*",
             "/add",
             "/classe*",
+            "/student*",
+            "student/*",
             "/student/add"
     };
     @Bean

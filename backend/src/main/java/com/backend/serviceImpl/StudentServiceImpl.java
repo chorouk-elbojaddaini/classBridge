@@ -9,6 +9,7 @@ import com.backend.repository.ClasseRepository;
 import com.backend.repository.StudentRepository;
 import com.backend.repository.UserRepository;
 import com.backend.service.StudentService;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,5 +33,16 @@ public class StudentServiceImpl implements StudentService {
                 .build();
         studentRepository.save(newStudentData);
         return newStudentData;
+    }
+
+
+    @Override
+    public StudentData updateStudentNote(Long studentId, Integer note) {
+        StudentData studentData = studentRepository.findById(studentId)
+                .orElseThrow(() -> new EntityNotFoundException("Étudiant non trouvé avec l'ID : " + studentId));
+
+        studentData.setNote(note);
+
+        return studentRepository.save(studentData);
     }
 }
