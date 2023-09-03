@@ -16,6 +16,8 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
@@ -28,6 +30,8 @@ public class AuthenticationController {
     @Autowired
     private ApplicationEventPublisher publisher;
 
+    
+
 
     @PostMapping("/register")
     public String registerUser(@RequestBody UserModel userModel, final HttpServletRequest request) {
@@ -39,13 +43,15 @@ public class AuthenticationController {
         return "Success! Please check your email to complete your registration";
     }
     @PostMapping("/registerStudent")
-    public String registerStudent(@RequestBody UserModel userModel, final HttpServletRequest request) {
-        User user = service.registerStudent(userModel);
+    public  Map<String, Object> registerStudent(@RequestBody UserModel userModel, final HttpServletRequest request) {
+        Map<String, Object> registrationResult = service.registerStudent(userModel);
+        User user = (User) registrationResult.get("user");
         publisher.publishEvent(new RegistrationCompleteEvent(
                 user,
                 applicationUrl(request)
         ));
-        return "Success! Please check your email to complete your registration";
+
+        return registrationResult;
     }
 
 
