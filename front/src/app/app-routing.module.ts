@@ -9,11 +9,14 @@ import { ProfileComponent } from './pages/teacher-pages/profile/profile.componen
 import { BodyTeacherComponent } from './components/teacher-layout/body-dash-teacher/body-dash-teacher.component';
 import { RegisterTeacherComponent } from './components/register-teacher/register-teacher.component';
 import { RegisterStudentComponent } from './components/register-student/register-student.component';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AuthComponent } from './pages/auth/auth.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {path:'home',component:HomeComponent},
+  {path:'auth',component:AuthComponent},
+  {path:'auth/registerStudent',component:RegisterStudentComponent},
   {path:'teacherDashboard',component:TeacherLayoutComponent, 
     children: [
       { path: 'dashboard', component: DashboardComponent },

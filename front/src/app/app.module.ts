@@ -21,15 +21,16 @@ import { MatSelectModule } from '@angular/material/select';
 import { StudentDialogComponent } from './pages/teacher-pages/classes/students/student-dialog/student-dialog.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ItemListComponent } from './pages/teacher-pages/classes/courses/item-list/item-list.component';
-// import { SelectedItemDetailsComponent } from './classes/courses/selected-item-details/selected-item-details.component';
+//  import { SelectedItemDetailsComponent } from './classes/courses/selected-item-details/selected-item-details.component';
 import { ProgrammeComponent } from './pages/teacher-pages/programme/programme.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { ProfileComponent } from './pages/teacher-pages/profile/profile.component';
 import { RegisterTeacherComponent } from './components/register-teacher/register-teacher.component';
 import { RegisterStudentComponent } from './components/register-student/register-student.component';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { AuthComponent } from './pages/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,9 @@ import { RegisterComponent } from './pages/register/register.component';
     RegisterStudentComponent,
     HomeComponent,
     NavbarComponent,
-    RegisterComponent
+    RegisterComponent,
+    AuthComponent,
+    
   ],
   imports: [
     BrowserModule,
