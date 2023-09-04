@@ -1,12 +1,12 @@
 <div class="navbar">
     <div class="logo-section">
-        <img src="assets/logo.png" alt="logo" class="logoImg" width="50" height="50">
-        <span class="LogoName">ClassBridge</span>
+        <img src="assets/logoWhite.png" alt="logo" class="logoImg" width="50" height="50" [routerLink]="['/home']">
+        <span class="LogoName" [routerLink]="['/home']">ClassBridge</span>
     </div>
     <ul class="nav-items">
-        <li><a>Accueil</a></li>
+        <li><a [routerLink]="['/home']">Accueil</a></li>
         <li><a>À propos</a></li>
         <li><a>Contact</a></li>
     </ul>
-    <button class="SignIn-btn">Se connecter</button>
+    <button class="SignIn-btn" [routerLink]="['/auth']">Se connecter</button>
 </div>
