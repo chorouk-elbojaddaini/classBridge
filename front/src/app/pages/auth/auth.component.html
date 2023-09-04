@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+<div class="auth-container">
+    <div class="left">
+        <div class="sign-in-up">
+            <h1 class="title">Pour étudiant</h1>
+            <p class="description">Rejoignez nous pour que vous puissez affecter des cours et des devoirs à vos
+                étudiants et gérer votre espace
+             </p>
+            <button class="cnx-btn">Se connecter</button>
+              <div class="register-section">
+                <span class="no-account">Vous n'avez pas de compte</span>
+                <a class="register-btn" [routerLink]="['registerStudent']">S'inscrire</a>
+              </div>
+        </div>
+        <div class="img-teacher">
+            <img src="assets/auth-imgs/student.png" alt="imgStudent" class="img">
+        </div>
+
+    </div>
+    <div class="right">
+        <div class="sign-in-up">
+            <h1 class="title">Pour professeur</h1>
+            <p class="description">Rejoignez nous pour que vous puissez accéder à vos cours, devoirs et notes et
+                intéragissez avec les enseignants
+            </p>
+            <button class="cnx-btn">Se connecter</button>
+            <div class="register-section">
+                <span class="no-account">Vous n'avez pas de compte</span>
+                <a class="register-btn">S'inscrire</a>
+              </div>
+        </div>
+        <div class="img-teacher">
+            <img src="assets/auth-imgs/teacher.png" alt="imgTeacher" class="img">
+        </div>
+    </div>
+</div>

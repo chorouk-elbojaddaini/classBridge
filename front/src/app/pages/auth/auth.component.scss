@@ -1,0 +1,98 @@
+.auth-container{
+    width: 100%;
+    height: calc(100vh - 70px);
+    display: flex;
+    .left{
+        width: 50%;
+        background: linear-gradient(0deg, rgba(96,204,236,1) 46%, rgba(250,250,250,1) 100%);
+        .sign-in-up{
+            .title{
+                color: var(--blue);
+            }
+            .cnx-btn{
+                border: 1px solid white;
+                background-color: transparent;
+                padding: 8px 12px;
+                color: white;
+                border-radius: 10px;
+                cursor: pointer;
+
+            }
+            .cnx-btn:hover{
+                background-color: var(--blue);
+                border: 1px solid var(--blue);
+
+            }
+        }
+        .img-teacher{
+            text-align: center;
+            width: 100%;
+           .img{
+             width: 40vw;
+             height: auto;
+           }
+         }
+    }
+    .right{
+        width: 50%;
+        .sign-in-up{ 
+            .title{
+                color: var(--blue);
+            }
+            .cnx-btn{
+                border: 1px solid var(--blue);
+                background-color: transparent;
+                padding: 8px 12px;
+                color: var(--blue);
+                border-radius: 10px;
+                cursor: pointer;
+            }
+            .cnx-btn:hover{
+                background-color: var(--blue);
+color: white;
+            }
+         
+        }
+        .img-teacher{
+            text-align: center;
+            width: 100%;
+           .img{
+             width: 28vw;
+             height: auto;
+           }
+         }
+
+    }
+    .left,.right{
+        height: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        .sign-in-up{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            .description{
+                text-align: center;
+                width: 90%;
+            }
+            .register-section{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .register-btn{
+                    font-weight: 600;
+                    color: var(--pink);
+                    cursor: pointer;
+                }
+                .register-btn:hover{
+                    color: var(--dark-pink);
+                }
+            }
+        }
+        
+    }
+}
