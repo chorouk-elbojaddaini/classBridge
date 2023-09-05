@@ -1,0 +1,66 @@
+.container{
+    width: 100%;
+    .form-section{
+        width: fit-content;
+        height: fit-content;
+        padding: 25px;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 -2px 2px rgba(0, 0, 0, 0.1);
+        margin: auto;
+        margin-top: 5%;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        .title{
+            text-align: center;
+            color: var(--blue);
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .form-field{
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                input{
+                    padding: 8px;
+                    border-radius: 10px;
+                    border:1px solid var(--grey);
+                }
+            }
+            .forget-submit{
+                display: flex;
+                flex-direction: column;
+                position: relative;
+
+                .submit-btn{
+                    padding: 12px;
+                    border: none;
+                    background-color: var(--pink);
+                    color: white;
+                    border-radius: 10px;
+                    box-shadow: -3px -3px 6px rgba(0, 0, 0, 0.1);
+    
+                }
+                .submit-btn:hover{
+                    background-color: var(--dark-pink);
+                }
+            }
+            .mdp-oublie{
+                position: absolute;
+                top: 45px;
+                color: var(--grey);
+                right: 0;
+            }
+        }
+        .create-account{
+            margin-top: 25px;
+            .register{
+                color: var(--dark-pink);
+            text-decoration: underline;
+            }
+        }
+       
+    }
+}
