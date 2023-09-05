@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="form-section">
+        <h3 class="title">Inscription</h3>
+        <form action="">
+           <div class="form-field">
+            <label class="label">Nom</label>
+            <input type="text" class="input">
+           </div>
+           <div class="form-field">
+            <label class="label">Prénom</label>
+            <input type="text" class="input">
+           </div>
+           <div class="form-field">
+            <label class="label">Email</label>
+            <input type="email" class="input">
+           </div>
+           <div class="form-field">
+            <label class="label">Mot de passe</label>
+            <input type="password" class="input">
+           </div>
+           <div class="form-field">
+            <label class="label"> Confirmation du mot de passe</label>
+            <input type="password" class="input">
+           </div>
+           <div class="forget-submit">
+            <button type="submit" class="submit-btn">S'inscrire</button>
+           </div>
+        </form>
+        <p class="create-account">Avez-vous déjà un compte ? <a class="login" [routerLink]="['../loginTeacher']">Se connecter</a></p>
+    </div>
+</div>

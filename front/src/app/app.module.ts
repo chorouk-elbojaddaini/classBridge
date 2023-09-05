@@ -25,12 +25,13 @@ import { ItemListComponent } from './pages/teacher-pages/classes/courses/item-li
 import { ProgrammeComponent } from './pages/teacher-pages/programme/programme.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { ProfileComponent } from './pages/teacher-pages/profile/profile.component';
-import { RegisterTeacherComponent } from './components/register-teacher/register-teacher.component';
-import { RegisterStudentComponent } from './components/register-student/register-student.component';
+import { RegisterTeacherComponent } from './pages/auth/register-teacher/register-teacher.component';
+import { RegisterStudentComponent } from './pages/auth/register-student/register-student.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AuthComponent } from './pages/auth/auth.component';
+import { LoginTeacherComponent } from './pages/auth/login-teacher/login-teacher.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { AuthComponent } from './pages/auth/auth.component';
     NavbarComponent,
     RegisterComponent,
     AuthComponent,
-    
+    LoginTeacherComponent,
+
   ],
   imports: [
     BrowserModule,
