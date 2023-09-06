@@ -32,6 +32,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AuthComponent } from './pages/auth/auth.component';
 import { LoginTeacherComponent } from './pages/auth/login-teacher/login-teacher.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -71,8 +72,9 @@ import { LoginTeacherComponent } from './pages/auth/login-teacher/login-teacher.
     MatSelectModule,
     MatPaginatorModule,
     FullCalendarModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
