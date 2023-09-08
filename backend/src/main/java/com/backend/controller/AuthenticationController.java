@@ -23,9 +23,8 @@ import java.util.Map;
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 @Slf4j
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:4200")
 public class AuthenticationController {
-
     @Autowired
     private UserService service;
 
@@ -36,6 +35,7 @@ public class AuthenticationController {
 
 
     @PostMapping("/register")
+    @CrossOrigin(origins = "http://localhost:4200")
     public RegistrationResponse registerUser(@RequestBody UserModel userModel, final HttpServletRequest request) {
         RegistrationResponse registrationResult = service.registerTeacher(userModel);
         User user = (User) registrationResult.getUser();

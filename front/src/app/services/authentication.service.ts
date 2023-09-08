@@ -7,7 +7,7 @@ import { AuthenticationResponse } from '../models/Authentication-response';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private baseUrl : string = '/http:localhost:8080/auth';
+  private baseUrl : string = 'http://localhost:8090/auth';
   constructor(private http:HttpClient) { }
   
   register(registerRequest:RegisterRequest){
