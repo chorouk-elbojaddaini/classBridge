@@ -3,6 +3,7 @@ package com.backend.controller;
 
 import com.backend.auth.AuthenticationRequest;
 import com.backend.auth.AuthenticationResponse;
+import com.backend.auth.RegistrationResponse;
 import com.backend.entity.User;
 import com.backend.entity.VerificationToken;
 import com.backend.event.RegistrationCompleteEvent;
@@ -22,6 +23,7 @@ import java.util.Map;
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 @Slf4j
+@CrossOrigin("*")
 public class AuthenticationController {
 
     @Autowired
@@ -34,9 +36,9 @@ public class AuthenticationController {
 
 
     @PostMapping("/register")
-    public  Map<String, Object> registerUser(@RequestBody UserModel userModel, final HttpServletRequest request) {
-        Map<String, Object> registrationResult = service.registerTeacher(userModel);
-        User user = (User) registrationResult.get("user");
+    public RegistrationResponse registerUser(@RequestBody UserModel userModel, final HttpServletRequest request) {
+        RegistrationResponse registrationResult = service.registerTeacher(userModel);
+        User user = (User) registrationResult.getUser();
         publisher.publishEvent(new RegistrationCompleteEvent(
                 user,
                 applicationUrl(request)

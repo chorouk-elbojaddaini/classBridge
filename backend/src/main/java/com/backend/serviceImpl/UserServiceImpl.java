@@ -2,6 +2,7 @@ package com.backend.serviceImpl;
 
 import com.backend.auth.AuthenticationRequest;
 import com.backend.auth.AuthenticationResponse;
+import com.backend.auth.RegistrationResponse;
 import com.backend.config.JwtService;
 import com.backend.entity.Role;
 import com.backend.entity.User;
@@ -58,7 +59,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Map<String, Object> registerTeacher(UserModel usermodel) {
+    public RegistrationResponse registerTeacher(UserModel usermodel) {
         Optional<User> userExists = repository.findByEmail(usermodel.getEmail());
         if(userExists.isPresent()){
             throw new UserAlreadyExistsException(
@@ -77,10 +78,7 @@ public class UserServiceImpl implements UserService {
         AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
-        Map<String, Object> response = new HashMap<>();
-        response.put("jwtToken", jwtToken);
-        response.put("user", user);
-        return response;
+        return new RegistrationResponse(jwtToken, user);
     }
 
     @Override

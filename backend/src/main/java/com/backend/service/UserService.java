@@ -2,6 +2,7 @@ package com.backend.service;
 
 import com.backend.auth.AuthenticationRequest;
 import com.backend.auth.AuthenticationResponse;
+import com.backend.auth.RegistrationResponse;
 import com.backend.entity.User;
 import com.backend.entity.VerificationToken;
 import com.backend.model.UserModel;
@@ -18,7 +19,7 @@ public interface UserService {
 
     void saveVerificationTokenForUser(String token, User user);
 
-    Map<String, Object> registerTeacher(UserModel userModel);
+    RegistrationResponse registerTeacher(UserModel userModel);
     Map<String, Object> registerStudent(UserModel userModel);
     String validateVerificationToken(String token);
 
