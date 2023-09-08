@@ -33,6 +33,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { AuthComponent } from './pages/auth/auth.component';
 import { LoginTeacherComponent } from './pages/auth/login-teacher/login-teacher.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     MatPaginatorModule,
     FullCalendarModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

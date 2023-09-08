@@ -1,4 +1,4 @@
-export class User{
+export class RegisterRequest{
     firstName?:string;
     lastName?:string;
     email?:string;

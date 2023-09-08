@@ -2,29 +2,29 @@
 <div class="container">
     <div class="form-section">
         <h3 class="title">Inscription</h3>
-        <form action="">
+        <form (ngSubmit)="registerTeacher()">
            <div class="form-field">
             <label class="label">Nom</label>
-            <input type="text" class="input">
+            <input type="text" class="input" name="lastName" required="text" [(ngModel)]="registerRequest.lastName">
            </div>
            <div class="form-field">
             <label class="label">Prénom</label>
-            <input type="text" class="input">
+            <input type="text" class="input" name="firstName" [(ngModel)]="registerRequest.firstName">
            </div>
            <div class="form-field">
             <label class="label">Email</label>
-            <input type="email" class="input">
+            <input type="email" class="input" name="email" [(ngModel)]="registerRequest.email">
            </div>
            <div class="form-field">
             <label class="label">Mot de passe</label>
-            <input type="password" class="input">
+            <input type="password" class="input" name="password" [(ngModel)]="registerRequest.password">
            </div>
            <div class="form-field">
             <label class="label"> Confirmation du mot de passe</label>
-            <input type="password" class="input">
+            <input type="password" class="input" name="password" [(ngModel)]="registerRequest.password">
            </div>
            <div class="forget-submit">
-            <button type="submit" class="submit-btn">S'inscrire</button>
+            <button type="submit" class="submit-btn" >S'inscrire</button>
            </div>
         </form>
         <p class="create-account">Avez-vous déjà un compte ? <a class="login" [routerLink]="['../loginTeacher']">Se connecter</a></p>
