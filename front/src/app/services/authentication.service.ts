@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RegisterRequest } from '../models/register-request';
 import { AuthenticationResponse } from '../models/Authentication-response';
+import { AuthenticationRequest } from '../models/authentication-request';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,10 @@ export class AuthenticationService {
   
   register(registerRequest:RegisterRequest){
     return this.http.post<AuthenticationResponse>(`${this.baseUrl}/register`,registerRequest);
+  }
+
+  authenticate(authRequest:AuthenticationRequest){
+    return this.http.post<AuthenticationResponse>(`${this.baseUrl}/authenticate`,authRequest);
   }
 
 

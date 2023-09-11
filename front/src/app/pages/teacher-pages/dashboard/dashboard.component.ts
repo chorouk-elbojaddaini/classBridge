@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import Chart from 'chart.js/auto';
+import { RegisterRequest } from 'src/app/models/register-request';
 
 
 @Component({
@@ -11,9 +12,13 @@ export class DashboardComponent {
   averageGrades = [12, 14, 12];
   classLabels = ['Class A', 'Class B', 'Class C'];
   public chart: any;
-
-
+  user : RegisterRequest | any;
+ 
   ngOnInit(): void {
+    const authUserJSON:any = localStorage.getItem("authUser");
+    this.user = JSON.parse(authUserJSON);
+    
+
     this.createChart();
   }
 

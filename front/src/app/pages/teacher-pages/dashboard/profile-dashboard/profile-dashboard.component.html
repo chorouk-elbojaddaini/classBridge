@@ -2,10 +2,10 @@
     <i class="fa-solid fa-bell"></i>
 </button>
 <div class="infos-user">
-    <img [src]="user.img" *ngIf="user.img != ''" alt="User Image" class="userImg">
+    <!-- <img [src]="user.img" *ngIf="user.img != ''" alt="User Image" class="userImg"> -->
     <img src="assets/dashboard-imgs/no-img.png" *ngIf="user.img == null || user.img == '' " alt="User Image" class="userImg">
     <h3>{{ user.firstName }} {{ user.lastName }}</h3>
-    <span>Teacher</span>
+    <span>{{user.role}}</span>
   </div>
 <div class="courses">
     <div class="title">

@@ -10,11 +10,7 @@ interface User{
   styleUrls: ['./profile-dashboard.component.scss']
 })
 export class ProfileDashboardComponent {
-  user: User = {
-    firstName: 'Anna',
-    lastName: 'Marita',
-    img: 'assets/dashboard-imgs/userImg.jpg'
-  };
+  user: any;
   courses = ['course 1','course 2','course 3' ];
   tasks = ['do homework','reading a book','attribute a course'];
   initialCount = 2;
@@ -26,8 +22,11 @@ export class ProfileDashboardComponent {
     this.displayedCourses = this.courses.slice(0, this.initialCount);
     this.displayedTasks = this.tasks.slice(0, this.initialCount);
     // this.displayMore = this.packs.slice(0, this.initialCount);
+  }
 
-
+  ngOnInit(){
+    const authUserJSON:any = localStorage.getItem("authUser");
+    this.user = JSON.parse(authUserJSON);
   }
 
   viewAll() {

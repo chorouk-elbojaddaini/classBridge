@@ -12,11 +12,25 @@ import { VerifyEmailDialogueComponent } from './verify-email-dialogue/verify-ema
   styleUrls: ['./register-teacher.component.scss']
 })
 export class RegisterTeacherComponent {
-  registerRequest : RegisterRequest = {};
+  registerRequest : RegisterRequest = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    role: '',
+    enabled: false
+  };
   message?:string;
   authResponse: AuthenticationResponse = {
     jwtToken: '',
-    user: new RegisterRequest
+    user: new RegisterRequest(
+      '',
+      '',
+      '',
+      '',
+      '',
+      false
+    )
   };
   errorMessage = '';
   confirmationPassword ?:string;

@@ -1,15 +1,15 @@
 <app-navbar></app-navbar>
 <div class="container">
-    <div class="form-section">
+    <div class="form-section" >
         <h3 class="title">Connexion</h3>
-        <form action="">
+        <form action="" (ngSubmit)="authenticate()">
            <div class="form-field">
             <label class="label">Email</label>
-            <input type="text" class="input">
+            <input type="text" class="input" name="email" [(ngModel)]="authRequest.email">
            </div>
            <div class="form-field">
             <label class="label">Mot de passe</label>
-            <input type="password" class="input">
+            <input type="password" class="input" name="password" [(ngModel)]="authRequest.password">
            </div>
            <div class="forget-submit">
             <button type="submit" class="submit-btn">Se connecter</button>
