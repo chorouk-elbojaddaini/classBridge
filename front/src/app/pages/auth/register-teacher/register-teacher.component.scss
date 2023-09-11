@@ -1,5 +1,11 @@
 .container{
     width: 100%;
+    .errorMessage{
+        color: rgb(228, 21, 21);
+        font-size: 18px;
+        text-align: center;
+        margin-top: 15px;
+    }
     .form-section{
         width: fit-content;
         height: fit-content;

@@ -1,5 +1,6 @@
 <app-navbar></app-navbar>
 <div class="container">
+    <div class="errorMessage">{{errorMessage}}</div>
     <div class="form-section">
         <h3 class="title">Inscription</h3>
         <form (ngSubmit)="registerTeacher()">
@@ -21,7 +22,7 @@
            </div>
            <div class="form-field">
             <label class="label"> Confirmation du mot de passe</label>
-            <input type="password" class="input" name="password" [(ngModel)]="registerRequest.password">
+            <input type="password" class="input" name="confirmation-password" [(ngModel)]="confirmationPassword">
            </div>
            <div class="forget-submit">
             <button type="submit" class="submit-btn" >S'inscrire</button>

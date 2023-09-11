@@ -34,6 +34,7 @@ import { AuthComponent } from './pages/auth/auth.component';
 import { LoginTeacherComponent } from './pages/auth/login-teacher/login-teacher.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { VerifyEmailDialogueComponent } from './pages/auth/register-teacher/verify-email-dialogue/verify-email-dialogue.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { FormsModule } from '@angular/forms';
     RegisterComponent,
     AuthComponent,
     LoginTeacherComponent,
+    VerifyEmailDialogueComponent,
 
   ],
   imports: [
