@@ -25,6 +25,7 @@ public class SecurityConfiguration{
     private static final String[] WHITE_LIST = {
             "/auth",
             "/auth/register",
+            "/auth/authenticate",
             "/auth/registerStudent",
             "/auth/verifyRegistration*",
             "/auth/resendVerifyToken*",

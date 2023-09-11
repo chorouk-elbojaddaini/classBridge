@@ -24,6 +24,7 @@ const routes: Routes = [
   {
     path: 'teacherDashboard', component: TeacherLayoutComponent,
     children: [
+      // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'classes', component: ClassesComponent },
       { path: 'messages', component: MessagesComponent },
