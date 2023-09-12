@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthenticationResponse } from 'src/app/models/Authentication-response';
 import { AuthenticationRequest } from 'src/app/models/authentication-request';
 import { RegisterRequest } from 'src/app/models/register-request';
+import { User } from 'src/app/models/user';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
@@ -19,7 +20,8 @@ export class LoginTeacherComponent {
 
   authResponse: AuthenticationResponse = {
     jwtToken: '',
-    user: new RegisterRequest(
+    user: new User(
+      0,
       '',
       '',
       '',

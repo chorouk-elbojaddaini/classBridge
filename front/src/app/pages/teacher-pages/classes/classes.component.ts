@@ -3,6 +3,9 @@ import { DialogComponent } from '../dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ChoixDialogComponent } from '../choix-dialog/choix-dialog.component';
 import classesInfo from '../../../../assets/data/classesData.json';
+import { ClasseServiceService } from 'src/app/services/classe-service.service';
+import { User } from 'src/app/models/user';
+import { Classe } from 'src/app/models/classe';
 @Component({
   selector: 'app-classes',
   templateUrl: './classes.component.html',
@@ -13,6 +16,43 @@ export class ClassesComponent {
   classesData = classesInfo;
   variable1Recue: boolean = false;
   variable2Recue: boolean = false;
+  user : User = {
+    id: 0,
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    role: '',
+    enabled: false
+  };
+
+  idTeacher?:any;
+  classes: Classe[] = [];
+
+  constructor(private dialog: MatDialog,private classeService: ClasseServiceService) { 
+    const authUserJSON:any = localStorage.getItem("authUser");
+    this.user = JSON.parse(authUserJSON);
+    this.idTeacher = this.user.id;
+  }
+
+  ngOnInit(){
+    console.log("id teacher",this.classes.length);
+    this.classeService.getAllClasses(this.idTeacher)
+    .subscribe(classes => {
+      console.log(classes);
+      this.classes = classes;
+    });
+    
+  }
+  // dans le cas ou je vais faire que une fois ajouter ou supprimer une classe synch
+  // ngDoCheck(){
+  //   this.classeService.getAllClasses(this.idTeacher)
+  //   .subscribe(classes => {
+  //     console.log(classes);
+  //     this.classes = classes;
+  //   });
+  // }
+
 
   redirectTo() {
     this.variable2Recue = false;
@@ -25,7 +65,7 @@ export class ClassesComponent {
   recevoirVariable2(variable: boolean) {
     this.variable2Recue = variable;
   }
-  constructor(private dialog: MatDialog) { }
+ 
 
   viewClasses() {
     this.choose = true;
