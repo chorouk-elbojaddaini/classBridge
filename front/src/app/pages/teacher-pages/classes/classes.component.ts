@@ -45,13 +45,13 @@ export class ClassesComponent {
     
   }
   // dans le cas ou je vais faire que une fois ajouter ou supprimer une classe synch
-  // ngDoCheck(){
-  //   this.classeService.getAllClasses(this.idTeacher)
-  //   .subscribe(classes => {
-  //     console.log(classes);
-  //     this.classes = classes;
-  //   });
-  // }
+  ngDoCheck(){
+    this.classeService.getAllClasses(this.idTeacher)
+    .subscribe(classes => {
+      console.log(classes);
+      this.classes = classes;
+    });
+  }
 
 
   redirectTo() {
