@@ -38,6 +38,9 @@ constructor(private userService:UserServiceService){
   const authUserJSON:any = localStorage.getItem("authUser");
     this.user = JSON.parse(authUserJSON);
 }
+update(){
+  //update user here
+}
 ngOnInit(){
   console.log("salut",this.user.id)
 }
