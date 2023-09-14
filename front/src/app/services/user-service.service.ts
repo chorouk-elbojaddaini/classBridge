@@ -11,6 +11,6 @@ export class UserServiceService {
   constructor(private http:HttpClient) { }
 
   updateUser(user:User,userId:number){
-    return this.http.get<User>(`${this.baseUrl}/update/${userId}`);
+    return this.http.put<User>(`${this.baseUrl}/update/${userId}`,user);
   }
 }
