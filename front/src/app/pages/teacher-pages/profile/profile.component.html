@@ -3,8 +3,8 @@
     <div class="middle-content">
         <div class="infos-section">
             <img [src]="professor.image" alt="professor-image" class="img">
-            <h4 class="name">{{professor.firstName}} {{professor.lastName}}</h4>
-            <h4 class="email">{{professor.email}}</h4>
+            <h4 class="name">{{user.firstName}} {{user.lastName}}</h4>
+            <h4 class="email">{{user.email}}</h4>
             <div>
             <i class="fa-solid fa-users"></i> {{professor.numberStudents}} students
             </div>
@@ -18,13 +18,13 @@
                 <form action="" class="form-basic-infos">
                    <div class="name-inputs">
                     <label for="">Nom : </label>
-                    <input type="text" [placeholder]="professor.lastName">
+                    <input type="text" [placeholder]="user.lastName">
                     <label for="">Prenom : </label>
-                    <input type="text" [placeholder]="professor.firstName">
+                    <input type="text" [placeholder]="user.firstName">
                    </div>
                     <div class="email-input">
                         <label for="">Email : </label>
-                    <input type="text" [placeholder]="professor.email">
+                    <input type="text" [placeholder]="user.email">
                     </div>
                 </form>
             </div>
