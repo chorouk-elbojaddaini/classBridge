@@ -5,37 +5,48 @@
             <img [src]="professor.image" alt="professor-image" class="img">
             <h4 class="name">{{user.firstName}} {{user.lastName}}</h4>
             <h4 class="email">{{user.email}}</h4>
-            <div>
-            <i class="fa-solid fa-users"></i> {{professor.numberStudents}} students
+            <div class="number">
+            <i class="fa-solid fa-users"></i>&nbsp; {{professor.numberStudents}} students
             </div>
-            <div>
-                <i class="fa-regular fa-file"></i> {{professor.numberCourses}} courses
+            <div class="number">
+                <i class="fa-regular fa-file"></i>&nbsp; {{professor.numberCourses}} courses
             </div>
         </div>
         <div class="details">
             <div class="basic-infos">
                 <h3>Informations basiques</h3>
-                <form action="" class="form-basic-infos">
+                <form action="" class="form-basic-infos" (ngSubmit)="onUpdateUser()">
                    <div class="name-inputs">
                     <label for="">Nom : </label>
-                    <input type="text" [placeholder]="user.lastName">
+                    <input type="text" [placeholder]="user.lastName"  [(ngModel)]="userUpdated.lastName" name="lastName">
                     <label for="">Prenom : </label>
-                    <input type="text" [placeholder]="user.firstName">
+                    <input type="text" [placeholder]="user.firstName"  [(ngModel)]="userUpdated.firstName" name="firstName">
                    </div>
                     <div class="email-input">
                         <label for="">Email : </label>
-                    <input type="text" [placeholder]="user.email">
+                    <input type="text" [placeholder]="user.email"  [(ngModel)]="userUpdated.email" name="email">
                     </div>
+                    <button type="submit">Modifier</button>
                 </form>
             </div>
             <div class="password-section">
                 <h3>Modifier votre Mot de passe</h3>
-                <form action="" class="password-form">
+                <form [formGroup]="passwordForm" (ngSubmit)="updatePassword()" class="password-form">
                     <label>Mot de passe :</label>
-                    <input type="password">
+                    <input type="password" formControlName="password">
+                    <div *ngIf="passwordForm.get('password')?.invalid && passwordForm.get('password')?.touched">
+                      Le mot de passe est requis et doit contenir au moins 6 caractères.
+                    </div>
+                  
                     <label>Confirmation de mot de passe :</label>
-                    <input type="password">
-                </form>
+                    <input type="password" formControlName="confirmPassword">
+                    <div *ngIf="passwordForm.get('confirmPassword')?.invalid && passwordForm.get('confirmPassword')?.touched">
+                      Veuillez confirmer le mot de passe.
+                    </div>
+                  
+                    <button type="submit" [disabled]="!passwordForm.valid">Modifier</button>
+                  </form>
+                  
             </div>
         </div>
     </div>

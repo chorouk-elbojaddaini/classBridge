@@ -19,9 +19,11 @@
         flex-wrap: wrap;
         margin: 0 45px;
         .infos-section {
-            flex: 0 0 auto;
             width: fit-content;
-            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 50px;
             height: fit-content;
             background-color: white;
             margin: 15px;
@@ -33,6 +35,11 @@
             .img {
                 width: 10rem;
                 height: 10rem;
+            }
+            .number {
+                .fa-solid,.fa-regular{
+                    color: var(--grey-main);
+                }
             }
         }
         .details{
