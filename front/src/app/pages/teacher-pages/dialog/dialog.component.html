@@ -1,15 +1,27 @@
 <h4>Ajouter votre classe</h4>
 <mat-dialog-content>
-<form action="">
-  <label>Filière : </label>
-  <input type="text" placeholder="Filière">
-  <label>Module : </label>
-  <input type="text" placeholder="Module">
-  <label>Niveau : </label>
-  <input type="text" placeholder="Niveau">
-</form>
+  <form [formGroup]="classeForm" (ngSubmit)="onSubmit()">
+    <label>Filière :</label>
+    <input type="text" formControlName="filiere" placeholder="Filière">
+    <div *ngIf="classeForm.get('filiere')?.invalid && classeForm.get('filiere')?.touched">
+      La filière est requise.
+    </div>
+
+    <label>Module :</label>
+    <input type="text" formControlName="module" placeholder="Module">
+    <div *ngIf="classeForm.get('module')?.invalid && classeForm.get('module')?.touched">
+      Le module est requis.
+    </div>
+
+    <label>Niveau :</label>
+    <input type="text" formControlName="niveau" placeholder="Niveau">
+    <div *ngIf="classeForm.get('niveau')?.invalid && classeForm.get('niveau')?.touched">
+      Le niveau est requis.
+    </div>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close>Annuler</button>
+      <button type="submit" mat-button>Ajouter</button>
+    </mat-dialog-actions>
+  </form>
 </mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button mat-dialog-close>Annuler</button>
-  <button mat-button mat-dialog-close>Ajouter</button>
-</mat-dialog-actions>
+

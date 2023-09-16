@@ -7,11 +7,16 @@ import { Classe } from '../models/classe';
 })
 export class ClasseServiceService {
   
-  private baseUrl = 'http://localhost:8090'; 
+  private baseUrl = 'http://localhost:8090/classe'; 
 
   constructor(private http: HttpClient) {}
 
   getAllClasses(userId: number) {
-    return this.http.get<Classe[]>(`${this.baseUrl}/classe/${userId}`);
+    return this.http.get<Classe[]>(`${this.baseUrl}/${userId}`);
+  }
+
+  addClasse(classe:Classe){
+    return this.http.post<Classe>(`${this.baseUrl}/add`,classe);
+
   }
 }

@@ -2,6 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 
+export interface UserUpdate{
+  firstName:''
+  lastName:''
+  email:''
+  password:''
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +16,7 @@ export class UserServiceService {
 
   constructor(private http:HttpClient) { }
 
-  updateUser(user:User,userId:number){
+  updateUser(user:UserUpdate,userId:number){
     return this.http.put<User>(`${this.baseUrl}/update/${userId}`,user);
   }
 }
