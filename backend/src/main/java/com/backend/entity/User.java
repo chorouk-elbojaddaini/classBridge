@@ -38,6 +38,9 @@ public class User implements UserDetails {
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private StudentData studentInfo;
 
+   /* @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Event> events;*/
+
     private boolean enabled = false;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

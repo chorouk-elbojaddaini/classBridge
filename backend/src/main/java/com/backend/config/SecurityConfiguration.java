@@ -35,7 +35,8 @@ public class SecurityConfiguration{
             "/classe*",
             "/student*",
             "student/*",
-            "/student/add"
+            "/student/add",
+            "/events"
     };
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
