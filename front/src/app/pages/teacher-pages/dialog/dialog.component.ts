@@ -22,6 +22,7 @@ export class DialogComponent {
     });
     const authUserJSON: any = localStorage.getItem("authUser");
     const userTemp = JSON.parse(authUserJSON);
+    //j'ai fait ca parce que userTemp contient des infos supplementaires
     this.user = new User(userTemp.id
       ,userTemp.firstName
       ,userTemp.lastName
@@ -29,6 +30,7 @@ export class DialogComponent {
       ,userTemp.password
       ,userTemp.role
       ,userTemp.enabled);
+      //pour avoir juste Id user authentifié
     this.userId = this.user.id;
     this.classe = new Classe("", "", "", "", this.user);
   }
@@ -39,7 +41,6 @@ export class DialogComponent {
       this.classe.module = formData.module;
       this.classe.level = formData.niveau;
      
-      console.log("hadi classe",this.classe);
       this.classeService.addClasse(this.classe).subscribe({
         next:(response)=> console.log("added successfully!"),
         error:(e) => console.log(e)

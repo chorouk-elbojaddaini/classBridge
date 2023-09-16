@@ -5,6 +5,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import { INITIAL_EVENTS, createEventId } from './event-utils';
+import { EventService } from 'src/app/services/event.service';
 
 @Component({
   selector: 'app-programme',
@@ -42,8 +43,11 @@ export class ProgrammeComponent {
     */
   };
   currentEvents: EventApi[] = [];
-
-  constructor(private changeDetector: ChangeDetectorRef) {
+  userId:any;
+  constructor(private changeDetector: ChangeDetectorRef,private eventService:EventService) {
+    const authUserJSON:any = localStorage.getItem("authUser");
+    const user = JSON.parse(authUserJSON);
+    this.userId = user.id;
   }
 
   handleCalendarToggle() {
@@ -60,14 +64,23 @@ export class ProgrammeComponent {
     const calendarApi = selectInfo.view.calendar;
 
     calendarApi.unselect(); // clear date selection
-
     if (title) {
-      calendarApi.addEvent({
-        id: createEventId(),
+      const eventData = {
         title,
-        start: selectInfo.startStr,
-        end: selectInfo.endStr,
-        allDay: selectInfo.allDay
+        start_date: selectInfo.startStr,
+        end_date: selectInfo.endStr,
+        allDay: selectInfo.allDay,
+      };
+  
+      this.eventService.createEvent(eventData,this.userId).subscribe((response) => {
+        // Handle the response if needed
+        calendarApi.addEvent({
+          id: "1", // Use the ID returned by the backend
+          title,
+          start: selectInfo.startStr,
+          end: selectInfo.endStr,
+          allDay: selectInfo.allDay,
+        });
       });
     }
   }
