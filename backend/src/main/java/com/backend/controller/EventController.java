@@ -7,6 +7,8 @@ import com.backend.serviceImpl.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/events")
@@ -26,5 +28,10 @@ public class EventController {
         }
         return null;
 
+    }
+
+    @GetMapping
+    public List<Event> getAllEvents(@RequestParam Long userId){
+        return eventService.getAll(userId);
     }
 }

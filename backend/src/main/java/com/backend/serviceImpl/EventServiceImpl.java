@@ -6,6 +6,8 @@ import com.backend.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 
 public class EventServiceImpl implements EventService {
@@ -15,5 +17,10 @@ public class EventServiceImpl implements EventService {
     @Override
     public Event createEvent(Event event) {
         return eventRepository.save(event);
+    }
+
+    @Override
+    public List<Event> getAll(Long userId) {
+        return eventRepository.findAllByUserId(userId);
     }
 }
