@@ -40,6 +40,7 @@ export class LoginTeacherComponent {
      .subscribe({
       next: (response) =>{ console.log(response)
         this.authResponse = response;
+        console.log("authResponse",this.authResponse);
         localStorage.setItem('authResponse', this.authResponse.jwtToken);
         localStorage.setItem('authUser', JSON.stringify(this.authResponse.user));
 

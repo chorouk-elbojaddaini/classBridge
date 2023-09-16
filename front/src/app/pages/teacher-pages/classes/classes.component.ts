@@ -39,7 +39,7 @@ export class ClassesComponent {
     console.log("id teacher",this.classes.length);
     this.classeService.getAllClasses(this.idTeacher)
     .subscribe(classes => {
-      console.log(classes);
+      // console.log(classes);
       this.classes = classes;
     });
     
