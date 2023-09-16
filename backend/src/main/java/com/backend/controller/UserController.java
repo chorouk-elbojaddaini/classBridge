@@ -1,14 +1,17 @@
 package com.backend.controller;
 import com.backend.entity.User;
+import com.backend.model.UserModel;
 import com.backend.serviceImpl.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
 
@@ -20,22 +23,10 @@ public class UserController {
     }
 
     @PutMapping("/update/{id}")
-    public User updateUser(@RequestBody User user,@PathVariable("id") Long id){
-        User userToUpdate = service.findById(id).get();
-        if(user.getFirstName() != null){
-            userToUpdate.setFirstName(user.getFirstName());
-        }
-        if(user.getLastName() != null){
-            userToUpdate.setLastName(user.getLastName());
-        }
-        if(user.getEmail() != null){
-            userToUpdate.setEmail(user.getEmail());
-        }
-        if(user.getPassword() != null){
-            userToUpdate.setPassword(user.getPassword());
-        }
-        return service.updateUser(userToUpdate);
+    public User updateUser(@RequestBody UserModel user, @PathVariable("id") Long id) {
+       return service.updateUser(user,id);
     }
+
 
 
 }

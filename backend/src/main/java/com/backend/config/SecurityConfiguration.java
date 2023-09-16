@@ -29,6 +29,7 @@ public class SecurityConfiguration{
             "/auth/registerStudent",
             "/auth/verifyRegistration*",
             "/auth/resendVerifyToken*",
+            "/auth/update/*",
             "/classe/*",
             "/add",
             "/classe*",
