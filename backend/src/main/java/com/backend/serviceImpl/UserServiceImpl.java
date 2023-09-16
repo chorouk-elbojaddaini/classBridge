@@ -43,8 +43,30 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateUser(User user) {
-        return userRepository.save(user);
+    public User updateUser(UserModel user,Long id) {
+        Optional<User> optionalUser = userRepository.findById(id);
+
+        if (optionalUser.isPresent()) {
+            User userToUpdate = optionalUser.get();
+
+            if (user.getFirstName() != null && !user.getFirstName().isEmpty()) {
+                userToUpdate.setFirstName(user.getFirstName());
+            }
+            if (user.getLastName() != null && !user.getLastName().isEmpty()) {
+                userToUpdate.setLastName(user.getLastName());
+            }
+            if (user.getEmail() != null && !user.getEmail().isEmpty()) {
+                userToUpdate.setEmail(user.getEmail());
+            }
+            if (user.getPassword() != null && !user.getPassword().isEmpty()) {
+                //userToUpdate.setPassword(passwordEncoder.encode(user.getPassword()));
+                userToUpdate.setPassword(user.getPassword());
+            }
+
+            return userRepository.save(userToUpdate);
+        } else {
+            throw new NoSuchElementException("User with id " + id + " not found");
+        }
     }
 
     @Override

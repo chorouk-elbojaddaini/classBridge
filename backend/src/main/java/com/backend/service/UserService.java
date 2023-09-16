@@ -13,7 +13,7 @@ import java.util.Optional;
 
 public interface UserService {
     Optional<User> findById(Long id);
-    User updateUser(User user);
+    User updateUser(UserModel user,Long id);
 
     User save(User user);
 

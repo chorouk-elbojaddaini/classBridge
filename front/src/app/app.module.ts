@@ -35,6 +35,7 @@ import { LoginTeacherComponent } from './pages/auth/login-teacher/login-teacher.
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { VerifyEmailDialogueComponent } from './pages/auth/register-teacher/verify-email-dialogue/verify-email-dialogue.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { VerifyEmailDialogueComponent } from './pages/auth/register-teacher/veri
     MatPaginatorModule,
     FullCalendarModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
