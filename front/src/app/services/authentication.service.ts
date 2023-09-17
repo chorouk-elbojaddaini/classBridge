@@ -14,6 +14,9 @@ export class AuthenticationService {
   register(registerRequest:RegisterRequest){
     return this.http.post<AuthenticationResponse>(`${this.baseUrl}/register`,registerRequest);
   }
+  registerStudent(registerRequest:RegisterRequest){
+    return this.http.post<AuthenticationResponse>(`${this.baseUrl}/registerStudent`,registerRequest);
+  }
 
   authenticate(authRequest:AuthenticationRequest){
     return this.http.post<AuthenticationResponse>(`${this.baseUrl}/authenticate`,authRequest);
