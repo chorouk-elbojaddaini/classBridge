@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="form-section" >
+        <h3 class="title">Connexion</h3>
+        <form action="" (ngSubmit)="authenticate()">
+           <div class="form-field">
+            <label class="label">Email</label>
+            <input type="text" class="input" name="email" [(ngModel)]="authRequest.email">
+           </div>
+           <div class="form-field">
+            <label class="label">Mot de passe</label>
+            <input type="password" class="input" name="password" [(ngModel)]="authRequest.password">
+           </div>
+           <div class="forget-submit">
+            <button type="submit" class="submit-btn">Se connecter</button>
+        <span class="mdp-oublie">Mot de passe oublié ?</span>
+           </div>
+        </form>
+        <p class="create-account">Voulez-vous créer un compte ? <a class="register"  [routerLink]="['../registerStudent']">S'inscrire</a></p>
+    </div>
+</div>

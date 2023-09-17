@@ -20,7 +20,7 @@ public interface UserService {
     void saveVerificationTokenForUser(String token, User user);
 
     RegistrationResponse registerTeacher(UserModel userModel);
-    Map<String, Object> registerStudent(UserModel userModel);
+    RegistrationResponse registerStudent(UserModel userModel);
     String validateVerificationToken(String token);
 
     VerificationToken generateNewVerificationToken(String oldToken);

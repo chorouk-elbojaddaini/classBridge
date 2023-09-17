@@ -106,18 +106,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Map<String, Object> registerStudent(UserModel userModel) {
-        Optional<User> userExists = repository.findByEmail(userModel.getEmail());
+    public RegistrationResponse registerStudent(UserModel usermodel) {
+        Optional<User> userExists = repository.findByEmail(usermodel.getEmail());
         if(userExists.isPresent()){
             throw new UserAlreadyExistsException(
-                    "User with email "+userModel.getEmail() + " already exists"
+                    "User with email "+usermodel.getEmail() + " already exists"
             );
         }
         User user = User.builder()
-                .firstName(userModel.getFirstName())
-                .lastName(userModel.getLastName())
-                .email(userModel.getEmail())
-                .password(passwordEncoder.encode(userModel.getPassword()))
+                .firstName(usermodel.getFirstName())
+                .lastName(usermodel.getLastName())
+                .email(usermodel.getEmail())
+                .password(passwordEncoder.encode(usermodel.getPassword()))
                 .role(Role.STUDENT)
                 .build();
         repository.save(user);
@@ -125,12 +125,8 @@ public class UserServiceImpl implements UserService {
         AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
-        Map<String, Object> response = new HashMap<>();
-        response.put("jwtToken", jwtToken);
-        response.put("user", user);
-        return response;
+        return new RegistrationResponse(jwtToken, user);
     }
-
     @Override
     public String validateVerificationToken(String token) {
         VerificationToken verificationToken =

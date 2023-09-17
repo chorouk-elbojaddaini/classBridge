@@ -12,6 +12,8 @@ import { RegisterStudentComponent } from './pages/auth/register-student/register
 import { HomeComponent } from './pages/home/home.component';
 import { AuthComponent } from './pages/auth/auth.component';
 import { LoginTeacherComponent } from './pages/auth/login-teacher/login-teacher.component';
+import { LoginStudentComponent } from './pages/auth/login-student/login-student.component';
+import { StudentLayoutComponent } from './components/student-layout/student-layout.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -20,6 +22,7 @@ const routes: Routes = [
   { path: 'auth/registerStudent', component: RegisterStudentComponent },
   { path: 'auth/registerTeacher', component: RegisterTeacherComponent },
   { path: 'auth/loginTeacher', component: LoginTeacherComponent },
+  { path: 'auth/loginStudent', component: LoginStudentComponent },
 
   {
     path: 'teacherDashboard', component: TeacherLayoutComponent,
@@ -32,6 +35,18 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
     ],
   },
+  {
+    path: 'studentDashboard', component: StudentLayoutComponent,
+    // children: [
+    //   // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+    //   { path: 'dashboard', component: DashboardComponent },
+    //   { path: 'classes', component: ClassesComponent },
+    //   { path: 'messages', component: MessagesComponent },
+    //   { path: 'schedule', component: ProgrammeComponent },
+    //   { path: 'profile', component: ProfileComponent },
+    // ],
+  }
+
 
 ];
 

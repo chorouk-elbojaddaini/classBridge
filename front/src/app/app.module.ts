@@ -36,6 +36,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { VerifyEmailDialogueComponent } from './pages/auth/register-teacher/verify-email-dialogue/verify-email-dialogue.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginStudentComponent } from './pages/auth/login-student/login-student.component';
+import { StudentLayoutComponent } from './components/student-layout/student-layout.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AuthComponent,
     LoginTeacherComponent,
     VerifyEmailDialogueComponent,
+    LoginStudentComponent,
+    StudentLayoutComponent,
 
   ],
   imports: [

@@ -35,7 +35,6 @@ public class AuthenticationController {
 
 
     @PostMapping("/register")
-    @CrossOrigin(origins = "http://localhost:4200")
     public RegistrationResponse registerUser(@RequestBody UserModel userModel, final HttpServletRequest request) {
         RegistrationResponse registrationResult = service.registerTeacher(userModel);
         User user = (User) registrationResult.getUser();
@@ -46,9 +45,9 @@ public class AuthenticationController {
         return registrationResult;
     }
     @PostMapping("/registerStudent")
-    public  Map<String, Object> registerStudent(@RequestBody UserModel userModel, final HttpServletRequest request) {
-        Map<String, Object> registrationResult = service.registerStudent(userModel);
-        User user = (User) registrationResult.get("user");
+    public  RegistrationResponse registerStudent(@RequestBody UserModel userModel, final HttpServletRequest request) {
+        RegistrationResponse registrationResult = service.registerStudent(userModel);
+        User user = (User) registrationResult.getUser();
         publisher.publishEvent(new RegistrationCompleteEvent(
                 user,
                 applicationUrl(request)
