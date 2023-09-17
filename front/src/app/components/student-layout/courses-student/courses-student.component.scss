@@ -1,0 +1,58 @@
+.container{
+    margin: 20px 20px;
+    height: fit-content;
+    .join-btn{
+        margin-top: 25px;
+       margin-bottom: 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: var(--dark-pink);
+        padding: 12px;
+        color: white;
+        font-size: .9rem;
+        cursor: pointer;
+    }
+    .join-btn:hover{
+        background-color: var(--pink);
+    }
+    .content{
+        padding-bottom: 15px;
+        .form-section{
+            border: 1px solid var(--grey2);
+            border-radius: 5px;
+            height: 100px;
+            width: fit-content;
+            height: fit-content;
+            padding: 20px;
+            line-height: 2;
+            margin: auto;
+            .form-title{
+                font-size: 18px;
+                font-weight: 500;
+                color: var(--pink);
+            }
+            .description{
+                color: var(--grey);
+            }
+            form{
+                .input{
+                    border: none;
+                    border-radius: 5px;
+                    border:1px solid var(--grey2);
+                    padding: 8px;
+                    margin-top: 8px;
+                }
+                .submit-btn{
+                    margin-left: 35px;
+                    border: none;
+                    padding: 8px;
+                    border-radius: 5px;
+                    color: white;
+                    background-color: var(--blue);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+   
+}

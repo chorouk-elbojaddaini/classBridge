@@ -39,6 +39,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginStudentComponent } from './pages/auth/login-student/login-student.component';
 import { StudentLayoutComponent } from './components/student-layout/student-layout.component';
 import { HeroComponent } from './components/student-layout/hero/hero.component';
+import { CardComponent } from './components/student-layout/card/card.component';
+import { CoursesStudentComponent } from './components/student-layout/courses-student/courses-student.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +72,8 @@ import { HeroComponent } from './components/student-layout/hero/hero.component';
     LoginStudentComponent,
     StudentLayoutComponent,
     HeroComponent,
+    CardComponent,
+    CoursesStudentComponent,
 
   ],
   imports: [
