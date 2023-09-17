@@ -1,0 +1,34 @@
+
+
+
+
+.card{
+    background-color: white;
+    width: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 15px;
+    margin-top: 25px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    .card-img{
+        width: 140px;
+        height: 140px;
+    }
+    .title{
+        color: var(--blue);
+        font-size: 1.4rem;
+    }
+    .btn{
+        border: none;
+        background-color: var(--dark-pink);
+        color: white;
+        padding: 8px 25px;
+        border-radius: 5px;
+        margin-top: 15px;
+        cursor: pointer;
+    }
+    .btn:hover{
+        background-color: var(--pink);
+    }
+}

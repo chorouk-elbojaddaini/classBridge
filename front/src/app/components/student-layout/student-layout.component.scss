@@ -3,3 +3,11 @@
     margin-top: 25px;
     color: var(--grey);
 }
+
+.cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    margin-top: 45px;
+}
