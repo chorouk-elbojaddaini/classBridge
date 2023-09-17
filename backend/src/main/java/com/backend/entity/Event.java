@@ -18,7 +18,7 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    private Date start_date;
+    private Date start;
     private Date end_date;
     private boolean allDay;
 

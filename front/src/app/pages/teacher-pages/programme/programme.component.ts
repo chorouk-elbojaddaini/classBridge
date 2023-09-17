@@ -1,5 +1,5 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { CalendarOptions, DateSelectArg, EventClickArg, EventApi } from '@fullcalendar/core';
+import { CalendarOptions, DateSelectArg, EventClickArg, EventApi, EventInput } from '@fullcalendar/core';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -14,6 +14,9 @@ import { EventService } from 'src/app/services/event.service';
 })
 export class ProgrammeComponent {
   calendarVisible = true;
+  enable:boolean=true;
+  events: EventInput[] = [ ];
+
   calendarOptions: CalendarOptions = {
     plugins: [
       interactionPlugin,
@@ -27,7 +30,7 @@ export class ProgrammeComponent {
       right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
     },
     initialView: 'dayGridMonth',
-    initialEvents: INITIAL_EVENTS, // alternatively, use the `events` setting to fetch from a feed
+    initialEvents: this.events, // alternatively, use the `events` setting to fetch from a feed
     weekends: true,
     editable: true,
     selectable: true,
@@ -44,11 +47,64 @@ export class ProgrammeComponent {
   };
   currentEvents: EventApi[] = [];
   userId:any;
+
   constructor(private changeDetector: ChangeDetectorRef,private eventService:EventService) {
     const authUserJSON:any = localStorage.getItem("authUser");
     const user = JSON.parse(authUserJSON);
     this.userId = user.id;
   }
+
+   ngOnInit(){
+     this.getEventsFromDatabase();
+    
+    this.calendarOptions.initialEvents = this.events;
+  }
+  getEventsFromDatabase(){
+    // Remplacez 1 par l'ID de l'utilisateur approprié
+    this.eventService.getEvents(this.userId).subscribe({
+      next: (response: any) => {
+        // console.log('Événements récupérés depuis la base de données :', response);
+        // Mettez à jour la liste INITIAL_EVENTS avec les événements de la base de données
+        this.events = response.map((e: any) => ({
+          // id: e.id,
+          title: e.title,
+          start: new Date(e.start_date), // Assurez-vous que la clé correspond au format attendu
+          // end: e.end_date,     // Assurez-vous que la clé correspond au format attendu
+          // allDay: e.allDay
+        }))
+        
+        
+      },
+      error: (e) => console.log(e)
+    });
+  }
+
+ngDoCheck(){
+
+  if(this.enable ){
+     console.log("ok ici enable");
+   console.log("length",this.events)
+   
+     
+     console.log("calendar",this.calendarOptions.initialEvents)
+    //  this.events = [{
+    //   title:"helloevent",
+    //   start:new Date()
+    //  },
+    //  {title:"helloevent2",
+    //  start:new Date("Sat Sep 18 2023")
+    // }]
+    this.calendarOptions.initialEvents = this.events;
+     if(this.events.length >= 1){
+     
+  
+      this.enable = false
+      console.log("calendar",this.calendarOptions.initialEvents)
+
+
+     }
+  }
+}
 
   handleCalendarToggle() {
     this.calendarVisible = !this.calendarVisible;
@@ -67,7 +123,7 @@ export class ProgrammeComponent {
     if (title) {
       const eventData = {
         title,
-        start_date: selectInfo.startStr,
+        start: selectInfo.startStr,
         end_date: selectInfo.endStr,
         allDay: selectInfo.allDay,
       };
@@ -75,7 +131,7 @@ export class ProgrammeComponent {
       this.eventService.createEvent(eventData,this.userId).subscribe((response) => {
         // Handle the response if needed
         calendarApi.addEvent({
-          id: "1", // Use the ID returned by the backend
+          id: this.userId, 
           title,
           start: selectInfo.startStr,
           end: selectInfo.endStr,
@@ -94,6 +150,30 @@ export class ProgrammeComponent {
   handleEvents(events: EventApi[]) {
     this.currentEvents = events;
     this.changeDetector.detectChanges();
+  }
+
+  
+  getEvents() {
+    // Remplacez 1 par l'ID de l'utilisateur approprié
+    this.eventService.getEvents(this.userId).subscribe( {
+      next:(response: any) =>       {
+        console.log('Événements récupérés :', response);
+        this.events = response.map((e:any) => ({
+          id: e.id,
+          title: e.title,
+          start: e.start_date, // Assurez-vous que la clé correspond au format attendu
+          // end: e.end_date,     // Assurez-vous que la clé correspond au format attendu
+          // allDay: e.allDay
+        }));
+        console.log("events",this.events);
+        this.events = [
+          {title: "hello event",
+            start:new Date(),
+          end:new Date()}
+        ]
+    },
+    error: (e) => console.log(e)
+  });
   }
 
   

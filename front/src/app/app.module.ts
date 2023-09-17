@@ -38,6 +38,7 @@ import { VerifyEmailDialogueComponent } from './pages/auth/register-teacher/veri
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginStudentComponent } from './pages/auth/login-student/login-student.component';
 import { StudentLayoutComponent } from './components/student-layout/student-layout.component';
+import { HeroComponent } from './components/student-layout/hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { StudentLayoutComponent } from './components/student-layout/student-layo
     VerifyEmailDialogueComponent,
     LoginStudentComponent,
     StudentLayoutComponent,
+    HeroComponent,
 
   ],
   imports: [

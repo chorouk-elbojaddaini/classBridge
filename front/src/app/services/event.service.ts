@@ -11,7 +11,10 @@ export class EventService {
   constructor(private http:HttpClient) { }
 
   createEvent(eventData: any, userId: number) {
-    
     return this.http.post(`${this.baseUrl}?userId=${userId}`, eventData);
+  }
+
+  getEvents(userId: number) {
+    return this.http.get(`${this.baseUrl}?userId=${userId}`);
   }
 }
