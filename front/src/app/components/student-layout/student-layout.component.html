@@ -1,3 +1,16 @@
 <app-hero></app-hero>
-<div class="cards">
-</div>
+
+<div class="cards"> 
+   <div class="card" *ngFor="let card of cards">
+    <app-card [title]="card.title" [imagePath]="card.imagePath" (buttonClick)="toggleContent(card.title)"></app-card>
+   </div>
+ </div> 
+ <div *ngIf="selectedCard === 'Course'">
+    <app-courses-student></app-courses-student>
+ </div>
+ <div *ngIf="selectedCard === 'Messages'">
+    <h1>Messages</h1>
+ </div>
+ <div *ngIf="selectedCard === 'Notes'">
+    <h1>Messages</h1>
+ </div>
