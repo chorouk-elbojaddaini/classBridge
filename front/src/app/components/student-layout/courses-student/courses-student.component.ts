@@ -61,6 +61,29 @@ export class CoursesStudentComponent {
     this.joinClicked = !this.joinClicked;
   }
 
+  // joinClass() {
+  //   const codeControl = this.joinClassForm.get('code');
+  //   if (codeControl) {
+  //     const codeValue = codeControl.value;
+  //     console.log('Contenu du champ "code":', codeValue);
+  //     this.studentData.codeJoinClass = codeValue;
+  //     console.log("this student", this.studentData);
+  //     this.studentService.joinClass(this.studentData).subscribe({
+  //       next: (response) => {
+  //         this.studentService.findByCodeClass(codeValue).subscribe({
+  //         next:(response) => console.log(response)
+  //         });
+  //         console.log("next lwla shiha")
+
+  //       },
+  //       error: (e) => {
+  //         if(e.status === 403){
+  //           this.codeNotFound = "Ce code n'existe pas";
+  //         }
+  //       }
+  //     })
+  //   }
+  // }
   joinClass() {
     const codeControl = this.joinClassForm.get('code');
     if (codeControl) {
@@ -69,13 +92,22 @@ export class CoursesStudentComponent {
       this.studentData.codeJoinClass = codeValue;
       console.log("this student", this.studentData);
       this.studentService.joinClass(this.studentData).subscribe({
-        next: (response) => console.log(response),
+        next: (response) => {
+          console.log("next lwla shiha",response);
+          this.studentService.findByCodeClass(codeValue).subscribe({
+            next:(response) => console.log(response)
+          });
+        },
         error: (e) => {
-          if(e.status === 403){
+          if (e.status === 403) {
             this.codeNotFound = "Ce code n'existe pas";
           }
         }
-      })
+      });
+
     }
+    
   }
+  
+  
 }
