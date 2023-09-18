@@ -1,13 +1,16 @@
 <div class="container">
-    <button (click)="joinClass()" class="join-btn">Rejoindre votre classe</button>
+    <button (click)="clickBtn()" class="join-btn">Rejoindre votre classe</button>
     <div class="content" *ngIf="!joinClicked">
-        <div class="form-section">
+        <div class="form-section" >
             <h3 class="form-title">Code de votre classe</h3>
             <p class="description">Demandez le code à votre enseignant, puis saisissez-le ici.</p>
-            <form action="">
-                <input type="text" placeholder="Entrer le code" class="input">
+            <form  [formGroup]="joinClassForm" (ngSubmit)="joinClass()">
+                <input type="text" placeholder="Entrer le code" class="input" formControlName="code">
                 <button type="submit" class="submit-btn">Rejoindre</button> 
             </form>
+            <div *ngIf="codeNotFound != ''" class="codeNotFound">
+                {{codeNotFound}}
+            </div>
         </div>
     </div>
 </div>
