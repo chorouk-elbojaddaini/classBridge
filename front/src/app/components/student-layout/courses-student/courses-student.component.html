@@ -1,12 +1,12 @@
 <div class="container">
     <button (click)="clickBtn()" class="join-btn">Rejoindre votre classe</button>
     <div class="content" *ngIf="!joinClicked">
-        <div class="form-section" >
+        <div class="form-section">
             <h3 class="form-title">Code de votre classe</h3>
             <p class="description">Demandez le code à votre enseignant, puis saisissez-le ici.</p>
-            <form  [formGroup]="joinClassForm" (ngSubmit)="joinClass()">
+            <form [formGroup]="joinClassForm" (ngSubmit)="joinClass()">
                 <input type="text" placeholder="Entrer le code" class="input" formControlName="code">
-                <button type="submit" class="submit-btn">Rejoindre</button> 
+                <button type="submit" class="submit-btn">Rejoindre</button>
             </form>
             <div *ngIf="codeNotFound != ''" class="codeNotFound">
                 {{codeNotFound}}
@@ -14,6 +14,24 @@
         </div>
     </div>
     <div class="courses">
-        
+        <div class="course-item">
+            <div class="info-field">
+                <h3 class="module-name">Machine learning</h3>
+                <span>GSEIR</span>
+                <span>4ème année</span>
+                <span>Teacher : Rim hassani idrisssi</span>
+                <img src="assets/dashboard-imgs/no-img.png" class="teacher-img">
+            </div>
+            <div class="btn">
+                <button class="view-btn"><i class="fa-solid fa-eye"></i> View</button>
+            </div>
+        </div>
+    </div>
+    <div class="content-courses">
+        <div class="title">
+            <button class="return-btn"><i class="fa-solid fa-arrow-left"></i></button>
+            <h2>Les cours disponibles</h2>
+        </div>
+        <app-item-list></app-item-list>
     </div>
 </div>

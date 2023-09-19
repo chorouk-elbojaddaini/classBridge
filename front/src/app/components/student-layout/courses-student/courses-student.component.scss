@@ -60,4 +60,70 @@
         }
     }
    
+    .courses{
+        padding-bottom: 25px;
+        .course-item{
+           border: 1px solid var(--grey2);
+           width: 25%;
+           border-radius: 5px;
+           cursor: pointer;
+           line-height: 1.5;
+           .info-field{
+            display: flex;
+            flex-direction: column;
+            background-color: var(--blue);
+            color: white;
+            position: relative;
+           padding: 18px;
+           .teacher-img{
+            width: 80px;
+            height: 80px; 
+            position: absolute;
+            top: 89px;
+            right: 8px;
+            
+           }
+           }
+           .btn{
+            padding: 25px;
+            text-align: center;
+            .view-btn{
+                border: none;
+                background-color: white;
+                border: 1px solid var(--blue);
+                border-radius: 10px;
+                color: var(--blue);
+                padding: 8px 15px;
+                cursor: pointer;
+            }
+            .view-btn:hover{
+                background-color: var(--blue);
+                color: white;
+            }
+           }
+        }
+        .course-item:hover{
+            box-shadow: 2px 2px 4px rgba(126, 126, 126, 0.5);
+            .info-field{
+                .module-name{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    .content-courses{
+        padding-bottom: 25px;
+        .title{
+            display: flex;
+            gap: 20px;
+            color: var(--dark-pink);
+            .return-btn{
+                border: none;
+                color: var(--grey);
+                background-color: transparent;
+                font-size: 21px;
+                cursor: pointer;
+            }
+        }
+    }
 }

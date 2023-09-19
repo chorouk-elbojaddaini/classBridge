@@ -41,6 +41,7 @@ import { StudentLayoutComponent } from './components/student-layout/student-layo
 import { HeroComponent } from './components/student-layout/hero/hero.component';
 import { CardComponent } from './components/student-layout/card/card.component';
 import { CoursesStudentComponent } from './components/student-layout/courses-student/courses-student.component';
+import { AddCourseComponent } from './pages/teacher-pages/classes/courses/add-course/add-course.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,8 @@ import { CoursesStudentComponent } from './components/student-layout/courses-stu
     HeroComponent,
     CardComponent,
     CoursesStudentComponent,
+    AddCourseComponent,
+    
 
   ],
   imports: [
