@@ -1,8 +1,5 @@
 <div class="container">
-    <h3 class="title">
-        <span (click)="redirectTo()">Classes </span> <span *ngIf="variable1Recue"> > Students</span>
-        <span *ngIf="variable2Recue"> > Courses</span>
-    </h3>
+    
 
     <div class="content" *ngIf="!variable1Recue && !variable2Recue">
         <div class="top-section">
@@ -18,11 +15,11 @@
             <p>Vous n'avez aucune classe ou vous n'avez pas fait un choix</p>
         </div>
         <div class="classes">
-            <div class="class-item" *ngFor="let classe of classes" (click)="openDialog()">
+            <div class="class-item" *ngFor="let classe of classes" (click)="openDialog(classe)">
                 <span>{{classe.fieldName}}</span>
             </div>
         </div>
     </div>
-    <app-students *ngIf="variable1Recue"></app-students>
-    <app-courses *ngIf="variable2Recue"></app-courses>
+    <!-- <app-students *ngIf="variable1Recue" ></app-students> -->
+    <!-- <app-courses *ngIf="variable2Recue" [classe]="selectedClass"></app-courses> -->
 </div>

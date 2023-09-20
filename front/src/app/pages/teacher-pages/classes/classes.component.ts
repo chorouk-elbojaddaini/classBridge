@@ -28,6 +28,7 @@ export class ClassesComponent {
 
   idTeacher?:any;
   classes: Classe[] = [];
+  selectedClass: any;
 
   constructor(private dialog: MatDialog,private classeService: ClasseServiceService) { 
     const authUserJSON:any = localStorage.getItem("authUser");
@@ -41,6 +42,7 @@ export class ClassesComponent {
     .subscribe(classes => {
       // console.log(classes);
       this.classes = classes;
+      console.log("hado classes",this.classes);
     });
     
   }
@@ -54,17 +56,7 @@ export class ClassesComponent {
   // }
 
 
-  redirectTo() {
-    this.variable2Recue = false;
-    this.variable1Recue = false;
-  }
-  recevoirVariable1(variable: boolean) {
-    this.variable1Recue = variable;
-  }
-
-  recevoirVariable2(variable: boolean) {
-    this.variable2Recue = variable;
-  }
+  
  
 
   viewClasses() {
@@ -78,17 +70,10 @@ export class ClassesComponent {
     });
 
   }
-  openDialog() {
-    const dialogRef = this.dialog.open(ChoixDialogComponent);
-
-    dialogRef.afterClosed().subscribe((_result: any) => {
-    });
-    dialogRef.componentInstance.variable1Emise.subscribe((variable1: boolean) => {
-      this.variable1Recue = variable1;
-    });
-    dialogRef.componentInstance.variable2Emise.subscribe((variable2: boolean) => {
-      this.variable2Recue = variable2;
-    });
+  openDialog(classe:any) {
+    const dialogRef = this.dialog.open(ChoixDialogComponent, {
+      data: { classe: classe } // Passer classe comme donnée au dialogue
+  });
   }
   //  ngDoCheck(){
   //   console.log("la valeur de la var",this.variable1Recue)
