@@ -43,6 +43,7 @@ export class LoginTeacherComponent {
         console.log("authResponse",this.authResponse);
         localStorage.setItem('authResponse', this.authResponse.jwtToken);
         localStorage.setItem('authUser', JSON.stringify(this.authResponse.user));
+        localStorage.setItem('email', this.authResponse.user.email);
 
         this.router.navigate(['/teacherDashboard']);
       },
