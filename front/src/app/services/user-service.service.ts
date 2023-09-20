@@ -19,4 +19,9 @@ export class UserServiceService {
   updateUser(user:UserUpdate,userId:number){
     return this.http.put<User>(`${this.baseUrl}/update/${userId}`,user);
   }
+
+  findUserByEmail(email:String){
+    return this.http.get<User>(`${this.baseUrl}/email/${email}`);
+
+  }
 }
