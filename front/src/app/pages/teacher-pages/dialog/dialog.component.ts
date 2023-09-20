@@ -32,7 +32,7 @@ export class DialogComponent {
       ,userTemp.enabled);
       //pour avoir juste Id user authentifié
     this.userId = this.user.id;
-    this.classe = new Classe("", "", "", "", this.user);
+    this.classe = new Classe(0,"", "", "", "", this.user);
   }
   onSubmit() {
     if (this.classeForm.valid) {
