@@ -35,11 +35,9 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private StudentData studentInfo;
+    /*@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Etudiant studentInfo;*/
 
-   /* @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Event> events;*/
 
     private boolean enabled = false;
     @Override
