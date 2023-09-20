@@ -4,6 +4,7 @@ import com.backend.auth.AuthenticationRequest;
 import com.backend.auth.AuthenticationResponse;
 import com.backend.auth.RegistrationResponse;
 import com.backend.config.JwtService;
+import com.backend.dto.UserDTO;
 import com.backend.entity.Role;
 import com.backend.entity.User;
 import com.backend.entity.VerificationToken;
@@ -12,6 +13,7 @@ import com.backend.model.UserModel;
 import com.backend.repository.UserRepository;
 import com.backend.repository.VerificationUserTokenRepository;
 import com.backend.service.UserService;
+import jakarta.persistence.Tuple;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -40,6 +42,22 @@ public class UserServiceImpl implements UserService {
     @Override
     public Optional<User> findById(Long id) {
         return userRepository.findById(id);
+    }
+
+
+
+    @Override
+    public UserDTO getUserInfoByEmail(String email) {
+        Tuple tuple = userRepository.getUserInfoByEmail(email);
+
+        if (tuple != null) {
+            String firstName = tuple.get("first_name", String.class);
+            String lastName = tuple.get("last_name", String.class);
+
+            return new UserDTO(firstName, lastName,email);
+        }
+
+        return null;
     }
 
     @Override

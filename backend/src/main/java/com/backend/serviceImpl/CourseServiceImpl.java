@@ -2,16 +2,15 @@ package com.backend.serviceImpl;
 
 import com.backend.entity.Classe;
 import com.backend.entity.Course;
-import com.backend.entity.StudentData;
 import com.backend.model.CourseModel;
 import com.backend.repository.ClasseRepository;
 import com.backend.repository.CourseRepository;
-import com.backend.repository.UserRepository;
 import com.backend.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class CourseServiceImpl implements CourseService {
@@ -35,5 +34,10 @@ public class CourseServiceImpl implements CourseService {
                 .build();
         courseRepository.save(course);
         return course;
+    }
+
+    @Override
+    public List<Course> findAll(Long idClass) {
+        return courseRepository.findAll(idClass);
     }
 }
