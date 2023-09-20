@@ -24,6 +24,7 @@ public class SecurityConfiguration{
 
     private static final String[] WHITE_LIST = {
             "/auth",
+            "/auth/email/*",
             "/auth/register",
             "/auth/authenticate",
             "/auth/registerStudent",
@@ -33,8 +34,10 @@ public class SecurityConfiguration{
             "/classe/*",
             "/add",
             "/classe*",
+            "/student/*",
             "/student*",
-            "student/*",
+            "/student/get",
+            "/etudiants/get",
             "/student/add",
             "/events",
             "/events*",

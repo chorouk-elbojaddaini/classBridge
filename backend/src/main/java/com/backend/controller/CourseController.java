@@ -6,6 +6,8 @@ import com.backend.service.CourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/courses")
@@ -17,5 +19,11 @@ public class CourseController {
     @PostMapping
     public Course addCourse(@RequestBody CourseModel courseModel){
         return courseService.addCourse(courseModel);
+    }
+
+
+    @GetMapping
+    public List<Course> getAllCourses(@RequestParam Long idClass){
+        return courseService.findAll(idClass);
     }
 }
