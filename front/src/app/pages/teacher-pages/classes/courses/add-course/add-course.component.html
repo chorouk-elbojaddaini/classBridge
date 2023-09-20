@@ -1,1 +1,23 @@
-<p>add-course works!</p>
+<h4>Ajouter votre classe</h4>
+<mat-dialog-content>
+  <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+    <label>Titre du chapitre ou cours :</label>
+    <input type="text" formControlName="cours" placeholder="titre">
+    <div *ngIf="courseForm.get('cours')?.invalid && courseForm.get('cours')?.touched">
+      La filière est requise.
+    </div>
+
+    <label>Description :</label>
+    <input type="text" formControlName="description" placeholder="Description">
+
+    <label>Fichiers :</label>
+    <input type="text" formControlName="file" placeholder="fichier">
+    <div *ngIf="courseForm.get('file')?.invalid && courseForm.get('file')?.touched">
+      Le fichier est requis.
+    </div>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close>Annuler</button>
+      <button type="submit" mat-button>Ajouter</button>
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>

@@ -1,11 +1,17 @@
-<div class="btns">
-    <button><i class="fa-solid fa-plus"></i> Ajouter un cours</button>
-    <button><i class="fa-solid fa-plus"></i> Ajouter un devoir</button>
+<div class="container">
+    <h3 class="title">
+        <span (click)="redirectTo()">Classes </span> 
+        <span> > Courses</span>
+    </h3>
+    <div class="btns">
+        <button (click)="openDialog()"><i class="fa-solid fa-plus"></i> Ajouter un cours</button>
+        <button><i class="fa-solid fa-plus"></i> Ajouter un devoir</button>
+    </div>
+    <div  [class.container]="selected" [class.container-without-details]="!selected">
+         <app-item-list></app-item-list> 
+         <!-- <app-selected-item-details></app-selected-item-details> -->
+    </div>
+    <!-- 
+    <mat-paginator id="paginator" [length]="totalItems" [pageSize]="pageSize" (page)="handlePageChange($event)">
+    </mat-paginator> -->
 </div>
-<div  [class.container]="selected" [class.container-without-details]="!selected">
-    <app-item-list></app-item-list>
-     <!-- <app-selected-item-details></app-selected-item-details> -->
-</div>
-<!-- 
-<mat-paginator id="paginator" [length]="totalItems" [pageSize]="pageSize" (page)="handlePageChange($event)">
-</mat-paginator> -->

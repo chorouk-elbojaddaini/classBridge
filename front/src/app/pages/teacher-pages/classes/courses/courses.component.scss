@@ -1,7 +1,22 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+.title {
+    cursor: pointer;
+    color: var(--grey2);
+    font-weight: 400;
+    font-size: 18px;
+    margin-top: 15px;
+    float: left;
+}
+
 .btns{
     display: flex;
 gap: 15px;
 margin-bottom: 15px;
+margin-top: 40px;
     button{
         border: none;
         background-color: var(--dark-pink);
