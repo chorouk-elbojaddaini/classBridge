@@ -14,6 +14,8 @@ import { AuthComponent } from './pages/auth/auth.component';
 import { LoginTeacherComponent } from './pages/auth/login-teacher/login-teacher.component';
 import { LoginStudentComponent } from './pages/auth/login-student/login-student.component';
 import { StudentLayoutComponent } from './components/student-layout/student-layout.component';
+import { CoursesComponent } from './pages/teacher-pages/classes/courses/courses.component';
+import { StudentsComponent } from './pages/teacher-pages/classes/students/students.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -30,6 +32,8 @@ const routes: Routes = [
       // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'classes', component: ClassesComponent },
+      { path: 'students', component: StudentsComponent },
+      { path: 'courses', component: CoursesComponent },
       { path: 'messages', component: MessagesComponent },
       { path: 'schedule', component: ProgrammeComponent },
       { path: 'profile', component: ProfileComponent },
