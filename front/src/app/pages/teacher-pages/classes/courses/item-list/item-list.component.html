@@ -1,9 +1,9 @@
 <div class="cours">
-    <div class="item" *ngFor="let item of items" (click)="onItemClick(item)" >
+    <div class="item" *ngFor="let item of courses;" >
         <div class="top-content">
-            <span class="course-title">{{item.title}}</span>
-            <button class="more-btn" (click)="toggleOptions()"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-            <ul class="options-list" *ngIf="showOptions">
+            <span class="course-title">{{item.courseName}}</span>
+            <button class="more-btn" (click)="toggleOptions(item)"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+            <ul class="options-list" *ngIf="selectedItem === item && showOptions == true">
                 <li><a> <i class="fa-solid fa-pen-to-square"></i> Modifier</a></li>
                 <li><a> <i class="fa-solid fa-trash"></i> Supprimer</a></li>
             </ul>
@@ -17,7 +17,7 @@
             <button class="msgs"><i class="fa-regular fa-message"></i>
                 <div class="new-msg"></div>
             </button>
-            <span class="date"><i class="fa-solid fa-calendar-days"></i> {{item.date}}</span>
+            <span class="date"><i class="fa-solid fa-calendar-days"></i> {{ formatDate(item.date) }}</span>
         </div>
     </div>
 </div>
