@@ -1,9 +1,11 @@
 export class Student{
-    firstName = '';
-    lastName = '';
-    age?:number;
-    email = '';
-    field = '';
-    level = '';
-    note?:number
+    constructor(
+        public id:number,
+        public firstName: string,
+        public lastName: string,
+        public email: string,
+        public fieldName: string,
+        public level: string ,
+        public note?: number
+      ) {}
 }
