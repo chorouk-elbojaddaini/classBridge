@@ -13,6 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class RegisterStudentComponent {
   registerRequest : RegisterRequest = {
+    id:0,
     firstName: '',
     lastName: '',
     email: '',
@@ -24,6 +25,7 @@ export class RegisterStudentComponent {
   authResponse: AuthenticationResponse = {
     jwtToken: '',
     user: new RegisterRequest(
+      0,
       '',
       '',
       '',
