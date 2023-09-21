@@ -13,15 +13,15 @@
         <div class="cards">
             <div class="card">
                 <i class="fa-solid fa-graduation-cap"></i>
-                <span>Total Students 100</span>
+                <span>Total Students {{totalStudents}}</span>
             </div>
             <div class="card">
                 <i class="fa-solid fa-file-lines"></i>
-                <span>Total Courses 100</span>
+                <span>Total Classes {{totalClasses}}</span>
             </div>
             <div class="card">
                 <i class="fa-solid fa-file-pen"></i>
-                <span>Total projects 100</span>
+                <span>Total Courses {{totalCourses}}</span>
             </div>
         </div>
         <div class="chart-container">
@@ -38,17 +38,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>GI</td>
-                        <td>Réseau</td>
-                        <td>4ème année</td>
+                    <tr *ngFor="let classe of classes">
+                        <td>{{classe.fieldName}}</td>
+                        <td>{{classe.module}}</td>
+                        <td>{{classe.level}}</td>
                     </tr>
-                    <tr>
-                        <td>GSEIR</td>
-                        <td>Réseau</td>
-                        <td>3ème année</td>
-                    </tr>
-
+                   
                 </tbody>
             </table>
         </div>
