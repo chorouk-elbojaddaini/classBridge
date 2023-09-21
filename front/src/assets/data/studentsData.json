@@ -2,36 +2,32 @@
     {
         "firstName":"Rim",
         "lastName":"Hassani IDRISSI",
-        "age":22,
         "email":"rimHas@gmail.com",
-        "field":"Génie informatique",
+        "fieldName":"Génie informatique",
         "level":"4ème année",
         "note":18
     },
     {
         "firstName":"Ghizlane",
         "lastName":"KASSIMI",
-        "age":22,
         "email":"ghizlaneKass@gmail.com",
-        "field":"Génie informatique",
+        "fieldName":"Génie informatique",
         "level":"4ème année",
         "note":18
     },
     {
         "firstName":"Chaimae",
         "lastName":"EL BEQQAL",
-        "age":22,
         "email":"chaimaeelb@gmail.com",
-        "field":"Génie informatique",
+        "fieldName":"Génie informatique",
         "level":"4ème année",
         "note":18
     },
     {
         "firstName":"Chorouk",
         "lastName":"EL BOJADDAINI",
-        "age":22,
         "email":"choroukelbo15412@gmail.com",
-        "field":"Génie informatique",
+        "fieldName":"Génie informatique",
         "level":"4ème année",
         "note":18
     }
