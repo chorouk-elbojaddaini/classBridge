@@ -32,4 +32,14 @@ public class EtudiantController {
     public Etudiant addEtudiantData(@RequestBody Etudiant etudiant){
          return etudiantService.addInfo(etudiant);
     }
+
+    @DeleteMapping("/delete")
+    public void deleteStudent(@RequestParam Long id){
+        etudiantService.deleteStudent(id);
+    }
+
+    @PutMapping("/updateNote/{id}")
+    public Etudiant updateNote(@PathVariable Long id,@RequestParam Integer note){
+        return etudiantService.updateNote(id,note);
+    }
 }

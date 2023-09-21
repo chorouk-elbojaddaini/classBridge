@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EtudiantServiceImpl implements EtudiantService {
@@ -21,6 +22,7 @@ public class EtudiantServiceImpl implements EtudiantService {
     private ClasseRepository classeRepository;
     @Autowired
     private UserRepository userRepository;
+
     @Override
     public List<Etudiant> getAll() {
         return etudiantRepository.findAll();
@@ -30,7 +32,6 @@ public class EtudiantServiceImpl implements EtudiantService {
     public List<Etudiant> getByClassCode(String classCode) {
         return etudiantRepository.findByClassCode(classCode);
     }
-
 
 
     @Override
@@ -44,5 +45,26 @@ public class EtudiantServiceImpl implements EtudiantService {
                 .build();
         etudiantRepository.save(newStudentData);
         return newStudentData;
+    }
+
+    @Override
+    public void deleteStudent(Long id) {
+        Optional<Etudiant> etudiantOptional = etudiantRepository.findById(id);
+
+        if (etudiantOptional.isPresent()) {
+            etudiantRepository.deleteById(id);
+        } else {
+            throw new EntityNotFoundException("L'étudiant avec l'ID " + id + " n'a pas été trouvé.");
+        }
+    }
+
+    @Override
+    public Etudiant updateNote(Long id, Integer note) {
+       Etudiant etudiant = etudiantRepository.findById(id).orElseThrow();
+       if(etudiant != null){
+           etudiant.setNote(note);
+           return etudiantRepository.save(etudiant);
+       }
+        return null;
     }
 }
