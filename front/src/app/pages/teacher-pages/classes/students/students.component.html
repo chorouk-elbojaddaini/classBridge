@@ -3,36 +3,8 @@
   <h3>Les étudiants ont déjà accédé à votre classe</h3>
   </div>
   <div class="students-list">
-    <div class="number-students">Nombre des étudiants :  4</div>
+    <div class="number-students">Nombre des étudiants :  {{numberStudents}}</div>
     <div class="content">
-      <!-- <div class="student-info" *ngFor="let student of students">
-        <div class="name-img">
-          <img src="assets/classes-imgs/imgStudent.jpg" alt="studentImg" class="studentImg">
-          <div class="fullName">
-            <h4>{{student.lastName}}</h4>
-            <h4>{{student.firstName}}</h4>
-          </div>
-          <button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
-        </div>
-        <div class="infos-section">
-          <div class="info email">
-            <span>{{student.email}}</span>
-          </div>
-          <div class="info">
-            <label>Filière : </label>
-            <span>{{student.field}}</span>
-          </div>
-          <div class="info">
-            <label>Niveau : </label>
-            <span>{{student.level}}</span>
-          </div>
-          <div class="info note">
-            <label>Note : </label>
-            <span>{{student.note}}</span>
-            <button class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></button>
-          </div>
-        </div>
-      </div> -->
       <table>
         <thead>
           <tr class="head">
@@ -50,8 +22,8 @@
             <td class="name-student">{{student.firstName}} {{student.lastName}}</td>
             <td class="email">{{student.email}}</td>
             <td class="note">{{student.note}}</td>
-            <td class="view"><button class="view-btn" (click)="openDialog()"><i class="fa-solid fa-eye"></i> Voir plus d'infos</button></td>
-            <td class="delete"><button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button></td>
+            <td class="view"><button class="view-btn" (click)="openDialog(student)"><i class="fa-solid fa-eye"></i> Voir plus d'infos</button></td>
+            <td class="delete"><button class="delete-btn" (click)="deleteStudent(student.id)"><i class="fa-solid fa-trash-can"></i></button></td>
           </tr>
         </tbody>
       </table>

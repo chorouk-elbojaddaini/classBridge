@@ -1,33 +1,42 @@
 <div class="student-container">
     <div class="img-name">
         <img src="assets/classes-imgs/no-img.png" class="imgStudent">
-        <span class="name">Chorouk EL BOJADDAINI</span>
+        <span class="name">{{studentSelected.firstName}} {{studentSelected.lastName}}</span>
     </div>
     <div class="infos">
          <div class="personal-details">
             <h4>Details personnels</h4>
             <div class="detail">
                 <label>Adresse mail : </label>
-                <span>choroukelbojaddaini1111@gmail.con</span>
+                <span>{{studentSelected.email}}</span>
             </div>
             <div class="detail">
                 <label>Genre : </label>
-                <span>Femme</span>
+                <span>genre</span>
             </div>
          </div>
          <div class="class-details">
             <h4>Details de classe</h4>
             <div class="detail">
                 <label>Filière : </label>
-                <span>Génie informatique</span>
+                <span>{{studentSelected.fieldName}}</span>
             </div>
             <div class="detail">
                 <label >Niveau : </label>
-                <span>4ème année</span>
+                <span>{{studentSelected.level}}</span>
             </div>
             <div class="detail">
                 <label>Note : </label>
-                <span>19</span>
+                <span class="note">
+                    <ng-container *ngIf="!isEditing; else editNote">
+                      {{ studentSelected.note }}
+                      <button (click)="startEditing(studentSelected)">Changer la note</button>
+                    </ng-container>
+                    <ng-template #editNote>
+                      <input type="number" [(ngModel)]="editedNote">
+                      <button (click)="updateNote(studentSelected)">Modifier</button>
+                    </ng-template>
+                </span>
             </div>
          </div>
     </div>
