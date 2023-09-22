@@ -14,7 +14,7 @@
         <span (click)="viewLess()" class="view-less-btn" *ngIf="clicked"><i class="fa-solid fa-angle-up"></i></span>
     </div>
     <div class="course-item" *ngFor="let course of displayedCourses">
-        <span>{{course}}</span>
+        <span>{{course.courseName}}</span>
     </div>
 </div>
 <div class="Tasks">

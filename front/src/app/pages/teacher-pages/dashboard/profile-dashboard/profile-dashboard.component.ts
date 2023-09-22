@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { dE } from '@fullcalendar/core/internal-common';
+import { ClasseServiceService } from 'src/app/services/classe-service.service';
+import { CourseService } from 'src/app/services/course.service';
+import { StudentService } from 'src/app/services/student.service';
 interface User{
   firstName:string,
   lastName:string,
@@ -11,15 +15,17 @@ interface User{
 })
 export class ProfileDashboardComponent {
   user: any;
-  courses = ['course 1','course 2','course 3' ];
+  courses:any = [];
+  userId:any;
   tasks = ['do homework','reading a book','attribute a course'];
   initialCount = 2;
   displayedCourses: any[] = [];
   displayedTasks: any[] = [];
   clicked :boolean =false;
   clickedTask:boolean = false;
-  constructor() {
-    this.displayedCourses = this.courses.slice(0, this.initialCount);
+  constructor(private studentService:StudentService,private classeService:ClasseServiceService,private courseService:CourseService){
+    this.userId = localStorage.getItem("id");
+    
     this.displayedTasks = this.tasks.slice(0, this.initialCount);
     // this.displayMore = this.packs.slice(0, this.initialCount);
   }
@@ -27,6 +33,8 @@ export class ProfileDashboardComponent {
   ngOnInit(){
     const authUserJSON:any = localStorage.getItem("authUser");
     this.user = JSON.parse(authUserJSON);
+    this.CalculNumbers(this.userId);
+   
   }
 
   viewAll() {
@@ -34,7 +42,9 @@ export class ProfileDashboardComponent {
     this.clicked = true;
   }
   viewLess(){
-    this.displayedCourses = this.courses.slice(0, this.initialCount);
+    const course1 = this.courses[0];
+    const course2 = this.courses[1];
+    this.displayedCourses = [course1,course2];
     this.clicked = false;
   }
   viewAllTasks() {
@@ -45,4 +55,24 @@ export class ProfileDashboardComponent {
     this.displayedTasks = this.tasks.slice(0, this.initialCount);
     this.clickedTask = false;
   }
+
+  CalculNumbers(id:number){
+    this.classeService.getAllClasses(id).subscribe({
+      next:(r) => {
+        r.forEach((classe) =>
+          this.courseService.getAllCourses(classe.idClass).subscribe({
+            next:(response:any) => {
+              this.courses.push(...response);
+              const course1 = this.courses[0];
+              const deuxieme = this.courses[1];
+              this.displayedCourses = [course1,deuxieme];
+            }
+          })
+          );
+          
+        console.log(r)},
+      error:(e) => console.log(e)
+    })
+  }
+  
 }

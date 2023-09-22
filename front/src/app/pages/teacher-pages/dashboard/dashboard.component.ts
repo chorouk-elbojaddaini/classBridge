@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { Classe } from 'src/app/models/classe';
+import { Course } from 'src/app/models/course';
 import { RegisterRequest } from 'src/app/models/register-request';
 import { ClasseServiceService } from 'src/app/services/classe-service.service';
 import { CourseService } from 'src/app/services/course.service';
@@ -22,11 +23,12 @@ export class DashboardComponent {
   totalCourses:number = 0;
   userId:number |any;
   classes:any;
+  courses:Course[] = [];
   constructor(private studentService:StudentService,private classeService:ClasseServiceService,private courseService:CourseService){
     const authUserJSON:any = localStorage.getItem("authUser");
     this.user = JSON.parse(authUserJSON);
     this.userId = localStorage.getItem("id");
-    console.log("useerr",this.userId);
+    
      
 
   }
@@ -78,6 +80,8 @@ CalculNumbers(id:number){
         this.courseService.getAllCourses(classe.idClass).subscribe({
           next:(response:any) => {
             this.totalCourses += response.length;
+            this.courses.push(...response);
+            console.log("courses",this.courses);
           }
         })
         );
@@ -102,5 +106,6 @@ getAllClasses(userId:number){
     error:(error) => console.log(error)
   })
 }
+
 }  
   

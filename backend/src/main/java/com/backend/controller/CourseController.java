@@ -26,4 +26,6 @@ public class CourseController {
     public List<Course> getAllCourses(@RequestParam Long idClass){
         return courseService.findAll(idClass);
     }
+
+
 }
