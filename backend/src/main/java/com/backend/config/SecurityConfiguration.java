@@ -43,7 +43,9 @@ public class SecurityConfiguration{
             "/events*",
             "/courses*",
             "/courses/*",
-            "/courses"
+            "/courses",
+            "/conversation/add",
+            "/conversation/*/messages"
     };
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
