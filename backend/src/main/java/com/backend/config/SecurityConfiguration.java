@@ -46,6 +46,7 @@ public class SecurityConfiguration{
             "/courses/*",
             "/courses",
             "/conversation/add",
+            "/message/add",
             "/conversation/*/messages"
     };
     @Bean
