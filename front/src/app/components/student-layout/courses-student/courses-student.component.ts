@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { C } from '@fullcalendar/core/internal-common';
 import { StudentModel } from 'src/app/models/studentModel';
 import { User } from 'src/app/models/user';
 import { ClasseServiceService } from 'src/app/services/classe-service.service';
@@ -63,6 +62,15 @@ export class CoursesStudentComponent {
   showTextarea: boolean = false;
   message: string = '';
 
+  messagesArray:any = 
+    {
+      content: "",
+      senderEmail: "",
+      conversation: {
+        idConversation: 0
+      }
+    };
+  idConversation:number|any ;
   constructor(private studentService: StudentService,private classeService:ClasseServiceService,private courseService:CourseService,private selectedItemService:SelectedItemService,private conversationService:ConversationService, private formBuilder: FormBuilder) {
     const authUserJSON: any = localStorage.getItem("authUser");
     this.user = JSON.parse(authUserJSON);
@@ -81,7 +89,9 @@ export class CoursesStudentComponent {
     this.studentData.user.password = this.user.password;
 
     this.data.studentId = this.user.id;
+    
 
+    this.messagesArray.senderEmail = this.user.email;
   }
 
 
@@ -194,13 +204,21 @@ ngOnInit(){
      this.data.courseId = course.idCourse;
      this.data.teacherId = course.classe.teacher.id;
      this.conversationService.createConversation(this.data).subscribe({
-      next:(response) => console.log(response),
+      next:(response:any) => {
+        this.idConversation = response.idConversation;
+        console.log(response)},
       error:(error) => console.log(error)
      })
   }
 
   sendMessage() {
-    
+    console.log("idConver",this.idConversation);    
+     this.messagesArray.conversation.idConversation = this.idConversation;
+     this.messagesArray.content = this.message;
+      this.conversationService.addMessage(this.messagesArray).subscribe({
+       next:(response) => console.log(response),
+        error:(error) => console.log(error)
+      })
     console.log(this.message);
     
     this.message = '';
