@@ -24,6 +24,12 @@ public class EtudiantController {
         return etudiantService.getAll();
     }
 
+    @GetMapping("/get/{userId}")
+    public List<String> gettAllCode(@PathVariable("userId") Long id){
+
+        return etudiantService.getAllClassCode(id);
+    }
+
     @GetMapping
     public List<Etudiant> getByClassCode(@RequestParam String classCode){
         return etudiantService.getByClassCode(classCode);

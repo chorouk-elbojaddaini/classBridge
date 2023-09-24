@@ -15,4 +15,6 @@ public interface EtudiantService {
     void deleteStudent(Long id);
 
     Etudiant updateNote(Long id, Integer note);
+
+    List<String> getAllClassCode(Long id);
 }

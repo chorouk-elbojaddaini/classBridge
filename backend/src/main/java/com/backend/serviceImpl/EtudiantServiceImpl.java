@@ -36,8 +36,19 @@ public class EtudiantServiceImpl implements EtudiantService {
 
     @Override
     public Etudiant addInfo(Etudiant student) {
+        // Vérifier si classCode existe
         Classe classe = classeRepository.findByclassCode(student.getClassCode());
-        User user = userRepository.findById(student.getUser().getId()).orElseThrow();
+        if (classe == null) {
+            throw new RuntimeException("Classe non trouvée pour le code de classe spécifié.");
+        }
+
+        // Vérifier si l'utilisateur existe
+        User user = userRepository.findById(student.getUser().getId()).orElse(null);
+        if (user == null) {
+            throw new RuntimeException("Utilisateur non trouvé pour l'ID d'utilisateur spécifié.");
+        }
+
+        // Si les vérifications passent, effectuer l'ajout d'informations
         student.setUser(user);
         Etudiant newStudentData = Etudiant.builder()
                 .classCode(classe.getClassCode())
@@ -46,6 +57,7 @@ public class EtudiantServiceImpl implements EtudiantService {
         etudiantRepository.save(newStudentData);
         return newStudentData;
     }
+
 
     @Override
     public void deleteStudent(Long id) {
@@ -66,5 +78,13 @@ public class EtudiantServiceImpl implements EtudiantService {
            return etudiantRepository.save(etudiant);
        }
         return null;
+    }
+
+    @Override
+    public List<String> getAllClassCode(Long id) {
+
+        List<String> codes = etudiantRepository.findByStudentId(id);
+
+        return codes;
     }
 }
