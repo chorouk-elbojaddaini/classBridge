@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StudentModel } from 'src/app/models/studentModel';
 import { User } from 'src/app/models/user';
 import { ClasseServiceService } from 'src/app/services/classe-service.service';
+import { CourseService } from 'src/app/services/course.service';
+import { SelectedItemService } from 'src/app/services/selected-item-service.service';
 import { StudentService } from 'src/app/services/student.service';
 
 @Component({
@@ -37,8 +39,14 @@ export class CoursesStudentComponent {
     ),
     classCode: ''
   };
+   classes:any[] = [];
    courses:any[] = [];
-  constructor(private studentService: StudentService,private classeService:ClasseServiceService, private formBuilder: FormBuilder) {
+   showOptions: boolean = false;
+  selected:boolean = false;
+  selectedClass:any;
+  selectedItem: any = null;
+
+  constructor(private studentService: StudentService,private classeService:ClasseServiceService,private courseService:CourseService,private selectedItemService:SelectedItemService, private formBuilder: FormBuilder) {
     const authUserJSON: any = localStorage.getItem("authUser");
     this.user = JSON.parse(authUserJSON);
 
@@ -104,8 +112,8 @@ ngOnInit(){
           console.log("next lwla shiha",response);
           this.classeService.getCoursesByClassCode(codeValue).subscribe({
             next:(response) => {
-              this.courses.push(response);
-              console.log("hada course",this.courses)}
+              this.classes.push(response);
+              console.log("hada course",this.classes)}
           });
         },
         error: (e) => {
@@ -125,8 +133,8 @@ ngOnInit(){
       next:(response:any) =>{
         response.forEach((code:any) => {
            this.classeService.getCoursesByClassCode(code).subscribe({
-            next:(r) => {this.courses.push(r)
-            console.log("yakma",this.courses)}
+            next:(r) => {this.classes.push(r)
+            }
            })
         });
         
@@ -136,5 +144,30 @@ ngOnInit(){
     })
   }
   
-  
+
+  viewCourses(id:any){
+    this.courseService.getAllCourses(id).subscribe({
+      next:(response:any) => {
+        this.courses = response;
+      },
+      error:(error) => console.log(error)
+    })
+  }
+
+  formatDate(dateStr: string): string {
+    return dateStr.split("T")[0];
+  }
+
+  toggleOptions(item:any) {
+    this.showOptions = !this.showOptions;
+    this.selectedItem = item;
+  }
+
+  onItemClick(item: any) {
+    console.log("clicked");
+    this.selected = !this.selected;
+    this.selectedItem = item;
+    this.selectedItemService.setSelectedItem(item);
+  }
+
 }

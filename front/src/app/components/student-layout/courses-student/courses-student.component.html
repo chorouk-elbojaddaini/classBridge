@@ -13,17 +13,17 @@
             </div>
         </div>
     </div>
-    <div class="courses">
-        <div class="course-item" *ngFor="let course of courses">
+    <div class="classes">
+        <div class="classe-item" *ngFor="let classe of classes">
             <div class="info-field">
-                <h3 class="module-name">{{course.module}}</h3>
-                <span>{{course.fieldName}}</span>
-                <span>{{course.level}}</span>
-                <span>Teacher : {{course.teacher.firstName}} {{course.teacher.lastName}}</span>
+                <h3 class="module-name">{{classe.module}}</h3>
+                <span>{{classe.fieldName}}</span>
+                <span>{{classe.level}}</span>
+                <span>Teacher : {{classe.teacher.firstName}} {{classe.teacher.lastName}}</span>
                 <img src="assets/dashboard-imgs/no-img.png" class="teacher-img">
             </div>
             <div class="btn">
-                <button class="view-btn"><i class="fa-solid fa-eye"></i> View</button>
+                <button class="view-btn" (click)="viewCourses(classe.idClass)"><i class="fa-solid fa-eye"></i> View</button>
             </div>
         </div>
     </div>
@@ -32,6 +32,28 @@
             <button class="return-btn"><i class="fa-solid fa-arrow-left"></i></button>
             <h2>Les cours disponibles</h2>
         </div>
-        <!-- <app-item-list></app-item-list> -->
+        <div class="courses">
+            <div class="item" *ngFor="let item of courses;" (click)="onItemClick(item)">
+                <div class="top-content">
+                    <span class="course-title">{{item.courseName}}</span>
+                </div>
+                <div class="info">
+                    <span>{{item.description}}</span>
+                    <div class="attached-file">Fichiers attachés <i class="fa-solid fa-file"></i> :
+                        <span>{{item.numberFiles}}</span></div>
+                </div>
+                <div class="msgs-date">
+                    <button class="msgs"><i class="fa-regular fa-message"></i>
+                        <div class="new-msg"></div>
+                    </button>
+                    <span class="date"><i class="fa-solid fa-calendar-days"></i> {{ formatDate(item.date) }}</span>
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="selected-item-details" *ngIf="selected">
+        <!-- Affichez ici les détails de l'élément sélectionné -->
+        <h2>{{ selectedItem.courseName }}</h2>
+        <p>{{ selectedItem.description }}</p>
+      </div>
 </div>
