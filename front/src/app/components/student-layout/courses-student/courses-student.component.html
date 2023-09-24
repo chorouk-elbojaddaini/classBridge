@@ -14,12 +14,12 @@
         </div>
     </div>
     <div class="courses">
-        <div class="course-item">
+        <div class="course-item" *ngFor="let course of courses">
             <div class="info-field">
-                <h3 class="module-name">Machine learning</h3>
-                <span>GSEIR</span>
-                <span>4ème année</span>
-                <span>Teacher : Rim hassani idrisssi</span>
+                <h3 class="module-name">{{course.module}}</h3>
+                <span>{{course.fieldName}}</span>
+                <span>{{course.level}}</span>
+                <span>Teacher : {{course.teacher.firstName}} {{course.teacher.lastName}}</span>
                 <img src="assets/dashboard-imgs/no-img.png" class="teacher-img">
             </div>
             <div class="btn">
@@ -32,6 +32,6 @@
             <button class="return-btn"><i class="fa-solid fa-arrow-left"></i></button>
             <h2>Les cours disponibles</h2>
         </div>
-        <app-item-list></app-item-list>
+        <!-- <app-item-list></app-item-list> -->
     </div>
 </div>

@@ -19,4 +19,7 @@ export class ClasseServiceService {
     return this.http.post<Classe>(`${this.baseUrl}/add`,classe);
 
   }
+  getCoursesByClassCode(code:any){
+    return this.http.get(`${this.baseUrl}?code=${code}`);
+  }
 }

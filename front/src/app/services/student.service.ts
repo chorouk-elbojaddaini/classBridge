@@ -29,5 +29,8 @@ export class StudentService {
   updateNote(id: number, note: number) {
     return this.http.put(`${this.baseUrl}/updateNote/${id}?note=${note}`, {});
   }
-
+  
+  getClassCodes(id:any){
+    return this.http.get(`${this.baseUrl}/get/${id}`);
+  }
 }

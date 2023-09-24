@@ -61,6 +61,10 @@
     }
    
     .courses{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        margin-top: 25px;
         padding-bottom: 25px;
         .course-item{
            border: 1px solid var(--grey2);

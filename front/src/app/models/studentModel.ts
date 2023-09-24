@@ -3,5 +3,5 @@ import { User } from "./user"
 export class StudentModel{
 
   
-    constructor(public codeJoinClass:string,public user:User){}
+    constructor(public classCode:string,public user:User){}
 }
