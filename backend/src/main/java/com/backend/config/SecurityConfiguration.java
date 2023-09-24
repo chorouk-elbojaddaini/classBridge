@@ -36,6 +36,7 @@ public class SecurityConfiguration{
             "/classe*",
             "/etudiants*",
             "/etudiants/get",
+            "/etudiants/get/*",
             "/etudiants/add",
             "/etudiants/delete",
             "/etudiants/updateNote/**",
