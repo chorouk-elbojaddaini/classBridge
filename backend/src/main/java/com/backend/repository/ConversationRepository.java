@@ -1,6 +1,8 @@
 package com.backend.repository;
 
 import com.backend.entity.Conversation;
+import com.backend.entity.Course;
+import com.backend.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -13,4 +15,6 @@ public interface ConversationRepository extends JpaRepository<Conversation,Long>
 
     @Query("SELECT c FROM Conversation c LEFT JOIN FETCH c.messages WHERE c.idConversation = :conversationId")
     Optional<Conversation> findConversationWithMessages(@Param("conversationId") Long conversationId);
+
+    Conversation findByStudentAndTeacherAndCourse(User student, User teacher, Course course);
 }

@@ -1,12 +1,20 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { C } from '@fullcalendar/core/internal-common';
 import { StudentModel } from 'src/app/models/studentModel';
 import { User } from 'src/app/models/user';
 import { ClasseServiceService } from 'src/app/services/classe-service.service';
+import { ConversationService } from 'src/app/services/conversation.service';
 import { CourseService } from 'src/app/services/course.service';
 import { SelectedItemService } from 'src/app/services/selected-item-service.service';
 import { StudentService } from 'src/app/services/student.service';
 
+
+export interface Data {
+  studentId: number;
+  teacherId: number;
+  courseId: number;
+}
 @Component({
   selector: 'app-courses-student',
   templateUrl: './courses-student.component.html',
@@ -46,10 +54,19 @@ export class CoursesStudentComponent {
   selectedClass:any;
   selectedItem: any = null;
 
-  constructor(private studentService: StudentService,private classeService:ClasseServiceService,private courseService:CourseService,private selectedItemService:SelectedItemService, private formBuilder: FormBuilder) {
+  data: Data = {
+    studentId: 0,
+    teacherId: 0,
+    courseId: 0
+  };
+
+  showTextarea: boolean = false;
+  message: string = '';
+
+  constructor(private studentService: StudentService,private classeService:ClasseServiceService,private courseService:CourseService,private selectedItemService:SelectedItemService,private conversationService:ConversationService, private formBuilder: FormBuilder) {
     const authUserJSON: any = localStorage.getItem("authUser");
     this.user = JSON.parse(authUserJSON);
-
+    
     this.joinClassForm = this.formBuilder.group({
       code: ['', [Validators.required]],
     });
@@ -63,13 +80,14 @@ export class CoursesStudentComponent {
     this.studentData.user.email = this.user.email;
     this.studentData.user.password = this.user.password;
 
-
+    this.data.studentId = this.user.id;
 
   }
 
 
 ngOnInit(){
   this.getCourses(this.studentData.user.id);
+  console.log("hadi data",this.data);
 }
 
 
@@ -170,4 +188,21 @@ ngOnInit(){
     this.selectedItemService.setSelectedItem(item);
   }
 
+
+  createConversation(course:any){
+    this.showTextarea = !this.showTextarea;
+     this.data.courseId = course.idCourse;
+     this.data.teacherId = course.classe.teacher.id;
+     this.conversationService.createConversation(this.data).subscribe({
+      next:(response) => console.log(response),
+      error:(error) => console.log(error)
+     })
+  }
+
+  sendMessage() {
+    
+    console.log(this.message);
+    
+    this.message = '';
+  }
 }

@@ -13,6 +13,6 @@ public interface ConversationService {
 
     List<Message> getAllMessagesInConversation(Long conversationId);
 
-     Message ajouterMessageAConversation(Long idConversation, String contenuMessage);
+
 
 }

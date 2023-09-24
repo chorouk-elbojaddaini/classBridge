@@ -44,7 +44,7 @@
                 </div>
                 <div class="msgs-date">
                     <button class="msgs"><i class="fa-regular fa-message"></i>
-                        <div class="new-msg"></div>
+                        
                     </button>
                     <span class="date"><i class="fa-solid fa-calendar-days"></i> {{ formatDate(item.date) }}</span>
                 </div>
@@ -52,8 +52,22 @@
         </div>
     </div>
     <div class="selected-item-details" *ngIf="selected">
-        <!-- Affichez ici les détails de l'élément sélectionné -->
-        <h2>{{ selectedItem.courseName }}</h2>
-        <p>{{ selectedItem.description }}</p>
-      </div>
+        <div class="top-content">
+            <span class="course-title">{{selectedItem.courseName}}</span>
+        </div>
+        <div class="info">
+            <span>{{selectedItem.description}}</span>
+            <div class="attached-file">Fichiers attachés <i class="fa-solid fa-file"></i> :
+                <span>{{selectedItem.numberFiles}}</span></div>
+        </div>
+        <div class="msgs-date">
+            <button class="msgs" (click)="createConversation(selectedItem)"><i class="fa-regular fa-message"></i></button>
+            <form *ngIf="showTextarea" (submit)="sendMessage()">
+              <textarea [(ngModel)]="message" name="message" rows="4" cols="50"></textarea>
+              <button type="submit">Envoyer</button>
+            </form>
+            <span class="date"><i class="fa-solid fa-calendar-days"></i> {{ formatDate(selectedItem.date) }}</span>
+        </div>
+    </div>
+      
 </div>

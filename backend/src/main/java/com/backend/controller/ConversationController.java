@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/conversation")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ConversationController {
 
     @Autowired
@@ -33,15 +34,5 @@ public class ConversationController {
     }
 
 
-    @PostMapping("/{conversationId}/messages")
-    public ResponseEntity<Message> ajouterMessageAConversation(
-            @PathVariable Long conversationId,
-            @RequestBody String contenuMessage) {
 
-        // Appelez le service pour ajouter un message à la conversation
-        Message nouveauMessage = conversationService.ajouterMessageAConversation(conversationId, contenuMessage);
-
-        // Retournez le message créé avec un code de statut approprié
-        return ResponseEntity.status(HttpStatus.CREATED).body(nouveauMessage);
-    }
 }

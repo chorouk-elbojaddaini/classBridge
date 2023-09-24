@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,16 +38,27 @@ public class ConversationServiceImpl implements ConversationService {
         User student = userRepository.findById(conversationModel.getStudentId()).orElseThrow();
         User teacher = userRepository.findById(conversationModel.getTeacherId()).orElseThrow();
         Course course = courseRepository.findById(conversationModel.getCourseId()).orElseThrow();
-        List<Message> messages = new ArrayList<>();
-        Conversation conversation = Conversation.builder()
-                .student(student)
-                .teacher(teacher)
-                .course(course)
-                .messages(messages)
-                .build();
 
-        return conversationRepository.save(conversation);
+
+        Conversation existingConversation = conversationRepository.findByStudentAndTeacherAndCourse(student, teacher, course);
+
+        if (existingConversation != null) {
+
+            return existingConversation;
+        } else {
+
+            List<Message> messages = new ArrayList<>();
+            Conversation conversation = Conversation.builder()
+                    .student(student)
+                    .teacher(teacher)
+                    .course(course)
+                    .messages(messages)
+                    .build();
+
+            return conversationRepository.save(conversation);
+        }
     }
+
 
 
 
@@ -64,22 +76,5 @@ public class ConversationServiceImpl implements ConversationService {
 
 
 
-    @Override
-    public Message ajouterMessageAConversation(Long conversationId, String contenuMessage) {
-        // Obtenez la conversation à laquelle vous souhaitez ajouter le message depuis la base de données
-        Conversation conversation = conversationRepository.findById(conversationId)
-                .orElseThrow(() -> new EntityNotFoundException("Conversation not found with ID: " + conversationId));
 
-        // Créez un nouveau message
-        Message nouveauMessage = new Message();
-        nouveauMessage.setContent(contenuMessage);
-
-        // Associez le message à la conversation
-        nouveauMessage.setConversation(conversation);
-
-        // Enregistrez le message dans la base de données
-        messageRepository.save(nouveauMessage);
-
-        return nouveauMessage;
-    }
 }
