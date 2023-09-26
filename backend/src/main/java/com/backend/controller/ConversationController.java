@@ -24,6 +24,11 @@ public class ConversationController {
     public Conversation createConversation(@RequestBody ConversationModel conversationModel){
         return conversationService.createConversation(conversationModel);
     }
+    @GetMapping("/teacher/{teacherId}")
+    public List<Conversation> getConversationsByTeacherId(@PathVariable Long teacherId) {
+        return conversationService.getConversationsByTeacherId(teacherId);
+    }
+
 
     @GetMapping("/{conversationId}/messages")
     public ResponseEntity<List<Message>> getAllMessagesInConversation(

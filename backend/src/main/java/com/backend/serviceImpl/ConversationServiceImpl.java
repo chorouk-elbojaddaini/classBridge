@@ -76,5 +76,10 @@ public class ConversationServiceImpl implements ConversationService {
 
 
 
+    public List<Conversation> getConversationsByTeacherId(Long teacherId) {
+        return conversationRepository.findByTeacherId(teacherId);
+    }
+
+
 
 }

@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -17,4 +18,7 @@ public interface ConversationRepository extends JpaRepository<Conversation,Long>
     Optional<Conversation> findConversationWithMessages(@Param("conversationId") Long conversationId);
 
     Conversation findByStudentAndTeacherAndCourse(User student, User teacher, Course course);
+
+    @Query(value = "SELECT * FROM conversation c  WHERE c.teacher_id = :teacherId",nativeQuery = true)
+    List<Conversation> findByTeacherId(Long teacherId);
 }
