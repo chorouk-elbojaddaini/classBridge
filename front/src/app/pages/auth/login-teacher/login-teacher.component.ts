@@ -45,6 +45,7 @@ export class LoginTeacherComponent {
         localStorage.setItem('authUser', JSON.stringify(this.authResponse.user));
         // localStorage.setItem('email', this.authResponse.user.email);
         localStorage.setItem('id', this.authResponse.user.id.toString());
+        localStorage.setItem('email', this.authResponse.user.email);
         
         this.router.navigate(['/teacherDashboard']);
       },

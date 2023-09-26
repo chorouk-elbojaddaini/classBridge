@@ -8,14 +8,18 @@
   </div>
   <div [ngClass]="clicked ? 'messages-details' : 'messages-section'" >
     <div [ngClass]="clicked ? 'details' : 'cards'" >
-      <div class="card" *ngFor="let student of students" [class.one-message]="one_message" (click)="displayDetails(student)"
+      <div class="card" *ngFor="let student of messagesArray" [class.one-message]="one_message" (click)="displayDetails(student)"
         [class.clicked]="student == selectedStudent">
         <img src="assets/messages-imgs/no-img.png" alt="userImg" class="userImg">
         <div class="text">
           <h4>{{student.firstName}} {{student.lastName}}</h4>
-          <span class="field">{{student.field}}</span>
+          <span class="field">{{student.field}} {{student.level}}</span>
           <h4 class="course">Course : {{student.courseJoined}}</h4>
-          <span>{{getFirstSentence(student.message)}}..</span>
+           <div>
+            <div *ngIf="student.message && student.message.length > 0">
+              {{ student.message[0].content }}
+            </div>
+           </div>
         </div>
         <h5 class="date">{{student.date}}</h5>
       </div>
@@ -34,7 +38,11 @@
       </div>
       <h4 class="courseName">Course : {{selectedStudent.courseJoined}}</h4>
       <h5 class="date">{{selectedStudent.date}}</h5>
-      <p>{{selectedStudent.message}}</p>
+      <p *ngFor="let msg of selectedStudent.message" [ngStyle]="{'color': msg.senderEmail.trim() === this.userEmail ? 'red' : 'blue'}">
+         {{ msg.content }} 
+        
+      </p>
+      
       <form>
         <textarea id="message" name="message" class="message-area" placeholder="Entrer votre message" required></textarea>
         <button type="submit" class="submit-btn">Envoyer</button>

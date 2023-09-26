@@ -21,4 +21,13 @@ export class ConversationService {
     return this.http.post(`${this.url}/add`,data);
 
   }
+
+  getConversationByTeacherId(id:any){
+    return this.http.get(`${this.baseUrl}/teacher/${id}`);
+  }
+
+  getMessages(conversationId:any){
+    return this.http.get(`${this.baseUrl}/${conversationId}/messages`);
+   
+  }
 }
