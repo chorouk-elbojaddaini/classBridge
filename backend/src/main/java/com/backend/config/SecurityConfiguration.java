@@ -46,6 +46,7 @@ public class SecurityConfiguration{
             "/courses/*",
             "/courses",
             "/conversation/add",
+            "/conversation/teacher/*",
             "/message/add",
             "/conversation/*/messages"
     };
