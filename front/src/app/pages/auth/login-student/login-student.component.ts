@@ -42,6 +42,7 @@ export class LoginStudentComponent {
         console.log("authResponse",this.authResponse);
         localStorage.setItem('authResponse', this.authResponse.jwtToken);
         localStorage.setItem('authUser', JSON.stringify(this.authResponse.user));
+        localStorage.setItem('idStudent', this.authResponse.user.id.toString());
 
         this.router.navigate(['/studentDashboard']);
       },
