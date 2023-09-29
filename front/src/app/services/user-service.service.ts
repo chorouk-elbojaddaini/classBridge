@@ -24,4 +24,9 @@ export class UserServiceService {
     return this.http.get<User>(`${this.baseUrl}/email/${email}`);
 
   }
+  
+   getUser(userId:number){
+    return this.http.get(`${this.baseUrl}/get/${userId}`);
+   }
+ 
 }
