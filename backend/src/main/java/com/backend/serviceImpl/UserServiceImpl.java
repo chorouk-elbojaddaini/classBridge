@@ -192,4 +192,16 @@ public class UserServiceImpl implements UserService {
                 .build();
     }
 
+    @Override
+    public UserDTO getUserById(Long id) {
+        User user =  userRepository.findUserById(id);
+        UserDTO userDTO = UserDTO.builder()
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .email(user.getEmail())
+                .build();
+
+        return userDTO;
+    }
+
 }

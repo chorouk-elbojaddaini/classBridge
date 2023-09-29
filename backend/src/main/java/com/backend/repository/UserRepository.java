@@ -16,4 +16,6 @@ public interface UserRepository extends JpaRepository<User, Long>
 
     @Query(value = "SELECT  t.last_name  FROM User t WHERE t.email = :email", nativeQuery = true)
     Tuple getUserInfoByEmail(String email);
+
+    User findUserById(Long id);
 }

@@ -27,4 +27,5 @@ public interface UserService {
 
     VerificationToken generateNewVerificationToken(String oldToken);
     AuthenticationResponse authenticate(AuthenticationRequest request);
+    UserDTO getUserById(Long id);
 }
