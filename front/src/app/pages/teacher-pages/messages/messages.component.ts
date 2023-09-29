@@ -8,7 +8,7 @@ import { ConversationService } from 'src/app/services/conversation.service';
 
 import { format, parseISO } from 'date-fns';
 export interface Conversation {
-
+  idConversation:number,
   firstName: string,
   lastName: "",
   field: "",
@@ -51,6 +51,7 @@ export class MessagesComponent {
   userId: any;
   messagesArray: Conversation[] = [];
   oneConversation: Conversation = {
+    idConversation: 0,
     firstName: "",
     lastName: "",
     field: "",
@@ -60,27 +61,41 @@ export class MessagesComponent {
     date: new Date()
   };
   userEmail:string |null;
+  messageTosend:any = 
+  {
+    content: "",
+    senderEmail: "",
+    conversation: {
+      idConversation: 0
+    }
+  };
+  message: string = '';
   constructor(private studentService: StudentService, private classeService: ClasseServiceService, private courseService: CourseService, private conversationService: ConversationService) {
     this.userId = localStorage.getItem("idUser");
-    console.log("userId", this.userId);
+    // console.log("userId", this.userId);
     this.userEmail = localStorage.getItem("email");
-
+    this.messageTosend.senderEmail = this.userEmail;
   }
 
 
   ngOnInit() {
     this.getConversationByTeacherId(this.userId);
-   console.log("email",this.userEmail);
+  //  console.log("email",this.userEmail);
   }
 
 
   ngDoCheck() {
-    console.log(this.one_message)
-    if (this.students.length == 1) {
-      this.one_message = true;
-    } else {
+    // console.log(this.one_message)
+    if(this.one_message){
+      console.log("ahhhh");
+      
       this.one_message = false;
     }
+    // if (this.students.length == 1) {
+    //   this.one_message = true;
+    // } else {
+    //   this.one_message = false;
+    // }
   }
 
   displayDetails(student: any): void {
@@ -105,11 +120,15 @@ export class MessagesComponent {
   }
 
   getConversationByTeacherId(id: any) {
+    if(!this.one_message){
+      
+    }
     this.conversationService.getConversationByTeacherId(id).subscribe({
       next: (response: any) => {
         response.forEach((element: any) => {
 
           const conversation = {
+            idConversation : element.idConversation,
             firstName: element.student.firstName,
             lastName: element.student.lastName,
             courseJoined: element.course.courseName,
@@ -125,16 +144,16 @@ export class MessagesComponent {
           //  this.oneConversation.field = element.course.classe.fieldName;
           //  this.oneConversation.level = element.course.classe.level;
            
-          // console.log("each element",element);
-          // console.log("each element",this.messagesArray);
+        //  console.log("each element",element);
+          //  console.log("each element",this.messagesArray);
           this.conversationService.getMessages(element.idConversation).subscribe({
             next: (r:any) => {
               conversation.message = r;
               r.forEach((e:any) =>{
-                console.log("emaills", this.userEmail);
-                console.log("emas", r.senderEmail ? r.senderEmail.trim() : '');
+                // console.log("emaills", this.userEmail);
+                // console.log("emas", r.senderEmail ? r.senderEmail.trim() : '');
                 if(r.senderEmail='elbrajae80@gmail.com'){
-                  console.log("yes")
+                  // console.log("yes")
                 }
                
               }
@@ -147,7 +166,7 @@ export class MessagesComponent {
         });
 
 
-        console.log("hado msgs", this.messagesArray)
+        // console.log("hado msgs", this.messagesArray)
       },
       error: (error) => console.log(error)
     })
@@ -163,5 +182,21 @@ export class MessagesComponent {
         console.error("Erreur de format de date : ", error);
         return "Date invalide"; 
     }
+}
+
+sendMsg(selectedStudent:Conversation){
+   const select = selectedStudent;
+    // console.log("idConver",selectedStudent.idConversation);    
+      this.messageTosend.conversation.idConversation = selectedStudent.idConversation;
+     this.messageTosend.content = this.message;
+      this.conversationService.addMessage(this.messageTosend).subscribe({
+       next:(response) => {
+        this.one_message = true;
+        console.log("hadi reponse d send",response)},
+        error:(error) => console.log(error)
+      })
+    // console.log(this.message);
+    
+    this.message = '';
 }
 }

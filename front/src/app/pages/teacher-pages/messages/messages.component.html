@@ -43,8 +43,8 @@
         
       </p>
       
-      <form>
-        <textarea id="message" name="message" class="message-area" placeholder="Entrer votre message" required></textarea>
+      <form (submit)="sendMsg(selectedStudent)">
+        <textarea id="message" [(ngModel)]="message" name="message" class="message-area" placeholder="Entrer votre message"></textarea>
         <button type="submit" class="submit-btn">Envoyer</button>
       </form>
     </div>
