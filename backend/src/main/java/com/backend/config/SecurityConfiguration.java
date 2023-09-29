@@ -26,6 +26,7 @@ public class SecurityConfiguration{
             "/auth",
             "/auth/email/*",
             "/auth/register",
+            "/auth/get/*",
             "/auth/authenticate",
             "/auth/registerStudent",
             "/auth/verifyRegistration*",
