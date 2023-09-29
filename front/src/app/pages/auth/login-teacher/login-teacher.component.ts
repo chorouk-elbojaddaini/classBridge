@@ -47,7 +47,7 @@ export class LoginTeacherComponent {
         localStorage.setItem('id', this.authResponse.user.id.toString());
         localStorage.setItem('email', this.authResponse.user.email);
         
-        this.router.navigate(['/teacherDashboard']);
+        this.router.navigate(['teacherDashboard/dashboard']);
       },
       error: (e) => {
         
