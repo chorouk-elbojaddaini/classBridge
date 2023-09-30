@@ -43,6 +43,7 @@ import { CardComponent } from './components/student-layout/card/card.component';
 import { CoursesStudentComponent } from './components/student-layout/courses-student/courses-student.component';
 import { AddCourseComponent } from './pages/teacher-pages/classes/courses/add-course/add-course.component';
 import { MessagesStudentComponent } from './components/student-layout/messages-student/messages-student.component';
+import { NotesStudentComponent } from './components/student-layout/notes-student/notes-student.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { MessagesStudentComponent } from './components/student-layout/messages-s
     CardComponent,
     CoursesStudentComponent,
     AddCourseComponent,
-    MessagesStudentComponent
+    MessagesStudentComponent,
+    NotesStudentComponent
 
   ],
   imports: [

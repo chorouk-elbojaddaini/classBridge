@@ -1,0 +1,24 @@
+<div class="container">
+    <!-- app.component.html -->
+
+<div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Nom de la Classe</th>
+          <th>Nom du Professeur</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Utilisez *ngFor pour afficher dynamiquement les données du tableau -->
+        <tr *ngFor="let item of tableauDeDonnees">
+          <td>{{ item.nomClasse }}</td>
+          <td>{{ item.nomProfesseur }}</td>
+          <td>{{ item.note }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+</div>

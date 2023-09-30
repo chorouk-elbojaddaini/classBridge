@@ -1,6 +1,50 @@
-#ifram
-{
- overflow: hidden !important;
- overflow-clip-margin: content-box !important;
- overflow-y: hidden !important;
+.home-content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 40px;
+    text-align: center;
+   
+    .title-section{
+        width: 50%;
+
+        .title{
+            color: var(--blue);
+            line-height: 1.5;
+            margin-top: 20px;
+        }
+        p{
+            margin-top: 25px;
+            line-height: 2;
+            color: var(--grey);
+        }
+        .decouvrir-btn{
+            margin-top: 50px;
+            border: none;
+            background-color: var(--dark-pink);
+            color: white;
+            padding: 12px 25px;
+            width: fit-content;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .decouvrir-btn:hover{
+            background-color: white;
+            border: 1px solid var(--dark-pink);
+            color: var(--dark-pink);
+            padding: 11px 25px;
+        }
+    }
+    .img-section {
+        width: 50%;
+
+        .img{
+            width: 100%;
+            height: auto;
+            align-self: center;
+            margin-top: 50px;
+        }
+    }
+    
 }
