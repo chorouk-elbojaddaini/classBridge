@@ -80,6 +80,10 @@ public class ConversationServiceImpl implements ConversationService {
         return conversationRepository.findByTeacherId(teacherId);
     }
 
+    @Override
+    public List<Conversation> getConversationsByStudentId(Long studentId) {
+        return conversationRepository.findByStudentId(studentId);
+    }
 
 
 }

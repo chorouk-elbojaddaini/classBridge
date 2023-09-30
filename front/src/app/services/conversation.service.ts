@@ -25,6 +25,9 @@ export class ConversationService {
   getConversationByTeacherId(id:any){
     return this.http.get(`${this.baseUrl}/teacher/${id}`);
   }
+  getConversationByStudentId(id:any){
+    return this.http.get(`${this.baseUrl}/student/${id}`);
+  }
 
   getMessages(conversationId:any){
     return this.http.get(`${this.baseUrl}/${conversationId}/messages`);

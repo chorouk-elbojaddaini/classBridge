@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/services/user-service.service';
 
 
@@ -20,9 +21,9 @@ export class HeroComponent {
     email:""
    };
 
-  constructor(private userService:UserServiceService){
+  constructor(private userService:UserServiceService,private router:Router){
     this.userId = localStorage.getItem("idStudent");
-    console.log("hada userId",this.userId);
+    
  }
 
  ngOnInit(){
@@ -33,10 +34,16 @@ export class HeroComponent {
     this.userService.getUser(userId).subscribe({
       next:(response:any) =>{
         this.user = response;
-        console.log("hada student",this.user);
       },
       error:(error)=> console.log(error)
     })
     
+  }
+
+  logout(){
+    localStorage.removeItem("idStudent");
+    localStorage.removeItem("authUser");
+    this.router.navigate(['/home']); // Remplace '/accueil' par le chemin de ta page d'accueil
+    // Ajoute d'autres actions de déconnexion si nécessaire
   }
 }

@@ -43,7 +43,7 @@ export class LoginStudentComponent {
         localStorage.setItem('authResponse', this.authResponse.jwtToken);
         localStorage.setItem('authUser', JSON.stringify(this.authResponse.user));
         localStorage.setItem('idStudent', this.authResponse.user.id.toString());
-
+        localStorage.setItem('emailStudent',this.authResponse.user.email);
         this.router.navigate(['/studentDashboard']);
       },
       error: (e) => {

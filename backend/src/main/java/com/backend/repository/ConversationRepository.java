@@ -22,6 +22,6 @@ public interface ConversationRepository extends JpaRepository<Conversation,Long>
     @Query(value = "SELECT * FROM conversation c  WHERE c.teacher_id = :teacherId",nativeQuery = true)
     List<Conversation> findByTeacherId(Long teacherId);
 
-    @Query(value = "SELECT * FROM conversation c  WHERE c.teacher_id = :teacherId",nativeQuery = true)
-    List<Conversation> findByStudentId(Long teacherId);
+    @Query(value = "SELECT * FROM conversation c  WHERE c.student_id = :studentId",nativeQuery = true)
+    List<Conversation> findByStudentId(Long studentId);
 }

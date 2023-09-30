@@ -49,7 +49,8 @@ public class SecurityConfiguration{
             "/conversation/add",
             "/conversation/teacher/*",
             "/message/add",
-            "/conversation/*/messages"
+            "/conversation/*/messages",
+            "/conversation/student/*"
     };
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {

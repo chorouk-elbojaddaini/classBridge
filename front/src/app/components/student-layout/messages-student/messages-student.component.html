@@ -1,1 +1,54 @@
-<p>messages-student works!</p>
+<div class="container-global">
+    <h2 class="title">Messages</h2>
+    <div class="container">
+        <div class="top-section">
+          <div class="search-container">
+            <input type="text" placeholder="chercher par nom.." class="search-input">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </div>
+        <div [ngClass]="clicked ? 'messages-details' : 'messages-section'" >
+          <div [ngClass]="clicked ? 'details' : 'cards'" >
+            <div class="card" *ngFor="let student of messagesArray" [class.one-message]="one_message" (click)="displayDetails(student)"
+              [class.clicked]="student == selectedStudent">
+              <img src="assets/messages-imgs/no-img.png" alt="userImg" class="userImg">
+              <div class="text">
+                <h4>{{student.firstName}} {{student.lastName}}</h4>
+                <span class="field">Classe : {{student.field}}</span>
+                <h4 class="course">Course : {{student.courseJoined}}</h4>
+                 <div>
+                  <div *ngIf="student.message && student.message.length > 0">
+                    {{ student.message[0].content }}
+                  </div>
+                 </div>
+              </div>
+              <h5 class="date">{{student.date}}</h5>
+            </div>
+          </div>
+          <div class="card-details" *ngIf="selectedStudent">
+            <div class="btns">
+              <button (click)="deleteMessage(selectedStudent)"><i class="fa-solid fa-trash-can"></i></button>
+              <button (click)="removeCard()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="userInfo">
+              <img src="assets/messages-imgs/no-img.png" alt="userImg" class="student-img">
+              <div class="name-field">
+                <h4>{{selectedStudent.firstName}} {{selectedStudent.lastName}}</h4>
+                <span class="field">{{selectedStudent.field}}</span>
+              </div>
+            </div>
+            <h4 class="courseName">Course : {{selectedStudent.courseJoined}}</h4>
+            <h5 class="date">{{selectedStudent.date}}</h5>
+            <p *ngFor="let msg of selectedStudent.message" [ngStyle]="{'color': msg.senderEmail.trim() === this.userEmail ? 'red' : 'blue'}">
+               {{ msg.content }} 
+              
+            </p>
+            
+            <form (submit)="sendMsg(selectedStudent)">
+              <textarea id="message" [(ngModel)]="message" name="message" class="message-area" placeholder="Entrer votre message"></textarea>
+              <button type="submit" class="submit-btn">Envoyer</button>
+            </form>
+          </div>
+        </div>
+      </div>
+</div>

@@ -14,5 +14,5 @@ public interface ConversationService {
     List<Message> getAllMessagesInConversation(Long conversationId);
 
     public List<Conversation> getConversationsByTeacherId(Long teacherId);
-
+    public List<Conversation> getConversationsByStudentId(Long studentId);
 }
