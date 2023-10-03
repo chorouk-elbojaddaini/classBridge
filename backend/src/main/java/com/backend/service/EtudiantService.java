@@ -1,5 +1,6 @@
 package com.backend.service;
 
+import com.backend.dto.EtudiantDTO;
 import com.backend.entity.Etudiant;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface EtudiantService {
     Etudiant updateNote(Long id, Integer note);
 
     List<String> getAllClassCode(Long id);
+
+    //List<EtudiantDTO> findByStudent();
 }
